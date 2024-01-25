@@ -21,7 +21,18 @@ func InitRouter(port string) error {
 	// Invoke-WebRequest -Uri "http://localhost:8080/login" -Method POST -Body "useraccount=jiang&password=123"
 
 	//Invoke-WebRequest -Uri "http://localhost:8080/login" -Method POST -Body "useraccount=lan&password=123"
-
+	r.POST("/findProduct", service.FindProduct)
+	//满足了模糊查找，比如可以传入“乐”
+	//# 设置商品名称
+	//$PRODUCT_NAME = "可乐"
+	//
+	//# 发送 POST 请求，包含商品名称
+	//$body = @{
+	//    ProductName = $PRODUCT_NAME
+	//} | ConvertTo-Json
+	//
+	//$response = Invoke-RestMethod -Uri "http://localhost:8080/findProduct" -Method Post -Headers @{"Content-Type"="application/json"} -Body $body
+	//$response
 	r.Use(middleware.JWTAuthMiddleware()) //这里开始以后的调用令牌保护
 	r.POST("/call", service.Call)
 	// Invoke-WebRequest -Uri "http://localhost:8080/call" -Method POST -Headers @{"Authorization"="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ij8iLCJleHAiOjE3MDYwMDkwNzgsImlzcyI6IuiSi-WNk-eHgyJ9.GMi1FUgLHxNo8wqmgp6nfiKxhkQsOdErf-Pl9lEu4b0"}
@@ -115,17 +126,19 @@ func InitRouter(port string) error {
 	//	$carList = $response.Content | ConvertFrom-Json
 	//	$carList
 	r.POST("/changeAccount", service.ChangeAccount)
+	//修改的位置可以是"Password"可以是"Nickname"可以是"Identity"其中"Identity"只能是修改为"boss"或者"customer"，另外两个的修改似乎不能输入中文，我不知道为什么
 	//$headers = @{
-	//    "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjEyMDA3NywiaXNzIjoi6JKL5Y2T54eDIn0.BVrYyjMRtjSG3A6Dolu9meQo0x1RqVT8iXCNitGDOKw"
+	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjEyMDA3NywiaXNzIjoi6JKL5Y2T54eDIn0.BVrYyjMRtjSG3A6Dolu9meQo0x1RqVT8iXCNitGDOKw"
 	//}
 	//
 	//$body = @{
-	//    UserAccount = "lan"
-	//    Changelocation = "Nickname"
-	//    Changetext = "lanfanya"
+	//   UserAccount = "lan"
+	//   Changelocation = "Nickname"
+	//   Changetext = "lanfanya"
 	//}
 	//
 	//Invoke-RestMethod -Uri "http://localhost:8080/changeAccount" -Method Post -Headers $headers -Body ($body | ConvertTo-Json)
+
 	err := r.Run(":" + port)
 	if err != nil {
 		return err

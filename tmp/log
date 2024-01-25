@@ -2817,3 +2817,78 @@
 [2024-01-25 15:59:15.615]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
 [2024-01-25 15:59:15.644]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
 [2024-01-25 15:59:15.651]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 16:40:12.447]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 16:40:12.467]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 16:40:12.469]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 16:40:12.472]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 16:40:12.475]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 16:40:12.475]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 16:44:30.826]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	AllProductList 表格删除成功
+[2024-01-25 16:44:30.842]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 16:44:30.958]	D:/电商/app/api/internal/dao/mysql/allproduct.go:60	已完成填充 AllProductList 表
+[2024-01-25 16:50:33.356]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 16:50:33.376]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 16:50:33.378]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 16:50:33.380]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 16:50:33.382]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 16:50:33.383]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 16:56:18.520]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 16:56:18.538]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 16:56:18.540]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 16:56:18.542]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 16:56:18.544]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 16:56:18.544]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:12:27.577]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:12:27.597]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:12:27.600]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:12:27.603]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:12:27.605]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:12:27.605]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:13:10.385]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:13:10.404]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:13:10.406]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:13:10.408]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:13:10.410]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:13:10.411]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:20:09.132]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:20:09.152]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:20:09.155]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:20:09.157]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:20:09.159]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:20:09.159]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:23:25.677]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:23	修改位置传入错误
+[2024-01-25 17:26:10.998]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:23	修改位置传入错误
+[2024-01-25 17:27:01.076]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:23	修改位置传入错误
+[2024-01-25 17:30:05.157]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:30:05.178]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:30:05.179]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:30:05.182]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:30:05.184]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:30:05.185]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:30:13.841]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:23	修改位置传入错误
+[2024-01-25 17:36:04.156]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:23	修改位置传入错误
+[2024-01-25 17:37:46.588]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:37:46.606]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:37:46.608]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:37:46.610]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:37:46.612]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:37:46.612]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:37:57.346]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：lanfanya
+[2024-01-25 17:38:27.836]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：?
+[2024-01-25 17:39:12.929]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:39:12.948]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:39:12.950]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:39:12.952]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:39:12.954]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:39:12.954]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:39:24.578]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：?
+[2024-01-25 17:39:26.300]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：?
+[2024-01-25 17:46:23.807]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：?
+[2024-01-25 17:46:30.580]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 17:46:30.599]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 17:46:30.601]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 17:46:30.604]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 17:46:30.605]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 17:46:30.606]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 17:46:33.888]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：
+[2024-01-25 17:46:36.616]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：
