@@ -1,0 +1,24 @@
+zap_config:
+  filename: "tmp/log"
+  max_size: 5
+  max_age: 400
+  max_backups: 1000
+
+database:
+  mysql:
+    addr: localhost
+    port: 3306
+    username: root
+    password: root
+    db: test
+    charset: utf8mb4
+    connMaxIdleTime: 1h
+    connMaxLifeTime: 1h
+    place: Asia%2FShanghai
+    maxIdleConns: 10
+    maxOpenConns: 5
+
+server:
+  host: localhost
+  port: 8080
+  mode: debug
