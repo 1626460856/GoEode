@@ -16,11 +16,11 @@ func main() {
 	initialize.SetupDataBase()
 	config := global.Config.ServerConfig
 
-	//mysql.MakeAccountList(global.MysqlDB)
-	//mysql.MakeAllProductList(global.MysqlDB)
-	//mysql.MakeHostList(global.MysqlDB)
+	mysql.MakeAccountList(global.MysqlDB)
+	mysql.MakeAllProductList(global.MysqlDB)
+	mysql.MakeHostList(global.MysqlDB)
 	//mysql.AddAccount(global.MysqlDB, "蒋", "123", "boss", "Eode")
-	mysql.FindUser(global.MysqlDB, "jiang", "AccountList")
+	//mysql.FindUser(global.MysqlDB, "jiang", "AccountList")
 	//mysql.AddProduct(global.MysqlDB, "蒋", "可乐", 3, 2.50)
 	//mysql.AddProduct(global.MysqlDB, "蒋", "冰可乐", 2, 3.00)
 	//mysql.ShowProductList(global.MysqlDB, "兰")
