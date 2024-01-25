@@ -24,11 +24,11 @@ func InitRouter(port string) error {
 	r.POST("/findProduct", service.FindProduct)
 	//满足了模糊查找，比如可以传入“乐”
 	//# 设置商品名称
-	//$PRODUCT_NAME = "可乐"
+	//$PRODUCT_NAME = "乐"
 	//
 	//# 发送 POST 请求，包含商品名称
 	//$body = @{
-	//    ProductName = $PRODUCT_NAME
+	//   ProductName = $PRODUCT_NAME
 	//} | ConvertTo-Json
 	//
 	//$response = Invoke-RestMethod -Uri "http://localhost:8080/findProduct" -Method Post -Headers @{"Content-Type"="application/json"} -Body $body
@@ -39,11 +39,11 @@ func InitRouter(port string) error {
 
 	r.POST("/myself", service.Myself)
 	//$headers = @{
-	//	Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA2MTI4MTc0LCJpc3MiOiLokovljZPnh4MifQ.raZ3eS5jsDGU4yaoWdWCriLR8zMlrsd0fjs5d5rwRcE"
+	//	Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//}
 	//
 	//$body = @{
-	//	useraccount = "jiang"
+	//	useraccount = "lan"
 	//}
 	//
 	//Invoke-RestMethod -Uri "http://localhost:8080/myself" -Method Post -Headers $headers -Body ($body | ConvertTo-Json)
@@ -57,42 +57,42 @@ func InitRouter(port string) error {
 	//$token = ($response.Content | ConvertFrom-Json).token
 	//再添加商品
 	//$headers = @{"Authorization"="Bearer $token"}
-	//$body = @{userAccount="jiang"; productName="可乐"; productNumber=3; productPrice=2.50}
+	//$body = @{userAccount="wen"; productName="牛奶"; productNumber=3; productPrice=3.50}
 	//Invoke-RestMethod -Uri "http://localhost:8080/addProduct" -Method Post -Headers $headers -Body $body
 	r.POST("/addBalance", service.AddBalance)
 	//$headers = @{
-	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjExNTUxMiwiaXNzIjoi6JKL5Y2T54eDIn0.pFXOZ9HCX7zyodyWZIJL7I5l8vGRHCROPvcq8YebMjk"
+	//  "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//}
 	//
 	//$body = @{
-	//   "useraccount" = "lan"
-	//   "money" = 100
+	//  "useraccount" = "lan"
+	//  "money" = 100
 	//} | ConvertTo-Json
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/addBalance" -Method POST -Headers $headers -Body $body -ContentType "application/json"
 	//
 	r.POST("/makeCar", service.MakeCar)
 	//$headers = @{
-	//    "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjExNTUxMiwiaXNzIjoi6JKL5Y2T54eDIn0.pFXOZ9HCX7zyodyWZIJL7I5l8vGRHCROPvcq8YebMjk"
+	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//}
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/makeCar" -Method POST -Headers $headers -ContentType "application/json"
 	r.POST("/addCar", service.AddCar)
 	//$headers = @{
-	//    "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjExNTUxMiwiaXNzIjoi6JKL5Y2T54eDIn0.pFXOZ9HCX7zyodyWZIJL7I5l8vGRHCROPvcq8YebMjk"
+	// "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//}
 	//
 	//$body = @{
-	//    "BuyAllProductID" = 1
-	//    "BuyProductNumber" = 2
-	//    "BuyUserAccount" = "lan"
+	// "BuyAllProductID" = 5
+	// "BuyProductNumber" = 1
+	// "BuyUserAccount" = "lan"
 	//} | ConvertTo-Json
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/addCar" -Method POST -Headers $headers -Body $body -ContentType "application/json"
 	r.POST("/lookCar", service.LookCar)
 	//$headers = @{
-	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjExNTUxMiwiaXNzIjoi6JKL5Y2T54eDIn0.pFXOZ9HCX7zyodyWZIJL7I5l8vGRHCROPvcq8YebMjk"
-	//   "Content-Type" = "application/json"
+	//  "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//  "Content-Type" = "application/json"
 	//}
 	//
 	//$response = Invoke-WebRequest -Uri "http://localhost:8080/lookCar" -Method POST -Headers $headers
@@ -100,41 +100,41 @@ func InitRouter(port string) error {
 	//$carList
 	r.POST("/emptyCar", service.EmptyCar)
 	//$headers = @{
-	//    "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjExNTUxMiwiaXNzIjoi6JKL5Y2T54eDIn0.pFXOZ9HCX7zyodyWZIJL7I5l8vGRHCROPvcq8YebMjk"
-	//    "Content-Type" = "application/json"
+	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//   "Content-Type" = "application/json"
 	//}
 	//
 	//$response = Invoke-WebRequest -Uri "http://localhost:8080/emptyCar" -Method POST -Headers $headers
 	//$response.Content
 	r.POST("/myProductList", service.MyProductList)
 	//$headers = @{
-	//    "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjEyMDA3NywiaXNzIjoi6JKL5Y2T54eDIn0.BVrYyjMRtjSG3A6Dolu9meQo0x1RqVT8iXCNitGDOKw"
+	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//}
 	//
 	//$body = @{
-	//    "useraccount" = "lan"
+	//   "useraccount" = "lan"
 	//}
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/myProductList" -Method POST -Headers $headers -Body $body
 	r.POST("/lookHostList", service.LookHostList)
 	//$headers = @{
-	//	   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjExNTUxMiwiaXNzIjoi6JKL5Y2T54eDIn0.pFXOZ9HCX7zyodyWZIJL7I5l8vGRHCROPvcq8YebMjk"
+	//	   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//	   "Content-Type" = "application/json"
 	//	}
 	//
 	//	$response = Invoke-WebRequest -Uri "http://localhost:8080/lookHostList" -Method POST -Headers $headers
-	//	$carList = $response.Content | ConvertFrom-Json
-	//	$carList
+	//	$HostList = $response.Content | ConvertFrom-Json
+	//	$HostList
 	r.POST("/changeAccount", service.ChangeAccount)
 	//修改的位置可以是"Password"可以是"Nickname"可以是"Identity"其中"Identity"只能是修改为"boss"或者"customer"，另外两个的修改似乎不能输入中文，我不知道为什么
 	//$headers = @{
-	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjEyMDA3NywiaXNzIjoi6JKL5Y2T54eDIn0.BVrYyjMRtjSG3A6Dolu9meQo0x1RqVT8iXCNitGDOKw"
+	//  "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
 	//}
 	//
 	//$body = @{
-	//   UserAccount = "lan"
-	//   Changelocation = "Nickname"
-	//   Changetext = "lanfanya"
+	//  UserAccount = "lan"
+	//  Changelocation = "Nickname"
+	//  Changetext = "lanfanya"
 	//}
 	//
 	//Invoke-RestMethod -Uri "http://localhost:8080/changeAccount" -Method Post -Headers $headers -Body ($body | ConvertTo-Json)

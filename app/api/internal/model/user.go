@@ -5,7 +5,7 @@ import "github.com/dgrijalva/jwt-go"
 type Account struct {
 	UserAccount string  //用户账号名称
 	Password    string  //用户密码
-	ID          int     //从1开始计，第一个用户ID是1
+	ID          int     //从1开始计，第一个用户ID是1，自增键
 	Nickname    string  //用户昵称
 	Identity    string  //boss 或者 customer
 	Balance     float64 //账户余额
@@ -28,7 +28,7 @@ type AllProductList struct {
 }
 type Car struct {
 	Id              int    //自增键？
-	AllProductID    int    //
+	AllProductID    int    //在所有商品表中的目录id
 	ProductListName string //商品库名称
 	ProductID       int
 	ProductName     string  //商品名称
