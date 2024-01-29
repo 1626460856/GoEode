@@ -21,6 +21,7 @@ func InitRouter(port string) error {
 	// Invoke-WebRequest -Uri "http://localhost:8080/login" -Method POST -Body "useraccount=jiang&password=123"
 
 	//Invoke-WebRequest -Uri "http://localhost:8080/login" -Method POST -Body "useraccount=lan&password=123"
+
 	r.POST("/findProduct", service.FindProduct)
 	//满足了模糊查找，比如可以传入“乐”
 	//# 设置商品名称
@@ -39,7 +40,7 @@ func InitRouter(port string) error {
 
 	r.POST("/myself", service.Myself)
 	//$headers = @{
-	//	Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//	Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
 	//}
 	//
 	//$body = @{
@@ -49,7 +50,7 @@ func InitRouter(port string) error {
 	//Invoke-RestMethod -Uri "http://localhost:8080/myself" -Method Post -Headers $headers -Body ($body | ConvertTo-Json)
 
 	r.POST("/refresh", service.Refresh)
-	//$webRequest = Invoke-WebRequest -Uri "http://localhost:8080/refresh" -Method POST -Headers @{"Authorization"="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE2NzYzMCwiaXNzIjoi6JKL5Y2T54eDIn0.aWCxS4BJf6OBP_SQaSBy7PJJUnBA-u5op_35sgACiKE"}
+	//$webRequest = Invoke-WebRequest -Uri "http://localhost:8080/refresh" -Method POST -Headers @{"Authorization"="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"}
 	//$webRequest.Content
 	r.POST("/addProduct", service.AddProduct)
 	//先登录获取令牌
@@ -73,26 +74,27 @@ func InitRouter(port string) error {
 	//
 	r.POST("/makeCar", service.MakeCar)
 	//$headers = @{
-	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//   "Authorization" = "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
 	//}
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/makeCar" -Method POST -Headers $headers -ContentType "application/json"
 	r.POST("/addCar", service.AddCar)
 	//$headers = @{
-	// "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//"Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
 	//}
 	//
 	//$body = @{
-	// "BuyAllProductID" = 5
-	// "BuyProductNumber" = 1
-	// "BuyUserAccount" = "lan"
+	//"BuyAllProductID" = 5
+	//"BuyProductNumber" = 1
+	//"BuyUserAccount" = "lan"
 	//} | ConvertTo-Json
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/addCar" -Method POST -Headers $headers -Body $body -ContentType "application/json"
+	//
 	r.POST("/lookCar", service.LookCar)
 	//$headers = @{
-	//  "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
-	//  "Content-Type" = "application/json"
+	// "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
+	// "Content-Type" = "application/json"
 	//}
 	//
 	//$response = Invoke-WebRequest -Uri "http://localhost:8080/lookCar" -Method POST -Headers $headers
@@ -100,25 +102,25 @@ func InitRouter(port string) error {
 	//$carList
 	r.POST("/emptyCar", service.EmptyCar)
 	//$headers = @{
-	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
-	//   "Content-Type" = "application/json"
+	//  "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
+	//  "Content-Type" = "application/json"
 	//}
 	//
 	//$response = Invoke-WebRequest -Uri "http://localhost:8080/emptyCar" -Method POST -Headers $headers
 	//$response.Content
 	r.POST("/myProductList", service.MyProductList)
 	//$headers = @{
-	//   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//  "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
 	//}
 	//
 	//$body = @{
-	//   "useraccount" = "lan"
+	//  "useraccount" = "lan"
 	//}
 	//
 	//Invoke-WebRequest -Uri "http://localhost:8080/myProductList" -Method POST -Headers $headers -Body $body
 	r.POST("/lookHostList", service.LookHostList)
 	//$headers = @{
-	//	   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjE5MDI3NywiaXNzIjoi6JKL5Y2T54eDIn0.6RPAz34UpmAASmdyozguzO4HzxhQ0yM9hL5CJTJeIj4"
+	//	   "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNjUxNjQ0MCwiaXNzIjoi6JKL5Y2T54eDIn0.duaM63t6bXKG6HjCrPbQnKH74pJP_tgpvjIrZOx8Acs"
 	//	   "Content-Type" = "application/json"
 	//	}
 	//

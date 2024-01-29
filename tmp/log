@@ -2892,3 +2892,79 @@
 [2024-01-25 17:46:30.606]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
 [2024-01-25 17:46:33.888]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：
 [2024-01-25 17:46:36.616]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：
+[2024-01-25 18:37:42.307]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 18:37:42.327]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 18:37:42.329]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 18:37:42.331]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 18:37:42.333]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 18:37:42.333]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 18:37:45.329]	D:/电商/app/api/internal/dao/mysql/make_account.go:60	该用户名已被占用
+[2024-01-25 18:38:02.810]	D:/电商/app/api/internal/dao/mysql/make_account.go:60	该用户名已被占用
+[2024-01-25 18:38:40.853]	D:/电商/app/api/internal/dao/mysql/make_account.go:94	wen 商品库创建成功
+[2024-01-25 18:38:40.854]	D:/电商/app/api/internal/dao/mysql/make_account.go:77	成功在注册新账户的时候创建个人商品库
+[2024-01-25 19:07:18.864]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 19:07:18.882]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 19:07:18.885]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 19:07:18.886]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 19:07:18.888]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 19:07:18.889]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 19:15:04.142]	D:/电商/app/api/internal/dao/mysql/addproduct.go:18	无法检索用户账户身份	{"error": "Error 1054 (42S22): Unknown column 'Identity' in 'field list'"}
+[2024-01-25 19:15:04.143]	D:/电商/app/api/internal/dao/mysql/addproduct.go:30	非商户无操作权限	{"error": "无法检索用户账户身份"}
+[2024-01-25 19:18:28.302]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 19:18:28.321]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 19:18:28.323]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 19:18:28.325]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 19:18:28.327]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 19:18:28.328]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 19:19:10.386]	D:/电商/app/api/internal/dao/mysql/addproduct.go:41	成功添加商品到商品库：wen
+[2024-01-25 19:24:13.166]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 19:24:13.194]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 19:24:13.196]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 19:24:13.198]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 19:24:13.200]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 19:24:13.200]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 19:25:03.432]	D:/电商/app/api/internal/dao/mysql/addproduct.go:41	成功添加商品到商品库：wen
+[2024-01-25 19:25:03.487]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	AllProductList 表格删除成功
+[2024-01-25 19:25:03.504]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 19:25:03.732]	D:/电商/app/api/internal/dao/mysql/allproduct.go:60	已完成填充 AllProductList 表
+[2024-01-25 19:28:57.426]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	AllProductList 表格删除成功
+[2024-01-25 19:28:57.441]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 19:28:57.641]	D:/电商/app/api/internal/dao/mysql/allproduct.go:60	已完成填充 AllProductList 表
+[2024-01-25 20:08:03.124]	D:/电商/app/api/internal/dao/mysql/changeAccount.go:33	成功将lan的Nickname修改为：lanfanya
+[2024-01-25 20:21:26.661]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	AllProductList 表格删除成功
+[2024-01-25 20:21:26.678]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 20:21:26.897]	D:/电商/app/api/internal/dao/mysql/allproduct.go:60	已完成填充 AllProductList 表
+[2024-01-25 20:21:26.898]	D:/电商/app/api/internal/dao/mysql/buy.go:121	插入购物车数据失败,Error 1146 (42S02): Table 'test.Car' doesn't exist
+[2024-01-25 20:21:32.178]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 20:21:32.196]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 20:21:32.199]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 20:21:32.202]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 20:21:32.205]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 20:21:32.205]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 20:21:35.584]	D:/电商/app/api/internal/dao/mysql/buy.go:86	购买量需求过大
+[2024-01-25 20:21:51.076]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 20:21:51.095]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 20:21:51.098]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 20:21:51.100]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 20:21:51.103]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 20:21:51.104]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 20:21:54.994]	D:/电商/app/api/internal/dao/mysql/buy.go:86	购买量需求过大
+[2024-01-25 20:22:18.593]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-25 20:22:18.612]	D:/电商/app/api/internal/initialize/database.go:36	init mysql success
+[2024-01-25 20:22:18.615]	D:/电商/app/api/internal/dao/mysql/make_account.go:27	已成功创建 AccountList 表
+[2024-01-25 20:22:18.617]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 20:22:18.619]	D:/电商/app/api/internal/dao/mysql/buy.go:142	HostList表创建成功
+[2024-01-25 20:22:18.620]	D:/电商/app/api/main.go:56	初始化服务器成功	{"port": "8080:8080"}
+[2024-01-25 20:22:52.450]	D:/电商/app/api/internal/dao/mysql/buy.go:29	已成功创建购物车
+[2024-01-25 20:23:25.990]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	AllProductList 表格删除成功
+[2024-01-25 20:23:26.003]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 20:23:26.215]	D:/电商/app/api/internal/dao/mysql/allproduct.go:60	已完成填充 AllProductList 表
+[2024-01-25 20:23:26.220]	D:/电商/app/api/internal/dao/mysql/buy.go:125	购物车添加成功
+[2024-01-25 20:23:57.809]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	AllProductList 表格删除成功
+[2024-01-25 20:23:57.824]	D:/电商/app/api/internal/dao/mysql/make_account.go:48	已成功创建 AllProductList 表
+[2024-01-25 20:23:58.037]	D:/电商/app/api/internal/dao/mysql/allproduct.go:60	已完成填充 AllProductList 表
+[2024-01-25 20:23:58.041]	D:/电商/app/api/internal/dao/mysql/buy.go:125	购物车添加成功
+[2024-01-25 20:24:54.610]	D:/电商/app/api/internal/dao/mysql/make_account.go:105	Car 表格删除成功
+[2024-01-25 20:24:54.610]	D:/电商/app/api/internal/dao/mysql/buy.go:282	成功处理购物车中的商品，并清空了购物车
+[2024-01-29 14:19:25.886]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-01-29 14:19:25.910]	D:/电商/app/api/internal/initialize/database.go:32	connect to mysql failed ,dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.

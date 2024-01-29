@@ -161,15 +161,15 @@ func AddBalance(c *gin.Context) {
 }
 func MakeCar(c *gin.Context) {
 	// 从请求上下文中获取用户名信息
-	_, exists := c.Get("username")
+	username, exists := c.Get("username")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "未经授权的访问"})
 		c.Abort()
 		return
 	}
-
+	//BuyUserAccount := c.PostForm("BuyUserAccount")
 	// 调用创建购物车逻辑的函数
-	err := mysql.BuyMakeCar(global.MysqlDB)
+	err := mysql.BuyMakeCar(global.MysqlDB, username.(string))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "创建购物车失败"})
 		return
@@ -207,13 +207,13 @@ func AddCar(c *gin.Context) {
 }
 func LookCar(c *gin.Context) {
 	// 从请求上下文中获取用户名信息
-	_, exists := c.Get("username")
+	username, exists := c.Get("username")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "未经授权的访问"})
 		c.Abort()
 		return
 	}
-	carList, err := mysql.CountCarList(global.MysqlDB)
+	carList, err := mysql.CountCarList(global.MysqlDB, username.(string))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "无法获取购物车列表"})
 		return
@@ -246,13 +246,7 @@ func MyProductList(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	usernameStr, ok := username.(string)
-	if !ok {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "无法获取有效的用户名"})
-		c.Abort()
-		return
-	}
-	productList, err := mysql.CoutProductList(global.MysqlDB, usernameStr)
+	productList, err := mysql.CoutProductList(global.MysqlDB, username.(string))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "无法获取购物车列表" + err.Error()})

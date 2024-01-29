@@ -8,9 +8,10 @@ import (
 	"go.uber.org/zap"
 )
 
-func BuyMakeCar(db *sql.DB) error {
-	query := `
-		CREATE TABLE IF NOT EXISTS Car (
+func BuyMakeCar(db *sql.DB, BuyUserAccount string) error {
+	CarName := "Car" + BuyUserAccount
+	query := fmt.Sprintf(`
+		CREATE TABLE IF NOT EXISTS %s (
 		    ID INT AUTO_INCREMENT PRIMARY KEY,
 			AllProductID INT,
 			ProductListName VARCHAR(50) NOT NULL,
@@ -19,7 +20,7 @@ func BuyMakeCar(db *sql.DB) error {
 			ProductNumber INT NOT NULL,
 			ProductPrice DOUBLE NOT NULL
 		);
-	`
+	`, CarName)
 
 	_, err := db.Exec(query)
 	if err != nil {
@@ -29,6 +30,7 @@ func BuyMakeCar(db *sql.DB) error {
 	global.Logger.Info("已成功创建购物车")
 	return nil
 }
+
 func ShowCarList(db *sql.DB) error {
 	rows, err := db.Query("SELECT ID, AllProductID, ProductListName, ProductID, ProductName, ProductNumber, ProductPrice FROM Car")
 	if err != nil {
@@ -115,7 +117,8 @@ func BuyAddCar(db *sql.DB, BuyAllProductID int, BuyProductNumber int, BuyUserAcc
 	}
 
 	// 将购买的商品插入到购物车列表
-	_, err = db.Exec("INSERT INTO Car (AllProductID, ProductListName, ProductID, ProductName, ProductNumber, ProductPrice) VALUES (?, ?, ?, ?, ?, ?)",
+	CarName := "Car" + BuyUserAccount
+	_, err = db.Exec("INSERT INTO "+CarName+" (AllProductID, ProductListName, ProductID, ProductName, ProductNumber, ProductPrice) VALUES (?, ?, ?, ?, ?, ?)",
 		AllProductID, ProductListName, ProductID, ProductName, BuyProductNumber, ProductPrice)
 	if err != nil {
 		global.Logger.Fatal("插入购物车数据失败," + err.Error())
@@ -185,12 +188,13 @@ func PrintHotList(db *sql.DB) {
 	}
 }
 
-func CountCarList(db *sql.DB) ([]model.Car, error) {
+func CountCarList(db *sql.DB, BuyUserAccount string) ([]model.Car, error) {
 	// 声明一个用于存储购物车列表数据的切片
 	var carList []model.Car
 
 	// 查询Car表中的所有数据
-	rows, err := db.Query("SELECT ID, AllProductID, ProductListName, ProductID, ProductName, ProductNumber, ProductPrice FROM Car")
+	CarName := "Car" + BuyUserAccount
+	rows, err := db.Query("SELECT ID, AllProductID, ProductListName, ProductID, ProductName, ProductNumber, ProductPrice FROM " + CarName)
 
 	if err != nil {
 		global.Logger.Error("无法查询Car表", zap.Error(err))
@@ -251,7 +255,7 @@ func AddBuyUserAccountList(db *sql.DB, BuyUserAccount string, ProductPrice float
 	return nil
 }
 func BuyEmptyCar(db *sql.DB, BuyUserAccount string) error {
-	carList, err := CountCarList(db)
+	carList, err := CountCarList(db, BuyUserAccount)
 	if err != nil {
 		return fmt.Errorf("无法从购物车中获取数据: %v", err)
 	}
@@ -277,8 +281,8 @@ func BuyEmptyCar(db *sql.DB, BuyUserAccount string) error {
 			return err
 		}
 	}
-
-	DropList(db, "Car")
+	CarName := "Car" + BuyUserAccount
+	DropList(db, CarName)
 	global.Logger.Info("成功处理购物车中的商品，并清空了购物车") // 添加日志记录
 
 	return nil
