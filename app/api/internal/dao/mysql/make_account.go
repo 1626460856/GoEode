@@ -78,18 +78,16 @@ func AddAccount(db *sql.DB, useraccount, password, identity, nickname string) er
 	return nil
 }
 func MakeProductList(db *sql.DB, useraccount string) error {
-	// 构建 SQL 查询
-	query := `
+	query := fmt.Sprintf(`
 		CREATE TABLE IF NOT EXISTS %s (
 		    ProductID INT AUTO_INCREMENT PRIMARY KEY,
 		    ProductName VARCHAR(100) NOT NULL,
 		    ProductNumber INT NOT NULL,
 		    ProductPrice DOUBLE NOT NULL
 		);
-	`
+	`, useraccount)
 
-	// 使用参数传递表名
-	_, err := db.Exec(fmt.Sprintf(query, useraccount))
+	_, err := db.Exec(query)
 	if err != nil {
 		global.Logger.Fatal("create table failed," + err.Error())
 		return fmt.Errorf("无法创建个人商品库")
