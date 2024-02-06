@@ -18,7 +18,7 @@ Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 31
 
-useraccount=lan&password=123
+useraccount=jiang&password=123
 ###
 //满足了模糊查询例如可以传入“乐”
 POST /findProduct HTTP/1.1
@@ -31,24 +31,24 @@ ProductName=奶
 //需要对登录获取的令牌进行修改
 POST /myself HTTP/1.1
 Host: localhost:8080
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIxMzcyMCwiaXNzIjoi6JKL5Y2T54eDIn0.LJExVXwxdBYotLz0CW6cmeUVVa3RTZ51riNbHXEUigI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjE1NTYwLCJpc3MiOiLokovljZPnh4MifQ.nHR1zdLJKdtxmbT8XVVK--njZ2AJLwoxBVYnkLJKeLE
 Content-Type: application/json
 Content-Length: 27
 
-{"useraccount":"lan"}
+{"useraccount":"jiang"}
 ###
 POST /refresh HTTP/1.1
 Host: localhost:8080
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjEzMzMwLCJpc3MiOiLokovljZPnh4MifQ.6VWW2teyqyvR49sZuHCJiGemkOkTDYNysSZcXtI0Ovc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjE1NTYwLCJpc3MiOiLokovljZPnh4MifQ.nHR1zdLJKdtxmbT8XVVK--njZ2AJLwoxBVYnkLJKeLE
 Content-Length: 0
 ###
 POST /addProduct HTTP/1.1
 Host: localhost:8080
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIxMzcyMCwiaXNzIjoi6JKL5Y2T54eDIn0.LJExVXwxdBYotLz0CW6cmeUVVa3RTZ51riNbHXEUigI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjE1NTYwLCJpc3MiOiLokovljZPnh4MifQ.nHR1zdLJKdtxmbT8XVVK--njZ2AJLwoxBVYnkLJKeLE
 Content-Type: application/x-www-form-urlencoded
 Content-Length: xx
 
-userAccount=jiang&productName=牛奶&productNumber=2&productPrice"=4.50
+userAccount=jiang&productName=可乐&productNumber=3&productPrice=3.5
 ###
 POST /addBalance HTTP/1.1
 Host: localhost:8080
