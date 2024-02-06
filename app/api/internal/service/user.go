@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
-	"unicode/utf8"
 )
 
 func AddAccountHandler(c *gin.Context) {
@@ -308,15 +307,7 @@ func ChangeAccount(c *gin.Context) {
 }
 
 func FindProduct(c *gin.Context) {
-	// 通过 utf8.ValidString 方法检查字符串是否是有效的 UTF-8 编码
 	productName := c.PostForm("ProductName")
-	if !utf8.ValidString(productName) {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "商品名称包含无效的字符",
-		})
-		return
-	}
-
 	ProductList, err := mysql.CountFindProduct(global.MysqlDB, productName)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

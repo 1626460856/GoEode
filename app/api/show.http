@@ -1,0 +1,120 @@
+
+POST /register HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+
+useraccount=wen&password=123&identity=boss&nickname=Eode
+###
+POST /register HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 44
+
+useraccount=lan&password=123&identity=customer&nickname=Lan
+###
+POST /login HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 31
+
+useraccount=lan&password=123
+###
+//满足了模糊查询例如可以传入“乐”
+POST /findProduct HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 14
+
+ProductName=乐
+###
+//需要对登录获取的令牌进行修改
+POST /myself HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: 27
+
+{"useraccount":"lan"}
+###
+POST /refresh HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Length: 0
+###
+POST /addProduct HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: xx
+
+{
+  "userAccount": "wen",
+  "productName": "牛奶",
+  "productNumber": 3,
+  "productPrice": 3.50
+}
+###
+POST /addBalance HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: xx
+
+{"useraccount":"lan","money":100}
+###
+//这个由于传入了令牌，所以令牌会根据保存的账户信息创建各自的购物车
+POST /makeCar HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Length: 0
+Content-Type: application/json
+###
+//可以通过更新函数获取一个列表，也可以主动查询商品获得商品信息，这样的话就可以确定购买商品的AllProductID传入BuyAllProductID
+POST /addCar HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: xx
+
+{
+  "BuyAllProductID":2,
+  "BuyProductNumber":1,
+  "BuyUserAccount": "lan"
+}
+
+###
+POST /lookCar HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: 0
+###
+POST /emptyCar HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: 0
+###
+POST /myProductList HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: xx
+
+{"useraccount":"lan"}
+###
+POST /lookHostList HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: 0
+###
+////修改的位置可以是"Password"可以是"Nickname"可以是"Identity"其中"Identity"只能是修改为"boss"或者"customer"，另外两个的修改似乎不能输入中文，我不知道为什么，好像又可以输入中文了
+POST /changeAccount HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Content-Type: application/json
+Content-Length: xx
+
+{"UserAccount":"lan","Changelocation":"Nickname","Changetext":"兰"}
