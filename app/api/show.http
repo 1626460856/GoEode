@@ -4,7 +4,7 @@ Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 48
 
-useraccount=wen&password=123&identity=boss&nickname=Eode
+useraccount=jiang&password=123&identity=boss&nickname=Eode
 ###
 POST /register HTTP/1.1
 Host: localhost:8080
@@ -18,7 +18,7 @@ Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 31
 
-useraccount=lan&password=123
+useraccount=jiang&password=123
 ###
 //满足了模糊查询例如可以传入“乐”
 POST /findProduct HTTP/1.1
@@ -31,29 +31,24 @@ ProductName=乐
 //需要对登录获取的令牌进行修改
 POST /myself HTTP/1.1
 Host: localhost:8080
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjExMTk4LCJpc3MiOiLokovljZPnh4MifQ.DbD2-0jkT9i5P7kHoBvHvy7ICceB40jENOzsRyiQ2ao
 Content-Type: application/json
 Content-Length: 27
 
-{"useraccount":"lan"}
+{"useraccount":"jiang"}
 ###
 POST /refresh HTTP/1.1
 Host: localhost:8080
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjExMTk4LCJpc3MiOiLokovljZPnh4MifQ.DbD2-0jkT9i5P7kHoBvHvy7ICceB40jENOzsRyiQ2ao
 Content-Length: 0
 ###
 POST /addProduct HTTP/1.1
 Host: localhost:8080
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxhbiIsImV4cCI6MTcwNzIwNDk4MywiaXNzIjoi6JKL5Y2T54eDIn0.Haa_YbWh1tx-YeHIUY1FTtNnJ4R_ubD3l7eJ2rTmNmk
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImppYW5nIiwiZXhwIjoxNzA3MjExMTk4LCJpc3MiOiLokovljZPnh4MifQ.DbD2-0jkT9i5P7kHoBvHvy7ICceB40jENOzsRyiQ2ao
+Content-Type: application/x-www-form-urlencoded
 Content-Length: xx
 
-{
-  "userAccount": "wen",
-  "productName": "牛奶",
-  "productNumber": 3,
-  "productPrice": 3.50
-}
+userAccount=jiang&productName=可乐&productNumber=3&productPrice": 3.50
 ###
 POST /addBalance HTTP/1.1
 Host: localhost:8080
