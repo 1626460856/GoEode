@@ -1,0 +1,70 @@
+syntax = "v1"
+
+info (
+	title: "user.api"
+	author: "Eode"
+	version: "1.0.0"
+)
+
+type (
+	RegisterReq { //用户注册请求
+		UserName string `json:"UserName"` // 用户名
+		PassWord string `json:"PassWord"` // 用户密码，MD5加密
+		UserNick string `json:"UserNick"` // 用户昵称
+
+	}
+
+	LoginReq { //用户登录请求
+		UserName string `json:"UserName"` // 用户名
+		PassWord string `json:"PassWord"` // 用户密码，MD5加密
+	}
+
+	UserInfoReq struct{} //获取用户信息的请求
+
+	UserInfoResply { //获取用户信息的响应
+		Code    int64         `json:"Code"`
+		Message string        `json:"Message"`
+		Data    *UserInfoItem `json:"Data"`
+	}
+
+	UserInfoItem { //用户信息数据
+		UserIdentity string `json:"UserIdentity"` // 用户唯一表哦是
+		UserName     string `json:"UserName"`     // 用户名
+	}
+
+	CommonResply { //通用响应格式
+		Code    int64  `json:"Code"`
+		Message string `json:"Message"`
+		Data    string `json:"Data"`
+	}
+)
+
+@server(  //定义了服务的前缀为account
+	prefix: account
+)
+
+service user-api{
+	@doc (
+		summary: "用户注册"
+	)
+	@handler Register  //指定了处理用户注册请求的处理函数为Register
+	post /register (RegisterReq) returns (CommonResply)
+
+	@doc (
+		summary: "用户登录"
+	)
+	@handler Login  //指定了处理用户登录请求的处理函数为Login
+	post /login (LoginReq) returns (CommonResply)
+}
+
+@server(  //定义了使用JWT进行认证
+	jwt: Auth
+)
+
+service user-api{  //定义了一个名为user-api的服务
+	@doc (
+		summary: "用户信息"
+	)
+	@handler userInfo  //指定了处理获取用户信息请求的处理函数为userInfo
+	post /userinfo (UserInfoReq) returns (UserInfoResply)
+}

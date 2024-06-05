@@ -13,7 +13,9 @@ import (
 func main() {
 	initialize.SetupViper()
 	initialize.SetupLogger()
+
 	initialize.SetupDataBase()
+	initialize.SetupEtcd()
 	config := global.Config.ServerConfig
 
 	mysql.MakeAccountList(global.MysqlDB)
@@ -26,7 +28,7 @@ func main() {
 	//mysql.DropList(global.MysqlDB, "wen")
 	//mysql.DropList(global.MysqlDB, "AllProductList")
 	//mysql.DropList(global.MysqlDB, "AccountList")
-	//mysql.DropList(global.MysqlDB, "Car")
+	//mysql.DropList(global.MysqlDB, "lanCar")
 	// 设置 Gin 模式
 	gin.SetMode(config.Mode)
 	global.Logger.Info("初始化服务器成功", zap.String("port", config.Port+":"+config.Port))

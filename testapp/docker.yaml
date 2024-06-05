@@ -1,0 +1,165 @@
+version: '3.8'
+services:
+  zookeeper:
+    image: zookeeper:3.4.14
+    container_name: Eodezookeeper
+    ports:
+      - "2181:2181"
+    volumes:
+      - Eode_zookeeper:/var/lib/zookeeper
+    networks:
+      - testapp_eode_network
+
+  kafka1:
+    image: wurstmeister/kafka:2.13-2.7.0
+    container_name: Eodekafka1
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Eodekafka1:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    depends_on:
+      - zookeeper
+    volumes:
+      - Eode_kafka1:/var/lib/kafka/data
+    networks:
+      - testapp_eode_network
+
+  kafka2:
+    image: wurstmeister/kafka:2.13-2.7.0
+    container_name: Eodekafka2
+    ports:
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Eodekafka2:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    depends_on:
+      - zookeeper
+    volumes:
+      - Eode_kafka2:/var/lib/kafka/data
+    networks:
+      - testapp_eode_network
+
+  kafka3:
+    image: wurstmeister/kafka:2.13-2.7.0
+    container_name: Eodekafka3
+    ports:
+      - "9094:9094"
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Eodekafka3:9094
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9094
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    depends_on:
+      - zookeeper
+    volumes:
+      - Eode_kafka3:/var/lib/kafka/data
+    networks:
+      - testapp_eode_network
+
+  etcd:
+    image: bitnami/etcd:latest
+    container_name: Eodeetcd
+    ports:
+      - "2379:2379"
+      - "2380:2380"
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://Eodeetcd:2379
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+      - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://Eodeetcd:2380
+      - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380
+      - ETCD_INITIAL_CLUSTER=default=http://Eodeetcd:2380
+      - ETCD_INITIAL_CLUSTER_STATE=new
+      - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster
+      - ETCD_NAME=default
+    volumes:
+      - Eode_etcd:/bitnami/etcd
+    networks:
+      - testapp_eode_network
+
+  redis:
+    image: redis:latest
+    container_name: Eoderedis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    volumes:
+      - Eode_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
+    networks:
+      - testapp_eode_network
+
+  mysql:
+    image: mysql:latest
+    container_name: Eodemysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123awzsex
+      MYSQL_DATABASE: test
+      TZ: Asia/Shanghai
+      MYSQL_CHARSET: utf8mb4
+    volumes:
+      - Eode_mysql:/var/lib/mysql
+    networks:
+      - testapp_eode_network
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: Eodejaeger
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250:14250"
+      - "9411:9411"
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+    volumes:
+      - Eode_jaeger:/data
+    networks:
+      - testapp_eode_network
+
+  nginx:
+    image: nginx:latest
+    container_name: Eodenginx
+    ports:
+      - "80:80"
+    volumes:
+      - D:\电商\testapp\nginx\nginx.conf:/etc/nginx/nginx.conf:ro
+      - D:\电商\testapp\nginx\index.html:/usr/share/nginx/html/index.html:ro
+      - D:\电商\testapp\nginx\50x.html:/usr/share/nginx/html/50x.html:ro
+      - Eode_nginx:/var/log/nginx
+    networks:
+      - testapp_eode_network
+
+networks:
+  testapp_eode_network:
+    name: testapp_eode_network
+    driver: bridge
+
+volumes:
+  Eode_zookeeper:
+  Eode_kafka1:
+  Eode_kafka2:
+  Eode_kafka3:
+  Eode_etcd:
+  Eode_redis:
+  Eode_mysql:
+  Eode_jaeger:
+  Eode_nginx:

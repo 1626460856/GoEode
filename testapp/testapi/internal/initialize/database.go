@@ -3,7 +3,7 @@ package initialize
 import (
 	"context"
 	"database/sql"
-	"dianshang/app/api/global"
+	"dianshang/testapp/testapi/global"
 	"github.com/go-redis/redis/v8"
 )
 
@@ -32,7 +32,7 @@ func SetupMysql() {
 	if err != nil {
 		global.Logger.Fatal("open mysql failed," + err.Error())
 	}
-	db.SetConnMaxLifetime(config.ConnMaxLifetime) //最长连接时间
+	db.SetConnMaxLifetime(config.ConnMaxLifeTime) //最长连接时间
 	db.SetConnMaxIdleTime(config.ConnMaxIdleTime) //最长空闲时间
 	db.SetMaxIdleConns(config.MaxIdleConns)       //最长控制时间
 	db.SetMaxOpenConns(config.MaxOpenConns)

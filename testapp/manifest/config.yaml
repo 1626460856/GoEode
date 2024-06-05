@@ -9,7 +9,7 @@ database:
     addr: localhost
     port: 3306
     username: root
-    password: root
+    password: 123awzsex
     db: test
     charset: utf8mb4
     connMaxIdleTime: 1h
@@ -31,12 +31,23 @@ server:
   port: 8080
   mode: debug
 
+zookeeper:
+  address: localhost:2181
+
+kafka:
+  brokers:
+    - localhost:9092
+    - localhost:9093
+    - localhost:9094
+
 etcd:
+  endpoints:
+    - http://localhost:2379
+
+jaeger:
+  endpoint: http://localhost:16686/
+
+
+nginx:
   address: localhost
-  port: 2379
-  username: root
-  password: root
-  connMaxIdleTime: 1h
-  connMaxLifeTime: 1h
-  maxIdleConns: 10
-  maxOpenConns: 5
+  port: 80
