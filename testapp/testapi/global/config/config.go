@@ -43,9 +43,9 @@ type ZapConfig struct {
 }
 
 type ZookeeperConfig struct {
-	Address string `mapstructure:"address"`
+	Servers []string      `mapstructure:"servers"`
+	Timeout time.Duration `mapstructure:"timeout"`
 }
-
 type KafkaConfig struct {
 	Brokers []string `mapstructure:"brokers"`
 }

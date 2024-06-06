@@ -32,13 +32,15 @@ server:
   mode: debug
 
 zookeeper:
-  address: localhost:2181
+  servers:
+    - "localhost"  # 使用容器名称
+  timeout: 5
 
 kafka:
   brokers:
-    - localhost:9092
-    - localhost:9093
-    - localhost:9094
+    - "localhost:9092"
+    - "localhost:9093"
+    - "localhost:9094"
 
 etcd:
   endpoints:

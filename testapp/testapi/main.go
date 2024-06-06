@@ -4,6 +4,7 @@ import (
 	"dianshang/testapp/testapi/global"
 	"dianshang/testapp/testapi/internal/initialize"
 	"dianshang/testapp/testapi/router"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"go.uber.org/zap"
@@ -16,9 +17,11 @@ func main() {
 	initialize.SetupDataBase()
 	initialize.SetupEtcd()
 	initialize.SetupKafka()
+	fmt.Println(global.KafkaProducer)
+	initialize.SetupZookeeper()
+
 	initialize.SetupJaeger()
 	initialize.SetupNginx()
-	initialize.SetupZookeeper()
 	initialize.Check()
 	config := global.Config.ServerConfig
 

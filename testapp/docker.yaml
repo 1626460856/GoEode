@@ -1,16 +1,17 @@
 version: '3.8'
 services:
-  zookeeper:
+  Eodezookeeper:
     image: zookeeper:3.4.14
     container_name: Eodezookeeper
     ports:
       - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
     volumes:
       - Eode_zookeeper:/var/lib/zookeeper
-    networks:
-      - testapp_eode_network
 
-  kafka1:
+  Eodekafka1:
     image: wurstmeister/kafka:2.13-2.7.0
     container_name: Eodekafka1
     ports:
@@ -18,18 +19,16 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Eodekafka1:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
     depends_on:
-      - zookeeper
+      - Eodezookeeper
     volumes:
       - Eode_kafka1:/var/lib/kafka/data
-    networks:
-      - testapp_eode_network
 
-  kafka2:
+  Eodekafka2:
     image: wurstmeister/kafka:2.13-2.7.0
     container_name: Eodekafka2
     ports:
@@ -37,18 +36,16 @@ services:
     environment:
       KAFKA_BROKER_ID: 2
       KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Eodekafka2:9093
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093
-      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
     depends_on:
-      - zookeeper
+      - Eodezookeeper
     volumes:
       - Eode_kafka2:/var/lib/kafka/data
-    networks:
-      - testapp_eode_network
 
-  kafka3:
+  Eodekafka3:
     image: wurstmeister/kafka:2.13-2.7.0
     container_name: Eodekafka3
     ports:
@@ -56,16 +53,15 @@ services:
     environment:
       KAFKA_BROKER_ID: 3
       KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Eodekafka3:9094
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9094
-      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9094
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
     depends_on:
-      - zookeeper
+      - Eodezookeeper
     volumes:
       - Eode_kafka3:/var/lib/kafka/data
-    networks:
-      - testapp_eode_network
+
 
   etcd:
     image: bitnami/etcd:latest
@@ -85,8 +81,7 @@ services:
       - ETCD_NAME=default
     volumes:
       - Eode_etcd:/bitnami/etcd
-    networks:
-      - testapp_eode_network
+
 
   redis:
     image: redis:latest
@@ -98,8 +93,7 @@ services:
       - Eode_redis:/data
       - /home/redis/conf/redis.conf:/etc/redis/redis.conf
     command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
-    networks:
-      - testapp_eode_network
+
 
   mysql:
     image: mysql:latest
@@ -113,8 +107,7 @@ services:
       MYSQL_CHARSET: utf8mb4
     volumes:
       - Eode_mysql:/var/lib/mysql
-    networks:
-      - testapp_eode_network
+
 
   jaeger:
     image: jaegertracing/all-in-one:latest
@@ -132,8 +125,7 @@ services:
       COLLECTOR_ZIPKIN_HTTP_PORT: 9411
     volumes:
       - Eode_jaeger:/data
-    networks:
-      - testapp_eode_network
+
 
   nginx:
     image: nginx:latest
@@ -145,13 +137,9 @@ services:
       - D:\电商\testapp\nginx\index.html:/usr/share/nginx/html/index.html:ro
       - D:\电商\testapp\nginx\50x.html:/usr/share/nginx/html/50x.html:ro
       - Eode_nginx:/var/log/nginx
-    networks:
-      - testapp_eode_network
 
-networks:
-  testapp_eode_network:
-    name: testapp_eode_network
-    driver: bridge
+
+
 
 volumes:
   Eode_zookeeper:

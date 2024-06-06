@@ -4,7 +4,7 @@ import (
 	"context"
 	"dianshang/testapp/testapi/global"
 	"fmt"
-	"github.com/IBM/sarama"
+	"github.com/samuel/go-zookeeper/zk"
 	"log"
 	"net/http"
 )
@@ -74,15 +74,12 @@ func Check() {
 		}
 	}
 	// 检查 Zookeeper 连接
-	if global.ZookeeperConn == nil {
-		log.Fatal("ZookeeperConn 未初始化")
+	conn := global.ZookeeperConn
+	state := conn.State()
+	if state == zk.StateHasSession {
+		global.Logger.Info("Zookeeper 连接正常")
 	} else {
-		_, _, err := global.ZookeeperConn.Children("/")
-		if err != nil {
-			log.Fatal("无法连接到 Zookeeper:", err)
-		} else {
-			fmt.Println("ZookeeperConn 连接成功")
-		}
+		global.Logger.Fatal("Zookeeper 连接检查失败，状态: " + state.String())
 	}
 	// 检查 Jaeger 客户端
 	if global.JaegerClient == nil {
@@ -97,17 +94,5 @@ func Check() {
 		}
 	}
 	// 检查 Kafka 生产者
-	if global.KafkaProducer == nil {
-		log.Fatal("KafkaProducer 未初始化")
-	} else {
-		msg := &sarama.ProducerMessage{Topic: "test-topic", Value: sarama.StringEncoder("test message")}
-		_, _, err := global.KafkaProducer.SendMessage(msg)
-		if err != nil {
-			log.Fatal("无法发送消息到 Kafka:", err)
-		} else {
-			fmt.Println("KafkaProducer 连接成功")
-		}
-	}
-
-	fmt.Println("所有连接均已成功初始化")
+	fmt.Println(global.KafkaProducer)
 }

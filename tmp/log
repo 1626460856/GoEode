@@ -3892,3 +3892,332 @@
 [2024-06-06 02:39:38.854]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
 [2024-06-06 02:39:38.862]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:29	初始化Zookeeper成功
 [2024-06-06 02:39:38.862]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 09:16:37.954]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 09:16:38.002]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 09:16:38.006]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 09:16:38.065]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 09:17:11.102]	D:/电商/testapp/testapi/internal/initialize/kafka.go:22	连接到Kafka失败: kafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup Eodekafka3: no such host
+	* dial tcp: lookup Eodekafka2: no such host
+	* dial tcp: lookup Eodekafka1: no such host
+
+[2024-06-06 09:18:29.168]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 09:18:29.206]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 09:18:29.211]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 09:18:29.269]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 09:18:31.962]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:16	连接到Zookeeper失败: lookup Eodezookeeper: no such host
+[2024-06-06 09:28:22.369]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 09:28:22.416]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 09:28:22.422]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 09:28:22.487]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 09:28:22.500]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:29	初始化Zookeeper成功
+[2024-06-06 09:28:22.524]	D:/电商/testapp/testapi/internal/initialize/kafka.go:29	初始化Kafka成功
+[2024-06-06 09:28:22.532]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 09:28:22.542]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 09:28:22.542]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 10:22:32.143]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:22:32.191]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:22:32.199]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:22:32.267]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:22:32.269]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	Init Zookeeper success
+[2024-06-06 10:22:32.290]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 10:22:32.300]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 10:22:32.308]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 10:22:32.308]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 10:25:00.910]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:25:00.937]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:25:00.940]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:25:00.991]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:25:00.992]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	Init Zookeeper success
+[2024-06-06 10:25:00.999]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 10:25:01.002]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 10:25:01.006]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 10:25:01.006]	D:/电商/testapp/testapi/main.go:32	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 10:26:34.897]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:26:34.927]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:26:34.931]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:26:34.978]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:26:34.983]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	Init Zookeeper success
+[2024-06-06 10:26:35.001]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 10:26:35.005]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 10:26:35.010]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 10:26:35.010]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 10:27:21.229]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:27:21.253]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:27:21.257]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:27:21.309]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:27:21.310]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	Init Zookeeper success
+[2024-06-06 10:27:22.256]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 10:27:22.261]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 10:27:22.266]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 10:27:22.266]	D:/电商/testapp/testapi/main.go:32	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 10:29:48.077]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:29:48.105]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:29:48.109]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:29:48.164]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:29:50.872]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:16	连接 Zookeeper 失败: lookup Eodezookeeper: no such host
+[2024-06-06 10:34:42.717]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:34:42.748]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:34:42.752]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:34:42.816]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:34:45.527]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:15	连接 Zookeeper 失败: lookup Eodezookeeper: no such host
+[2024-06-06 10:41:23.670]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:41:23.697]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:41:23.701]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:41:23.754]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:41:26.441]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:15	连接 Zookeeper 失败: lookup Eodezookeeper: no such host
+[2024-06-06 10:41:52.547]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 10:41:52.573]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 10:41:52.576]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 10:41:52.623]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 10:41:55.313]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:16	连接 Zookeeper 失败: lookup Eodezookeeper: no such host
+[2024-06-06 11:00:38.570]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:00:38.610]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:00:38.614]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:00:38.671]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:00:41.365]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	连接 Zookeeper 失败: lookup Eodezookeeper: no such host
+[2024-06-06 11:01:15.146]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:01:15.171]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:01:15.175]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:01:15.229]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:01:17.910]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	连接 Zookeeper 失败: lookup 2181: no such host
+[2024-06-06 11:01:48.716]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:01:48.743]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:01:48.747]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:01:48.798]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:01:48.819]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:01:51.518]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:18	连接 Zookeeper 失败: lookup 2181: no such host
+[2024-06-06 11:02:35.429]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:02:35.456]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:02:35.459]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:02:35.506]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:02:35.522]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:02:35.524]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:02:35.533]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:02:35.539]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:02:35.539]	D:/电商/testapp/testapi/main.go:30	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 11:05:37.906]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:05:37.933]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:05:37.936]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:05:37.987]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:05:38.002]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:05:38.003]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:05:38.009]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:05:38.014]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:05:38.014]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 11:18:35.719]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:18:35.749]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:18:35.754]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:18:35.806]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:18:35.822]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:18:35.823]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:18:35.828]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:18:35.835]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:18:35.836]	D:/电商/testapp/testapi/internal/initialize/check.go:25	Logger 已初始化
+[2024-06-06 11:18:35.844]	D:/电商/testapp/testapi/internal/initialize/check.go:81	Zookeeper 连接正常
+[2024-06-06 11:19:11.227]	D:/电商/testapp/testapi/internal/initialize/check.go:106	Kafka 连接检查失败: dial tcp: lookup Eodekafka2: no such host
+[2024-06-06 11:26:04.620]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:26:04.670]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:26:04.676]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:26:04.742]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:26:04.851]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:26:04.852]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:26:04.861]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:26:04.874]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:26:04.875]	D:/电商/testapp/testapi/internal/initialize/check.go:25	Logger 已初始化
+[2024-06-06 11:26:04.895]	D:/电商/testapp/testapi/internal/initialize/check.go:81	Zookeeper 连接正常
+[2024-06-06 11:26:05.666]	D:/电商/testapp/testapi/internal/initialize/check.go:106	Kafka 连接检查失败: kafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 11:37:40.094]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:37:40.128]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:37:40.140]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:37:40.209]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:37:40.280]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:37:40.282]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:37:40.288]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:37:40.294]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:37:40.294]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:37:40.302]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:39:47.579]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:39:47.611]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:39:47.615]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:39:47.666]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:39:47.680]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:39:47.681]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:39:47.686]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:39:47.694]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:39:47.694]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:39:47.703]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:39:47.954]	D:/电商/testapp/testapi/internal/initialize/check.go:149	Topic %s created successfullytest-topic2
+[2024-06-06 11:46:23.103]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:46:23.135]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:46:23.138]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:46:23.198]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:46:23.205]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:46:23.206]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:46:23.213]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:46:23.220]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:46:23.220]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:46:23.229]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:46:23.250]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic2' already exists.
+[2024-06-06 11:46:23.613]	D:/电商/testapp/testapi/internal/initialize/check.go:119	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 11:46:23.615]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 11:48:23.265]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:48:23.292]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:48:23.295]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:48:23.355]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:48:23.362]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:48:23.364]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:48:23.369]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:48:23.375]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:48:23.376]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:48:23.382]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:48:23.438]	D:/电商/testapp/testapi/internal/initialize/check.go:150	Topic %s created successfullytest-topic3
+[2024-06-06 11:48:23.778]	D:/电商/testapp/testapi/internal/initialize/check.go:119	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 11:48:23.780]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 11:51:13.151]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:51:13.181]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:51:13.184]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:51:13.232]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:51:13.247]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:51:13.248]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:51:13.253]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:51:13.257]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:51:13.258]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:51:13.266]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:51:13.370]	D:/电商/testapp/testapi/internal/initialize/check.go:150	Topic %s created successfullytest-topic4
+[2024-06-06 11:51:13.714]	D:/电商/testapp/testapi/internal/initialize/check.go:119	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 11:51:13.716]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 11:52:01.558]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:52:01.585]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:52:01.588]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:52:01.641]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:52:01.666]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:52:01.667]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:52:01.672]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:52:01.677]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:52:01.678]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:52:01.685]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:52:01.709]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic4' already exists.
+[2024-06-06 11:52:02.054]	D:/电商/testapp/testapi/internal/initialize/check.go:119	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 11:54:11.222]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:54:11.255]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:54:11.259]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:54:11.321]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:54:11.343]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:54:11.345]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:54:11.350]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:54:11.356]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:54:11.356]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:54:11.367]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:54:11.385]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic4' already exists.
+[2024-06-06 11:54:11.434]	D:/电商/testapp/testapi/internal/initialize/check.go:121	Kafka connection is normal, partition: %d, offset: %d 0
+[2024-06-06 11:54:11.435]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 11:55:35.304]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 11:55:35.334]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 11:55:35.337]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 11:55:35.389]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 11:55:35.400]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 11:55:35.402]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 11:55:35.406]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 11:55:35.412]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 11:55:35.412]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 11:55:35.420]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 11:55:35.487]	D:/电商/testapp/testapi/internal/initialize/check.go:150	Topic %s created successfullytest-topic5
+[2024-06-06 11:55:35.498]	D:/电商/testapp/testapi/internal/initialize/check.go:121	Kafka connection is normal, partition: %d, offset: %d0
+[2024-06-06 11:55:35.499]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 12:00:37.955]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:00:37.984]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:00:37.990]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:00:38.042]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:00:38.047]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:00:38.049]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:00:38.053]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:00:38.058]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:00:38.058]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:00:38.065]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:00:38.078]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic5' already exists.
+[2024-06-06 12:00:38.083]	D:/电商/testapp/testapi/internal/initialize/check.go:124	Kafka connection is normal, partition: %d, offset: %d1
+[2024-06-06 12:00:38.084]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 12:08:45.406]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:08:45.442]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:08:45.446]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:08:45.501]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:08:45.514]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:08:45.516]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:08:45.521]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:08:45.525]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:08:45.525]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:08:45.532]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:08:45.918]	D:/电商/testapp/testapi/internal/initialize/check.go:153	Topic %s created successfullytest-topic2
+[2024-06-06 12:08:46.474]	D:/电商/testapp/testapi/internal/initialize/check.go:122	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 12:08:58.469]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:08:58.516]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:08:58.523]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:08:58.581]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:08:58.593]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:08:58.595]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:08:58.605]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:08:58.614]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:08:58.615]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:08:58.628]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:08:58.686]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic2' already exists.
+[2024-06-06 12:08:59.088]	D:/电商/testapp/testapi/internal/initialize/check.go:122	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 12:09:21.223]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:09:21.254]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:09:21.257]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:09:21.313]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:09:21.329]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:09:21.330]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:09:21.333]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:09:21.339]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:09:21.339]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:09:21.347]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:09:21.420]	D:/电商/testapp/testapi/internal/initialize/check.go:153	Topic %s created successfullytest-topic3
+[2024-06-06 12:09:21.814]	D:/电商/testapp/testapi/internal/initialize/check.go:122	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 12:09:46.907]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:09:46.954]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:09:46.959]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:09:47.009]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:09:47.031]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:09:47.033]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:09:47.039]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:09:47.047]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:09:47.047]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:09:47.058]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:09:47.106]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic3' already exists.
+[2024-06-06 12:09:47.601]	D:/电商/testapp/testapi/internal/initialize/check.go:122	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 12:10:03.856]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:10:03.887]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:10:03.891]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:10:03.939]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:10:03.945]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:10:03.946]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:10:03.953]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:10:03.958]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:10:03.959]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:10:03.967]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:10:04.049]	D:/电商/testapp/testapi/internal/initialize/check.go:153	Topic %s created successfullytest-topic5
+[2024-06-06 12:10:04.462]	D:/电商/testapp/testapi/internal/initialize/check.go:122	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 12:10:47.011]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:10:47.103]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:10:47.111]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:10:47.178]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:10:47.194]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:10:47.196]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:10:47.204]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:10:47.213]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:10:47.213]	D:/电商/testapp/testapi/internal/initialize/check.go:26	Logger 已初始化
+[2024-06-06 12:10:47.227]	D:/电商/testapp/testapi/internal/initialize/check.go:82	Zookeeper 连接正常
+[2024-06-06 12:10:47.251]	D:/电商/testapp/testapi/internal/initialize/check.go:108	Ensure topic exists failed: %vCreating topic failed: kafka server: Topic with this name already exists - Topic 'test-topic5' already exists.
+[2024-06-06 12:10:47.644]	D:/电商/testapp/testapi/internal/initialize/check.go:122	Kafka connection check failed: %vkafka server: Request was for a topic or partition that does not exist on this broker
+[2024-06-06 12:12:26.012]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:12:26.042]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:12:26.045]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:12:26.096]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:12:26.101]	D:/电商/testapp/testapi/internal/initialize/kafka.go:17	Init Kafka success
+[2024-06-06 12:12:26.102]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:12:26.108]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:12:26.115]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:12:26.115]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 12:12:26.124]	D:/电商/testapp/testapi/internal/initialize/check.go:80	Zookeeper 连接正常
+[2024-06-06 12:12:26.128]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}

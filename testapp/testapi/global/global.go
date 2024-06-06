@@ -22,6 +22,7 @@ var ( //这个全局变量用来记录日志，将Config和Logger定义为全局
 	RedisDB       *redis.Client
 	EtcdClient    *clientv3.Client
 	KafkaProducer sarama.SyncProducer
+	KafkaBrokers  []string
 	ZookeeperConn *zk.Conn
 	JaegerClient  *http.Client
 	NginxClient   *http.Client
