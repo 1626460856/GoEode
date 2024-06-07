@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"dianshang/internal/config"
-	"dianshang/internal/handler"
-	"dianshang/internal/svc"
+	"dianshang/testapp/User/internal/config"
+	"dianshang/testapp/User/internal/handler"
+	"dianshang/testapp/User/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

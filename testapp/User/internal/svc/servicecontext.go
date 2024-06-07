@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"dianshang/internal/config"
+	"dianshang/testapp/User/internal/config"
 )
 
 type ServiceContext struct {
