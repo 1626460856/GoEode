@@ -4221,3 +4221,385 @@
 [2024-06-06 12:12:26.115]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
 [2024-06-06 12:12:26.124]	D:/电商/testapp/testapi/internal/initialize/check.go:80	Zookeeper 连接正常
 [2024-06-06 12:12:26.128]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 12:34:46.683]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 12:34:46.710]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init mysql success
+[2024-06-06 12:34:46.714]	D:/电商/testapp/testapi/internal/initialize/database.go:68	初始化Redis成功
+[2024-06-06 12:34:46.761]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 12:34:46.772]	D:/电商/testapp/testapi/internal/initialize/kafka.go:18	Init Kafka success
+[2024-06-06 12:34:46.826]	D:/电商/testapp/testapi/internal/initialize/kafka.go:48	Topic %s created successfullymy-topic
+[2024-06-06 12:34:46.828]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 12:34:46.832]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 12:34:46.840]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 12:34:46.840]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 12:34:46.849]	D:/电商/testapp/testapi/internal/initialize/check.go:80	Zookeeper 连接正常
+[2024-06-06 12:34:46.853]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-06 23:04:46.180]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:04:46.236]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:04:46.247]	D:/电商/testapp/testapi/internal/initialize/database.go:59	connect to shopmysql failed ,Error 1045 (28000): Access denied for user 'root'@'192.168.160.1' (using password: YES)
+[2024-06-06 23:05:48.604]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:05:48.657]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:05:48.676]	D:/电商/testapp/testapi/internal/initialize/database.go:59	connect to shopmysql failed ,driver: bad connection
+[2024-06-06 23:16:11.216]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:16:11.306]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:16:11.329]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:16:11.371]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:16:11.382]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:16:11.409]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:16:11.432]	D:/电商/testapp/testapi/internal/initialize/kafka.go:18	Init Kafka success
+[2024-06-06 23:16:14.163]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka3: no such host
+[2024-06-06 23:17:15.162]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:17:15.214]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:17:15.224]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:17:15.230]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:17:15.235]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:17:15.290]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:17:15.297]	D:/电商/testapp/testapi/internal/initialize/kafka.go:18	Init Kafka success
+[2024-06-06 23:17:18.013]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka3: no such host
+[2024-06-06 23:46:46.599]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:46:46.629]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:46:46.634]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:46:46.638]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:46:46.640]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:46:46.695]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:46:46.703]	D:/电商/testapp/testapi/internal/initialize/kafka.go:18	Init Kafka success
+[2024-06-06 23:46:49.415]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka3: no such host
+[2024-06-06 23:47:21.414]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:47:21.442]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:47:21.447]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:47:21.449]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:47:21.453]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:47:21.504]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:47:21.510]	D:/电商/testapp/testapi/internal/initialize/kafka.go:19	Init Kafka success
+[2024-06-06 23:47:24.227]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka1: no such host
+[2024-06-06 23:50:03.172]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:50:03.204]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:50:03.209]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:50:03.213]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:50:03.216]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:50:03.270]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:50:03.276]	D:/电商/testapp/testapi/internal/initialize/kafka.go:20	Init Kafka success
+[2024-06-06 23:50:05.996]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka3: no such host
+[2024-06-06 23:51:30.300]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:51:30.335]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:51:30.341]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:51:30.345]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:51:30.348]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:51:30.398]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:51:30.404]	D:/电商/testapp/testapi/internal/initialize/kafka.go:20	Init Kafka success
+[2024-06-06 23:51:33.106]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka2: no such host
+[2024-06-06 23:51:58.018]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:51:58.046]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:51:58.050]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:51:58.053]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:51:58.056]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:51:58.117]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:51:58.124]	D:/电商/testapp/testapi/internal/initialize/kafka.go:19	Init Kafka success
+[2024-06-06 23:51:58.125]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 23:51:58.132]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 23:51:58.141]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 23:51:58.141]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 23:53:58.396]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-06 23:53:58.422]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-06 23:53:58.426]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-06 23:53:58.429]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-06 23:53:58.432]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-06 23:53:58.485]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-06 23:53:58.491]	D:/电商/testapp/testapi/internal/initialize/kafka.go:19	Init Kafka success
+[2024-06-06 23:53:58.491]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-06 23:53:58.495]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-06 23:53:58.501]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-06 23:53:58.501]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-06 23:53:58.511]	D:/电商/testapp/testapi/internal/initialize/check.go:103	Zookeeper 连接正常
+[2024-06-06 23:53:58.516]	D:/电商/testapp/testapi/main.go:31	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 00:02:10.148]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:02:10.194]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:02:10.199]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:02:10.203]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:02:10.206]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:02:10.262]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:02:10.271]	D:/电商/testapp/testapi/internal/initialize/kafka.go:20	Init Kafka success
+[2024-06-07 00:02:12.973]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:28	无法列出主题: %vdial tcp: lookup Eodekafka3: no such host
+[2024-06-07 00:03:30.560]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:03:30.606]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:03:30.616]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:03:30.622]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:03:30.628]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:03:30.680]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:04:03.897]	D:/电商/testapp/testapi/internal/initialize/kafka.go:15	Connect to Kafka failed: kafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup Eodekafka1: no such host
+	* dial tcp: lookup Eodekafka2: no such host
+	* dial tcp: lookup Eodekafka3: no such host
+
+[2024-06-07 00:09:03.458]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:09:03.485]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:09:03.491]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:09:03.494]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:09:03.497]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:09:03.547]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:10:02.674]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:10:02.735]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:10:02.751]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:10:02.758]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:10:02.763]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:10:02.817]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:10:36.034]	D:/电商/testapp/testapi/internal/initialize/kafka.go:16	Connect to Kafka failed: %vkafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup Eodekafka1: no such host
+	* dial tcp: lookup Eodekafka3: no such host
+	* dial tcp: lookup Eodekafka2: no such host
+
+[2024-06-07 00:16:54.537]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:16:54.603]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:16:54.623]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:16:54.629]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:16:54.636]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:16:54.704]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:17:27.903]	D:/电商/testapp/testapi/internal/initialize/kafka.go:16	Connect to Kafka failed: %vkafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup Eodekafka2: no such host
+	* dial tcp: lookup Eodekafka3: no such host
+	* dial tcp: lookup Eodekafka1: no such host
+
+[2024-06-07 00:27:21.408]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:27:21.467]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:27:21.492]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:27:21.500]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:27:21.510]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:27:21.579]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:27:54.799]	D:/电商/testapp/testapi/internal/initialize/kafka.go:16	Connect to Kafka failed: %vkafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup Eodekafka1: no such host
+	* dial tcp: lookup Eodekafka2: no such host
+	* dial tcp: lookup Eodekafka3: no such host
+
+[2024-06-07 00:31:42.633]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:31:42.686]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:31:42.703]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:31:42.708]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:31:42.714]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:31:42.769]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:32:15.863]	D:/电商/testapp/testapi/internal/initialize/kafka.go:16	Connect to Kafka failed: %vkafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup 9092: no such host
+	* dial tcp: lookup 9094: no such host
+	* dial tcp: lookup 9093: no such host
+
+[2024-06-07 00:32:55.974]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:32:56.049]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:32:56.078]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:32:56.092]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:32:56.107]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:32:56.146]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:32:57.337]	D:/电商/testapp/testapi/internal/initialize/kafka.go:16	Connect to Kafka failed: %vkafka: client has run out of available brokers to talk to
+[2024-06-07 00:33:24.635]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 00:33:24.699]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 00:33:24.709]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 00:33:24.716]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 00:33:24.724]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 00:33:24.776]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 00:33:25.626]	D:/电商/testapp/testapi/internal/initialize/kafka.go:16	Connect to Kafka failed: %vkafka: client has run out of available brokers to talk to
+[2024-06-07 01:06:03.386]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:06:03.424]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:06:03.426]	D:/电商/testapp/testapi/internal/initialize/database.go:59	connect to shopmysql failed ,dial tcp [::1]:3307: connectex: No connection could be made because the target machine actively refused it.
+[2024-06-07 01:06:13.051]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:06:13.113]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:06:13.117]	D:/电商/testapp/testapi/internal/initialize/database.go:59	connect to shopmysql failed ,dial tcp [::1]:3307: connectex: No connection could be made because the target machine actively refused it.
+[2024-06-07 01:16:21.104]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:16:21.134]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:16:21.135]	D:/电商/testapp/testapi/internal/initialize/database.go:59	connect to shopmysql failed ,dial tcp [::1]:3307: connectex: No connection could be made because the target machine actively refused it.
+[2024-06-07 01:17:57.214]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:17:57.256]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:17:57.259]	D:/电商/testapp/testapi/internal/initialize/database.go:59	connect to shopmysql failed ,dial tcp [::1]:3307: connectex: No connection could be made because the target machine actively refused it.
+[2024-06-07 01:23:04.100]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:23:04.194]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:23:04.217]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:23:04.228]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:23:04.238]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:23:04.315]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:33:11.070]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:33:11.099]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:33:11.104]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:33:11.108]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:33:11.110]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:33:11.167]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:33:11.536]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:39	Topic %s 成功备份testtopic
+[2024-06-07 01:33:11.539]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 01:33:11.549]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 01:33:11.560]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 01:33:11.560]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-07 01:33:11.577]	D:/电商/testapp/testapi/internal/initialize/check.go:103	Zookeeper 连接正常
+[2024-06-07 01:33:11.584]	D:/电商/testapp/testapi/main.go:28	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 01:36:55.700]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:36:55.730]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:36:55.736]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:36:55.741]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:36:55.745]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:36:55.801]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:36:55.886]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-07 01:36:55.888]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 01:36:55.894]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 01:36:55.900]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 01:36:55.900]	D:/电商/testapp/testapi/internal/initialize/check.go:25	Logger 已初始化
+[2024-06-07 01:36:55.910]	D:/电商/testapp/testapi/internal/initialize/check.go:104	Zookeeper 连接正常
+[2024-06-07 01:36:55.931]	D:/电商/testapp/testapi/main.go:28	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 01:39:46.733]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:39:46.763]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:39:46.769]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:39:46.772]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:39:46.775]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:39:46.829]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:39:46.849]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-07 01:39:46.852]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 01:39:46.857]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 01:39:46.862]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 01:39:46.862]	D:/电商/testapp/testapi/internal/initialize/check.go:25	Logger 已初始化
+[2024-06-07 01:39:46.872]	D:/电商/testapp/testapi/internal/initialize/check.go:104	Zookeeper 连接正常
+[2024-06-07 01:39:46.895]	D:/电商/testapp/testapi/main.go:28	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 01:42:17.719]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:42:17.747]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:42:17.752]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:42:17.755]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:42:17.758]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:42:17.806]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:42:17.887]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:39	Topic %s 成功备份testtopic1
+[2024-06-07 01:42:17.889]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 01:42:17.895]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 01:42:17.902]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 01:42:17.903]	D:/电商/testapp/testapi/internal/initialize/check.go:25	Logger 已初始化
+[2024-06-07 01:42:17.913]	D:/电商/testapp/testapi/internal/initialize/check.go:104	Zookeeper 连接正常
+[2024-06-07 01:42:17.948]	D:/电商/testapp/testapi/main.go:28	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 01:57:01.603]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:57:01.635]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:57:01.646]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:57:01.649]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:57:01.653]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:57:01.709]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:57:04.436]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:27	无法列出主题: %vdial tcp: lookup Eodekafka2: no such host
+[2024-06-07 01:58:15.606]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:58:15.648]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:58:15.659]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:58:15.665]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:58:15.670]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:58:15.726]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:58:18.457]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:27	无法列出主题: %vdial tcp: lookup Eodekafka1: no such host
+[2024-06-07 01:58:49.195]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 01:58:49.222]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 01:58:49.226]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 01:58:49.229]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 01:58:49.232]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 01:58:49.284]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 01:59:22.487]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:16	创建Kafka管理员失败: %vkafka: client has run out of available brokers to talk to: 3 errors occurred:
+	* dial tcp: lookup Eodekafka3: no such host
+	* dial tcp: lookup Eodekafka1: no such host
+	* dial tcp: lookup Eodekafka2: no such host
+
+[2024-06-07 10:58:32.418]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 10:58:32.465]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 10:58:32.475]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 10:58:32.478]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 10:58:32.481]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 10:58:32.533]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:01:10.410]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:01:10.438]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:01:10.443]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:01:10.447]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:01:10.450]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:01:10.497]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:01:44.009]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:01:44.038]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:01:44.043]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:01:44.046]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:01:44.051]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:01:44.106]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:02:18.525]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:02:18.561]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:02:18.568]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:02:18.572]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:02:18.576]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:02:18.644]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:03:37.633]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:03:37.660]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:03:37.664]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:03:37.667]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:03:37.670]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:03:37.722]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:09:30.309]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:09:30.336]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:09:30.342]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:09:30.346]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:09:30.349]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:09:30.402]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:12:28.681]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:12:28.714]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:12:28.721]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:12:28.725]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:12:28.730]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:12:28.798]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:14:00.936]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:14:00.965]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:14:00.972]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:14:00.982]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:14:00.987]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:14:01.053]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:18:53.147]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:18:53.248]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:18:53.290]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:18:53.304]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:18:53.317]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:18:53.376]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 11:21:30.123]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 11:21:30.161]	D:/电商/testapp/testapi/internal/initialize/database.go:45	init usermysql success
+[2024-06-07 11:21:30.174]	D:/电商/testapp/testapi/internal/initialize/database.go:63	init shopmysql success
+[2024-06-07 11:21:30.179]	D:/电商/testapp/testapi/internal/initialize/database.go:86	初始化userRedis成功
+[2024-06-07 11:21:30.184]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化shopRedis成功
+[2024-06-07 11:21:30.250]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 17:59:43.797]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 17:59:43.807]	D:/电商/testapp/testapi/internal/initialize/database.go:33	open mysql failed,sql: unknown driver "mysql" (forgotten import?)
+[2024-06-07 18:02:08.582]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:02:08.605]	D:/电商/testapp/testapi/internal/initialize/database.go:33	open mysql failed,sql: unknown driver "mysql" (forgotten import?)
+[2024-06-07 18:06:12.935]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:06:12.945]	D:/电商/testapp/testapi/internal/initialize/database.go:33	open usermysql failed,sql: unknown driver "usermysql" (forgotten import?)
+[2024-06-07 18:10:08.527]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:10:08.591]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-07 18:10:08.604]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-07 18:10:08.608]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis成功
+[2024-06-07 18:10:08.613]	D:/电商/testapp/testapi/internal/initialize/database.go:109	初始化shopRedis成功
+[2024-06-07 18:10:08.666]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 18:10:11.378]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:27	无法列出主题: %vdial tcp: lookup kafka1: no such host
+[2024-06-07 18:10:31.815]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:10:31.855]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-07 18:10:31.864]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-07 18:10:31.869]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis成功
+[2024-06-07 18:10:31.875]	D:/电商/testapp/testapi/internal/initialize/database.go:109	初始化shopRedis成功
+[2024-06-07 18:10:31.935]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 18:10:32.170]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:39	Topic %s 成功备份testtopic
+[2024-06-07 18:10:32.176]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 18:10:32.201]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 18:10:32.235]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 18:10:32.237]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-07 18:10:32.282]	D:/电商/testapp/testapi/internal/initialize/check.go:103	Zookeeper 连接正常
+[2024-06-07 18:10:32.293]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 18:12:52.964]	D:/电商/app/api/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:12:52.997]	D:/电商/app/api/internal/initialize/database.go:41	connect to mysql failed ,Error 1045 (28000): Access denied for user 'root'@'172.21.0.1' (using password: YES)
+[2024-06-07 18:14:52.541]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:14:52.576]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-07 18:14:52.582]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-07 18:14:52.589]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis成功
+[2024-06-07 18:14:52.594]	D:/电商/testapp/testapi/internal/initialize/database.go:109	初始化shopRedis成功
+[2024-06-07 18:14:52.656]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 18:14:52.674]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-07 18:14:52.678]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 18:14:52.685]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 18:14:52.692]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 18:14:52.693]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-07 18:14:52.703]	D:/电商/testapp/testapi/internal/initialize/check.go:103	Zookeeper 连接正常
+[2024-06-07 18:14:52.707]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-07 18:23:58.190]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-07 18:23:58.219]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-07 18:23:58.224]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-07 18:23:58.227]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis成功
+[2024-06-07 18:23:58.230]	D:/电商/testapp/testapi/internal/initialize/database.go:109	初始化shopRedis成功
+[2024-06-07 18:23:58.277]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-07 18:23:58.292]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-07 18:23:58.293]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-07 18:23:58.297]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-07 18:23:58.302]	D:/电商/testapp/testapi/internal/initialize/nginx.go:30	初始化Nginx成功
+[2024-06-07 18:23:58.303]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-07 18:23:58.312]	D:/电商/testapp/testapi/internal/initialize/check.go:103	Zookeeper 连接正常
+[2024-06-07 18:23:58.316]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}

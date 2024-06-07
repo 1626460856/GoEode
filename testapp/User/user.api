@@ -1,45 +1,46 @@
 syntax = "v1"
 
 info (
-	title: "user.api"
+	title: "User.api"
 	author: "Eode"
 	version: "1.0.0"
 )
 
 type (
-	RegisterReq { //用户注册请求
+	//注册结构体
+	RegisterReq {
 		UserName string `json:"UserName"` // 用户名
 		PassWord string `json:"PassWord"` // 用户密码，MD5加密
 		UserNick string `json:"UserNick"` // 用户昵称
-
 	}
-
-	LoginReq { //用户登录请求
+	//登录结构体
+	LoginReq {
 		UserName string `json:"UserName"` // 用户名
 		PassWord string `json:"PassWord"` // 用户密码，MD5加密
 	}
-
-	UserInfoReq struct{} //获取用户信息的请求
-
-	UserInfoResply { //获取用户信息的响应
+	//请求用户信息的空结构体
+	UserInfoReq struct{}
+	//获取的用户信息响应的结构体
+	UserInfoResply {
 		Code    int64         `json:"Code"`
 		Message string        `json:"Message"`
 		Data    *UserInfoItem `json:"Data"`
 	}
-
-	UserInfoItem { //用户信息数据
-		UserIdentity string `json:"UserIdentity"` // 用户唯一表哦是
+	//用户信息存储结构体
+	UserInfoItem {
+		UserIdentity string `json:"UserIdentity"` // 用户身份唯一表哦是
 		UserName     string `json:"UserName"`     // 用户名
+		UserNick     string `json:"UserNick"`     // 用户昵称
 	}
-
-	CommonResply { //通用响应格式
+	//通用的响应结构体
+	CommonResply {
 		Code    int64  `json:"Code"`
 		Message string `json:"Message"`
 		Data    string `json:"Data"`
 	}
 )
-
-@server(  //定义了服务的前缀为account
+//为该服务中的所有 API 路径添加一个统一的前缀
+@server(
 	prefix: account
 )
 
@@ -47,24 +48,25 @@ service user-api{
 	@doc (
 		summary: "用户注册"
 	)
-	@handler Register  //指定了处理用户注册请求的处理函数为Register
+	@handler Register
 	post /register (RegisterReq) returns (CommonResply)
 
 	@doc (
 		summary: "用户登录"
 	)
-	@handler Login  //指定了处理用户登录请求的处理函数为Login
+	@handler Login
 	post /login (LoginReq) returns (CommonResply)
 }
 
-@server(  //定义了使用JWT进行认证
+////为该服务中的所有 API 路径添加一个jwt令牌认证前缀
+@server(
 	jwt: Auth
 )
 
-service user-api{  //定义了一个名为user-api的服务
+service user-api{
 	@doc (
-		summary: "用户信息"
+		summary: "获取用户信息"
 	)
-	@handler userInfo  //指定了处理获取用户信息请求的处理函数为userInfo
-	post /userinfo (UserInfoReq) returns (UserInfoResply)
+	@handler getuserInfo
+	post /getuserinfo (UserInfoReq) returns (UserInfoResply)
 }

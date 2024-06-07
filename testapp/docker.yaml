@@ -1,103 +1,136 @@
 version: '3.8'
+
 services:
-  Eodezookeeper:
-    image: zookeeper:3.4.14
-    container_name: Eodezookeeper
+  zoo1:
+    image: confluentinc/cp-zookeeper:7.3.2
+    container_name: zoo1
     ports:
       - "2181:2181"
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-    volumes:
-      - Eode_zookeeper:/var/lib/zookeeper
 
-  Eodekafka1:
-    image: wurstmeister/kafka:2.13-2.7.0
-    container_name: Eodekafka1
+  kafka1:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: kafka1
     ports:
       - "9092:9092"
+      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka1:9092,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
     depends_on:
-      - Eodezookeeper
+      - zoo1
     volumes:
-      - Eode_kafka1:/var/lib/kafka/data
+      - /var/run/docker.sock:/var/run/docker.sock
 
-  Eodekafka2:
-    image: wurstmeister/kafka:2.13-2.7.0
-    container_name: Eodekafka2
+  kafka2:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: kafka2
     ports:
       - "9093:9093"
+      - "29093:29093"
     environment:
       KAFKA_BROKER_ID: 2
-      KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9093
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:29093
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka2:9093,OUTSIDE://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
     depends_on:
-      - Eodezookeeper
+      - zoo1
     volumes:
-      - Eode_kafka2:/var/lib/kafka/data
+      - /var/run/docker.sock:/var/run/docker.sock
 
-  Eodekafka3:
-    image: wurstmeister/kafka:2.13-2.7.0
-    container_name: Eodekafka3
+  kafka3:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: kafka3
     ports:
       - "9094:9094"
+      - "29094:29094"
     environment:
       KAFKA_BROKER_ID: 3
-      KAFKA_ZOOKEEPER_CONNECT: Eodezookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9094
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9094
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9094,OUTSIDE://0.0.0.0:29094
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka3:9094,OUTSIDE://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
     depends_on:
-      - Eodezookeeper
+      - zoo1
     volumes:
-      - Eode_kafka3:/var/lib/kafka/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - "9999:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:9092,kafka2:9093,kafka3:9094
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zoo1:2181
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
 
 
   etcd:
     image: bitnami/etcd:latest
-    container_name: Eodeetcd
+    container_name: etcd
     ports:
       - "2379:2379"
       - "2380:2380"
     environment:
       - ALLOW_NONE_AUTHENTICATION=yes
-      - ETCD_ADVERTISE_CLIENT_URLS=http://Eodeetcd:2379
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
       - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
-      - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://Eodeetcd:2380
+      - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd:2380
       - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380
-      - ETCD_INITIAL_CLUSTER=default=http://Eodeetcd:2380
+      - ETCD_INITIAL_CLUSTER=default=http://etcd:2380
       - ETCD_INITIAL_CLUSTER_STATE=new
       - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster
       - ETCD_NAME=default
-    volumes:
-      - Eode_etcd:/bitnami/etcd
 
 
-  redis:
+  UserRedis:
     image: redis:latest
-    container_name: Eoderedis
+    container_name: UserRedis
     ports:
       - "6379:6379"
     restart: unless-stopped
     volumes:
-      - Eode_redis:/data
+      - User_redis:/data
       - /home/redis/conf/redis.conf:/etc/redis/redis.conf
     command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
 
 
-  mysql:
+  ShopRedis:
+    image: redis:latest
+    container_name: ShopRedis
+    ports:
+      - "6380:6379"
+    restart: unless-stopped
+    volumes:
+      - Shop_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "root" ]
+
+
+  UserMysql:
     image: mysql:latest
-    container_name: Eodemysql
+    container_name: UserMysql
     ports:
       - "3306:3306"
     environment:
@@ -106,7 +139,21 @@ services:
       TZ: Asia/Shanghai
       MYSQL_CHARSET: utf8mb4
     volumes:
-      - Eode_mysql:/var/lib/mysql
+      - User_mysql:/var/lib/mysql
+
+
+  ShopMysql:
+    image: mysql:latest
+    container_name: ShopMysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      TZ: Asia/Shanghai
+      MYSQL_CHARSET: utf8mb4
+    volumes:
+      - Shop_mysql:/var/lib/mysql
 
 
   jaeger:
@@ -123,8 +170,6 @@ services:
       - "9411:9411"
     environment:
       COLLECTOR_ZIPKIN_HTTP_PORT: 9411
-    volumes:
-      - Eode_jaeger:/data
 
 
   nginx:
@@ -136,18 +181,12 @@ services:
       - D:\电商\testapp\nginx\nginx.conf:/etc/nginx/nginx.conf:ro
       - D:\电商\testapp\nginx\index.html:/usr/share/nginx/html/index.html:ro
       - D:\电商\testapp\nginx\50x.html:/usr/share/nginx/html/50x.html:ro
-      - Eode_nginx:/var/log/nginx
 
 
 
 
 volumes:
-  Eode_zookeeper:
-  Eode_kafka1:
-  Eode_kafka2:
-  Eode_kafka3:
-  Eode_etcd:
-  Eode_redis:
-  Eode_mysql:
-  Eode_jaeger:
-  Eode_nginx:
+  User_redis:
+  Shop_redis:
+  User_mysql:
+  Shop_mysql:

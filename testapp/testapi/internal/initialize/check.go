@@ -24,28 +24,51 @@ func Check() {
 		global.Logger.Info("Logger 已初始化")
 	}
 
-	// 检查 MySQL 连接
-	if global.MysqlDB == nil {
-		log.Fatal("MysqlDB 未初始化")
+	// 检查 UserMySQL 连接
+	if global.UserMysqlDB == nil {
+		log.Fatal("UserMysqlDB 未初始化")
 	} else {
-		err := global.MysqlDB.Ping()
+		err := global.UserMysqlDB.Ping()
 		if err != nil {
-			log.Fatal("无法连接到 MySQL:", err)
+			log.Fatal("无法连接到 UserMySQL:", err)
 		} else {
-			fmt.Println("MysqlDB 连接成功")
+			fmt.Println("UserMysqlDB 连接成功")
+		}
+	}
+	// 检查 ShopMySQL 连接
+	if global.ShopMysqlDB == nil {
+		log.Fatal("ShopMysqlDB 未初始化")
+	} else {
+		err := global.ShopMysqlDB.Ping()
+		if err != nil {
+			log.Fatal("无法连接到 ShopMySQL:", err)
+		} else {
+			fmt.Println("ShopMysqlDB 连接成功")
 		}
 	}
 
-	// 检查 Redis 连接
-	if global.RedisDB == nil {
-		log.Fatal("RedisDB 未初始化")
+	// 检查 UserRedis 连接
+	if global.UserRedisDB == nil {
+		log.Fatal("UserRedisDB 未初始化")
 	} else {
 		ctx := context.Background()
-		_, err := global.RedisDB.Ping(ctx).Result()
+		_, err := global.UserRedisDB.Ping(ctx).Result()
 		if err != nil {
-			log.Fatal("无法连接到 Redis:", err)
+			log.Fatal("无法连接到 UserRedis:", err)
 		} else {
-			fmt.Println("RedisDB 连接成功")
+			fmt.Println("UserRedisDB 连接成功")
+		}
+	}
+	// 检查 ShopRedis 连接
+	if global.ShopRedisDB == nil {
+		log.Fatal("ShopRedisDB 未初始化")
+	} else {
+		ctx := context.Background()
+		_, err := global.ShopRedisDB.Ping(ctx).Result()
+		if err != nil {
+			log.Fatal("无法连接到 ShopRedis:", err)
+		} else {
+			fmt.Println("ShopRedisDB 连接成功")
 		}
 	}
 
@@ -94,5 +117,5 @@ func Check() {
 		}
 	}
 	// 检查 Kafka 生产者
-	fmt.Println(global.KafkaProducer)
+
 }

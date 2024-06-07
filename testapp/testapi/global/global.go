@@ -3,7 +3,6 @@ package global
 import (
 	"database/sql"
 	"dianshang/testapp/testapi/global/config"
-	"github.com/IBM/sarama"
 	"github.com/go-redis/redis/v8"
 	"github.com/samuel/go-zookeeper/zk"
 	clientv3 "go.etcd.io/etcd/client/v3"
@@ -18,10 +17,11 @@ var ( //这个全局变量用来记录日志，将Config和Logger定义为全局
 	//在整个应用程序中，其他模块或函数可以访问 Config 变量来获取应用程序的配置信息，比如数据库连接信息、日志设置等。
 	Config        *config.Config
 	Logger        *zap.Logger
-	MysqlDB       *sql.DB
-	RedisDB       *redis.Client
+	UserMysqlDB   *sql.DB
+	ShopMysqlDB   *sql.DB
+	UserRedisDB   *redis.Client
+	ShopRedisDB   *redis.Client
 	EtcdClient    *clientv3.Client
-	KafkaProducer sarama.SyncProducer
 	KafkaBrokers  []string
 	ZookeeperConn *zk.Conn
 	JaegerClient  *http.Client

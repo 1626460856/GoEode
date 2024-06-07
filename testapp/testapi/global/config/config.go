@@ -12,7 +12,8 @@ import (
 // Config 这个文件用来描述配置文件的结构体
 type Config struct {
 	ZapConfig       ZapConfig       `mapstructure:"zap_config" json:"zap_config"`
-	DatabaseConfig  DatabaseConfig  `mapstructure:"database" json:"database"`
+	UserdataConfig  DatabaseConfig  `mapstructure:"userdatabase" json:"userdatabase"`
+	ShopdataConfig  DatabaseConfig  `mapstructure:"shopdatabase" json:"shopdatabase"`
 	ServerConfig    ServerConfig    `mapstructure:"server" json:"server"`
 	EtcdConfig      EtcdConfig      `mapstructure:"etcd" json:"etcd"`
 	ZookeeperConfig ZookeeperConfig `mapstructure:"zookeeper" json:"zookeeper"`

@@ -10,7 +10,6 @@ import (
 // 2.主题的名称
 // 2.主题内部的分区数量
 // 3.主题保存的份数，如果是3则三个节点都保存数据
-
 func CreateTopic(brokers []string, topic string, partitions int32, replicationFactor int16) {
 	admin, err := sarama.NewClusterAdmin(brokers, nil)
 	if err != nil {
