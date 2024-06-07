@@ -140,7 +140,7 @@ func main() {
 	initialize.SetupKafka()
 	initialize.SetupZookeeper()
 	initialize.SetupJaeger()
-	initialize.SetupNginx()
+	//initialize.SetupNginx()
 	initialize.Check()
 	config := global.Config.ServerConfig
 

@@ -104,9 +104,9 @@ services:
       - ETCD_NAME=default
 
 
-  UserRedis:
+  UserRedis1:
     image: redis:latest
-    container_name: UserRedis
+    container_name: UserRedis1
     ports:
       - "6379:6379"
     restart: unless-stopped
@@ -114,13 +114,34 @@ services:
       - User_redis:/data
       - /home/redis/conf/redis.conf:/etc/redis/redis.conf
     command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
-
-
-  ShopRedis:
+  UserRedis2:
     image: redis:latest
-    container_name: ShopRedis
+    container_name: UserRedis2
+    ports:
+      - "26379:6379"
+    restart: unless-stopped
+    volumes:
+      - User_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
+
+
+  ShopRedis1:
+    image: redis:latest
+    container_name: ShopRedis1
     ports:
       - "6380:6379"
+    restart: unless-stopped
+    volumes:
+      - Shop_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "root" ]
+
+  ShopRedis2:
+    image: redis:latest
+    container_name: ShopRedis2
+    ports:
+      - "26380:6379"
     restart: unless-stopped
     volumes:
       - Shop_redis:/data
@@ -181,7 +202,6 @@ services:
       - D:\电商\testapp\nginx\nginx.conf:/etc/nginx/nginx.conf:ro
       - D:\电商\testapp\nginx\index.html:/usr/share/nginx/html/index.html:ro
       - D:\电商\testapp\nginx\50x.html:/usr/share/nginx/html/50x.html:ro
-
 
 
 

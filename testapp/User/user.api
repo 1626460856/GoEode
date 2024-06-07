@@ -7,44 +7,50 @@ info (
 )
 
 type (
-	//注册结构体
+	// 注册结构体
 	RegisterReq {
 		UserName string `json:"UserName"` // 用户名
 		PassWord string `json:"PassWord"` // 用户密码，MD5加密
 		UserNick string `json:"UserNick"` // 用户昵称
 	}
-	//登录结构体
+
+	// 登录结构体
 	LoginReq {
 		UserName string `json:"UserName"` // 用户名
 		PassWord string `json:"PassWord"` // 用户密码，MD5加密
 	}
-	//请求用户信息的空结构体
+
+	// 请求用户信息的空结构体
 	UserInfoReq struct{}
-	//获取的用户信息响应的结构体
+
+	// 获取的用户信息响应的结构体
 	UserInfoResply {
 		Code    int64         `json:"Code"`
 		Message string        `json:"Message"`
 		Data    *UserInfoItem `json:"Data"`
 	}
-	//用户信息存储结构体
+
+	// 用户信息存储结构体
 	UserInfoItem {
-		UserIdentity string `json:"UserIdentity"` // 用户身份唯一表哦是
+		UserIdentity string `json:"UserIdentity"` // 用户身份唯一标识
 		UserName     string `json:"UserName"`     // 用户名
 		UserNick     string `json:"UserNick"`     // 用户昵称
 	}
-	//通用的响应结构体
+
+	// 通用的响应结构体
 	CommonResply {
 		Code    int64  `json:"Code"`
 		Message string `json:"Message"`
 		Data    string `json:"Data"`
 	}
 )
-//为该服务中的所有 API 路径添加一个统一的前缀/account
+
+// 为该服务中的所有 API 路径添加一个统一的前缀 /account
 @server(
-	prefix: account
+	prefix: /account
 )
 
-service user-api{
+service user-api {
 	@doc (
 		summary: "用户注册"
 	)
@@ -58,15 +64,15 @@ service user-api{
 	post /login (LoginReq) returns (CommonResply)
 }
 
-////为该服务中的所有 API 路径添加一个jwt令牌认证前缀
+// 为该服务中的所有 API 路径添加一个 jwt 令牌认证前缀
 @server(
 	jwt: Auth
 )
 
-service user-api{
+service user-api {
 	@doc (
 		summary: "获取用户信息"
 	)
 	@handler getuserInfo
-	post /getuserinfo (UserInfoReq) returns (UserInfoResply)
+	get /getuserinfo (UserInfoReq) returns (UserInfoResply)
 }
