@@ -24,8 +24,9 @@ type Config struct {
 
 // DatabaseConfig 结构体用来描述数据库配置
 type DatabaseConfig struct {
-	MysqlConfig `mapstructure:"mysql" json:"mysql"`
-	RedisConfig `mapstructure:"redis" json:"redis"`
+	MysqlConfig  `mapstructure:"mysql" json:"mysql"`
+	Redis1Config `mapstructure:"redis1" json:"redis1"`
+	Redis2Config `mapstructure:"redis2" json:"redis2"`
 }
 
 // ServerConfig 结构体用来描述服务器配置
@@ -75,8 +76,19 @@ type MysqlConfig struct {
 	MaxOpenConns    int           `mapstructure:"maxOpenConns"`
 }
 
-// RedisConfig 结构体用来描述Redis数据库配置
-type RedisConfig struct {
+// RedisConfig 结构体用来描述Redis1数据库配置
+type Redis1Config struct {
+	Address         string        `mapstructure:"address"`
+	Port            int           `mapstructure:"port"`
+	Password        string        `mapstructure:"password"`
+	ConnMaxIdleTime time.Duration `mapstructure:"connMaxIdleTime"`
+	ConnMaxLifeTime time.Duration `mapstructure:"connMaxLifeTime"`
+	MaxIdleConns    int           `mapstructure:"maxIdleConns"`
+	MaxOpenConns    int           `mapstructure:"maxOpenConns"`
+}
+
+// RedisConfig 结构体用来描述Redis1数据库配置
+type Redis2Config struct {
 	Address         string        `mapstructure:"address"`
 	Port            int           `mapstructure:"port"`
 	Password        string        `mapstructure:"password"`
@@ -90,7 +102,10 @@ type EtcdConfig struct {
 	Endpoints []string `mapstructure:"endpoints"`
 }
 
-func (r *RedisConfig) GetDsn() string {
+func (r *Redis1Config) GetDsn() string {
+	return fmt.Sprintf("%s:%d", r.Address, r.Port)
+}
+func (r *Redis2Config) GetDsn() string {
 	return fmt.Sprintf("%s:%d", r.Address, r.Port)
 }
 

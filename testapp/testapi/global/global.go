@@ -19,8 +19,10 @@ var ( //这个全局变量用来记录日志，将Config和Logger定义为全局
 	Logger        *zap.Logger
 	UserMysqlDB   *sql.DB
 	ShopMysqlDB   *sql.DB
-	UserRedisDB   *redis.Client
-	ShopRedisDB   *redis.Client
+	UserRedis1DB  *redis.Client
+	UserRedis2DB  *redis.Client
+	ShopRedis1DB  *redis.Client
+	ShopRedis2DB  *redis.Client
 	EtcdClient    *clientv3.Client
 	KafkaBrokers  []string
 	ZookeeperConn *zk.Conn

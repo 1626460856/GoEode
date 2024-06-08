@@ -17,9 +17,17 @@ userdatabase:
     place: Asia%2FShanghai
     maxIdleConns: 10
     maxOpenConns: 5
-  redis:
+  redis1:
     address: localhost
     port: 6379
+    password: 123awzsex
+    connMaxIdleTime: 1h
+    connMaxLifeTime: 1h
+    maxIdleConns: 10
+    maxOpenConns: 5
+  redis2:
+    address: localhost
+    port: 26379
     password: 123awzsex
     connMaxIdleTime: 1h
     connMaxLifeTime: 1h
@@ -39,7 +47,7 @@ shopdatabase:
     place: Asia%2FShanghai
     maxIdleConns: 10
     maxOpenConns: 5
-  redis:
+  redis1:
     address: localhost
     port: 6380
     password: root
@@ -47,7 +55,14 @@ shopdatabase:
     connMaxLifeTime: 1h
     maxIdleConns: 10
     maxOpenConns: 5
-
+  redis2:
+    address: localhost
+    port: 26380
+    password: root
+    connMaxIdleTime: 1h
+    connMaxLifeTime: 1h
+    maxIdleConns: 10
+    maxOpenConns: 5
 server:
   host: localhost
   port: 8080

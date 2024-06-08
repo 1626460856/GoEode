@@ -65,7 +65,7 @@ func SetupMysql() {
 }
 func SetupRedis() {
 	// 从全局配置中获取Redis数据库的配置信息
-	config := global.Config.UserdataConfig.RedisConfig
+	config := global.Config.UserdataConfig.Redis1Config
 
 	// 创建一个Redis客户端
 	rdb := redis.NewClient(&redis.Options{
@@ -73,21 +73,42 @@ func SetupRedis() {
 		Password: config.Password, // 设置Redis密码
 	})
 
-	// 使用Ping操作检查与Redis服务器的连接
+	// 使用Ping操作检查与Redis1服务器的连接
 	ctx := context.Background()
 	_, err := rdb.Ping(ctx).Result()
 	if err != nil {
-		global.Logger.Fatal("连接到userRedis失败: " + err.Error())
+		global.Logger.Fatal("连接到userRedis1失败: " + err.Error())
 	}
 
 	// 将Redis客户端赋值给全局变量
-	global.UserRedisDB = rdb
+	global.UserRedis1DB = rdb
 
 	// 记录初始化成功消息
-	global.Logger.Info("初始化userRedis成功")
-
+	global.Logger.Info("初始化userRedis1成功")
 	// 从全局配置中获取Redis数据库的配置信息
-	config = global.Config.ShopdataConfig.RedisConfig
+	config2 := global.Config.UserdataConfig.Redis2Config
+
+	// 创建一个Redis客户端
+	rdb = redis.NewClient(&redis.Options{
+		Addr:     config2.GetDsn(), // 使用 GetDsn() 方法生成连接字符串
+		Password: config2.Password, // 设置Redis密码
+	})
+
+	// 使用Ping操作检查与Redis2服务器的连接
+	ctx = context.Background()
+	_, err = rdb.Ping(ctx).Result()
+	if err != nil {
+		global.Logger.Fatal("连接到userRedis2失败: " + err.Error())
+	}
+
+	// 将Redis客户端赋值给全局变量
+	global.UserRedis2DB = rdb
+
+	// 记录初始化成功消息
+	global.Logger.Info("初始化userRedis2成功")
+
+	// 从全局配置中获取Redis1数据库的配置信息
+	config = global.Config.ShopdataConfig.Redis1Config
 
 	// 创建一个Redis客户端
 	rdb = redis.NewClient(&redis.Options{
@@ -99,12 +120,33 @@ func SetupRedis() {
 	ctx = context.Background()
 	_, err = rdb.Ping(ctx).Result()
 	if err != nil {
-		global.Logger.Fatal("连接到shopRedis失败: " + err.Error())
+		global.Logger.Fatal("连接到shopRedis1失败: " + err.Error())
 	}
 
 	// 将Redis客户端赋值给全局变量
-	global.ShopRedisDB = rdb
+	global.ShopRedis1DB = rdb
 
 	// 记录初始化成功消息
-	global.Logger.Info("初始化shopRedis成功")
+	global.Logger.Info("初始化shopRedis1成功")
+	// 从全局配置中获取Redis2数据库的配置信息
+	config2 = global.Config.ShopdataConfig.Redis2Config
+
+	// 创建一个Redis客户端
+	rdb = redis.NewClient(&redis.Options{
+		Addr:     config2.GetDsn(), // 使用 GetDsn() 方法生成连接字符串
+		Password: config2.Password, // 设置Redis密码
+	})
+
+	// 使用Ping操作检查与Redis服务器的连接
+	ctx = context.Background()
+	_, err = rdb.Ping(ctx).Result()
+	if err != nil {
+		global.Logger.Fatal("连接到shopRedis2失败: " + err.Error())
+	}
+
+	// 将Redis客户端赋值给全局变量
+	global.ShopRedis2DB = rdb
+
+	// 记录初始化成功消息
+	global.Logger.Info("初始化shopRedis2成功")
 }

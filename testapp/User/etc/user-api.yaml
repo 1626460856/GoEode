@@ -1,3 +1,18 @@
-Name: user-api
-Host: 0.0.0.0
-Port: 8888
+name: user-api
+host: "127.0.0.1"
+port: 8080
+rest:
+  host: "127.0.0.1:8080"
+  read_timeout: 60
+  write_timeout: 60
+  max_concurrent: 100
+
+auth:
+  access_secret: "your_access_secret_key"
+  access_expire: 3600
+
+kafka:
+  brokers:
+    - "localhost:29092"
+    - "localhost:29093"
+    - "localhost:29094"

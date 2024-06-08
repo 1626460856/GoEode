@@ -47,28 +47,52 @@ func Check() {
 		}
 	}
 
-	// 检查 UserRedis 连接
-	if global.UserRedisDB == nil {
-		log.Fatal("UserRedisDB 未初始化")
+	// 检查 UserRedis1 连接
+	if global.UserRedis1DB == nil {
+		log.Fatal("UserRedis1DB 未初始化")
 	} else {
 		ctx := context.Background()
-		_, err := global.UserRedisDB.Ping(ctx).Result()
+		_, err := global.UserRedis1DB.Ping(ctx).Result()
 		if err != nil {
-			log.Fatal("无法连接到 UserRedis:", err)
+			log.Fatal("无法连接到 UserRedis1:", err)
 		} else {
-			fmt.Println("UserRedisDB 连接成功")
+			fmt.Println("UserRedis1DB 连接成功")
 		}
 	}
-	// 检查 ShopRedis 连接
-	if global.ShopRedisDB == nil {
-		log.Fatal("ShopRedisDB 未初始化")
+	// 检查 ShopRedis1 连接
+	if global.ShopRedis1DB == nil {
+		log.Fatal("ShopRedis1DB 未初始化")
 	} else {
 		ctx := context.Background()
-		_, err := global.ShopRedisDB.Ping(ctx).Result()
+		_, err := global.ShopRedis1DB.Ping(ctx).Result()
 		if err != nil {
-			log.Fatal("无法连接到 ShopRedis:", err)
+			log.Fatal("无法连接到 ShopRedis1:", err)
 		} else {
-			fmt.Println("ShopRedisDB 连接成功")
+			fmt.Println("ShopRedis1DB 连接成功")
+		}
+	}
+	// 检查 UserRedis2 连接
+	if global.UserRedis2DB == nil {
+		log.Fatal("UserRedis2DB 未初始化")
+	} else {
+		ctx := context.Background()
+		_, err := global.UserRedis2DB.Ping(ctx).Result()
+		if err != nil {
+			log.Fatal("无法连接到 UserRedi2:", err)
+		} else {
+			fmt.Println("UserRedis2DB 连接成功")
+		}
+	}
+	// 检查 ShopRedis2 连接
+	if global.ShopRedis2DB == nil {
+		log.Fatal("ShopRedis2DB 未初始化")
+	} else {
+		ctx := context.Background()
+		_, err := global.ShopRedis2DB.Ping(ctx).Result()
+		if err != nil {
+			log.Fatal("无法连接到 ShopRedis2:", err)
+		} else {
+			fmt.Println("ShopRedis2DB 连接成功")
 		}
 	}
 

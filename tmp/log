@@ -4603,3 +4603,72 @@
 [2024-06-07 18:23:58.303]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
 [2024-06-07 18:23:58.312]	D:/电商/testapp/testapi/internal/initialize/check.go:103	Zookeeper 连接正常
 [2024-06-07 18:23:58.316]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-08 09:49:29.421]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-08 09:49:29.481]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-08 09:49:29.494]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-08 09:49:29.498]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-08 09:49:29.505]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-08 09:49:29.509]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-08 09:49:29.517]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-08 09:49:29.583]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-08 09:49:30.144]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:39	Topic %s 成功备份testtopic
+[2024-06-08 09:49:30.146]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-08 09:49:30.237]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-08 09:49:30.247]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-08 09:49:30.367]	D:/电商/testapp/testapi/internal/initialize/check.go:127	Zookeeper 连接正常
+[2024-06-08 09:49:30.470]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-08 18:24:07.627]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-08 18:24:07.699]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-08 18:24:07.714]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-08 18:24:07.724]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-08 18:24:07.733]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-08 18:24:07.740]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-08 18:24:07.744]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-08 18:24:07.800]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-08 18:24:07.824]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-08 18:24:07.825]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-08 18:24:07.834]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-08 18:24:07.835]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-08 18:24:07.846]	D:/电商/testapp/testapi/internal/initialize/check.go:127	Zookeeper 连接正常
+[2024-06-08 18:24:07.853]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-08 19:33:10.958]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-08 19:33:11.000]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-08 19:33:11.009]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-08 19:33:11.014]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-08 19:33:11.020]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-08 19:33:11.026]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-08 19:33:11.030]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-08 19:33:11.094]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-08 19:33:11.114]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-08 19:33:11.248]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-08 19:33:11.256]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-08 19:33:11.256]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-08 19:33:11.263]	D:/电商/testapp/testapi/internal/initialize/check.go:127	Zookeeper 连接正常
+[2024-06-08 19:33:11.270]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
+[2024-06-08 21:44:31.222]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-08 21:44:31.289]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-08 21:44:31.306]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-08 21:44:31.312]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-08 21:44:31.319]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-08 21:44:31.325]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-08 21:44:31.332]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-08 21:44:31.397]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-08 21:44:31.441]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-08 21:44:31.576]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-08 21:44:31.588]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-08 21:44:31.589]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-08 21:44:31.600]	D:/电商/testapp/testapi/internal/initialize/check.go:129	Zookeeper 连接检查失败，状态: StateConnected
+[2024-06-08 21:44:48.630]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-08 21:44:48.664]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-08 21:44:48.673]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-08 21:44:48.679]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-08 21:44:48.684]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-08 21:44:48.689]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-08 21:44:48.695]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-08 21:44:48.764]	D:/电商/testapp/testapi/internal/initialize/etcd.go:35	初始化Etcd成功
+[2024-06-08 21:44:48.797]	D:/电商/testapp/testapi/internal/dao/kafka/CreateTopic.go:41	Topic %s 已经存在testtopic
+[2024-06-08 21:44:48.920]	D:/电商/testapp/testapi/internal/initialize/zookeeper.go:19	连接 Zookeeper 成功
+[2024-06-08 21:44:48.927]	D:/电商/testapp/testapi/internal/initialize/jaeger.go:32	初始化Jaeger成功
+[2024-06-08 21:44:48.928]	D:/电商/testapp/testapi/internal/initialize/check.go:24	Logger 已初始化
+[2024-06-08 21:44:48.935]	D:/电商/testapp/testapi/internal/initialize/check.go:127	Zookeeper 连接正常
+[2024-06-08 21:44:48.941]	D:/电商/testapp/testapi/main.go:150	初始化服务器成功	{"port": "localhost:8080"}
