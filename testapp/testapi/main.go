@@ -4,14 +4,11 @@ import (
 	"context"
 	"dianshang/testapp/testapi/global"
 	"dianshang/testapp/testapi/internal/initialize"
-	"dianshang/testapp/testapi/router"
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
+	"github.com/goccy/go-json"
 	"github.com/segmentio/kafka-go"
-	"go.uber.org/zap"
 	"log"
-	"strconv"
 	"time"
 )
 
@@ -136,21 +133,57 @@ func main() {
 	initialize.SetupViper()
 	initialize.SetupLogger()
 	initialize.SetupDataBase()
-	initialize.SetupEtcd()
+	//initialize.SetupEtcd()
 	initialize.SetupKafka()
-	initialize.SetupZookeeper()
-	initialize.SetupJaeger()
+	// 配置消费者
+	reader := kafka.NewReader(kafka.ReaderConfig{
+		Brokers:        global.KafkaBrokers,
+		Topic:          "RegisterReq",
+		CommitInterval: 1 * time.Second,
+		GroupID:        "group-id7",
+		StartOffset:    kafka.FirstOffset,
+	})
+
+	ctx := context.Background()
+
+	// 死循环一直读取消息
+	for {
+		message, err := reader.ReadMessage(ctx)
+		if err != nil {
+			fmt.Printf("读取kafka失败:%v\n", err)
+			break
+		}
+
+		// 解码消息
+		var msg Message
+		if err := json.Unmarshal(message.Value, &msg); err != nil {
+			fmt.Printf("解码消息失败:%v\n", err)
+			continue
+		}
+
+		// 打印解码后的消息
+		fmt.Printf("Received message: %+v\n", msg)
+		//time.Sleep(1 * time.Second)
+	}
+	//initialize.SetupZookeeper()
+	//initialize.SetupJaeger()
 	//initialize.SetupNginx()
-	initialize.Check()
-	config := global.Config.ServerConfig
+	//initialize.Check()
+	//config := global.Config.ServerConfig
 
 	// 设置 Gin 模式
-	gin.SetMode(config.Mode)
-	portStr := strconv.Itoa(config.Port)
-	global.Logger.Info("初始化服务器成功", zap.String("port", config.Host+":"+portStr))
-	err := router.InitRouter(portStr)
-	if err != nil {
-		global.Logger.Fatal("服务器启动失败," + err.Error())
-	}
+	//gin.SetMode(config.Mode)
+	//portStr := strconv.Itoa(config.Port)
+	//global.Logger.Info("初始化服务器成功", zap.String("port", config.Host+":"+portStr))
+	//err := router.InitRouter(portStr)
+	//if err != nil {
+	//global.Logger.Fatal("服务器启动失败," + err.Error())
+	//}
 
+}
+
+type Message struct {
+	UserName string `json:"UserName"`
+	PassWord string `json:"PassWord"`
+	UserNick string `json:"UserNick"`
 }

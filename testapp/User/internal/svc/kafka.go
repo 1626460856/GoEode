@@ -31,3 +31,22 @@ func (k *KafkaClient) SendMessage(topic string, message []byte) error {
 	_, _, err := k.Producer.SendMessage(msg)
 	return err
 }
+func (k *KafkaClient) SendMessage2(topic string, key string, message []byte, headers map[string]string) error {
+	var saramaHeaders []sarama.RecordHeader
+	for k, v := range headers {
+		saramaHeaders = append(saramaHeaders, sarama.RecordHeader{
+			Key:   []byte(k),
+			Value: []byte(v),
+		})
+	}
+
+	msg := &sarama.ProducerMessage{
+		Topic:   topic,
+		Key:     sarama.StringEncoder(key),
+		Value:   sarama.ByteEncoder(message),
+		Headers: saramaHeaders,
+	}
+
+	_, _, err := k.Producer.SendMessage(msg)
+	return err
+}

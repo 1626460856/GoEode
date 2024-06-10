@@ -1,0 +1,171 @@
+version: '3.8'
+
+services:
+  zoo1:
+    image: confluentinc/cp-zookeeper:7.3.2
+    container_name: zoo1
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka1:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: kafka1
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka1:9092,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+    depends_on:
+      - zoo1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kafka2:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: kafka2
+    ports:
+      - "9093:9093"
+      - "29093:29093"
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:29093
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka2:9093,OUTSIDE://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+    depends_on:
+      - zoo1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kafka3:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: kafka3
+    ports:
+      - "9094:9094"
+      - "29094:29094"
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9094,OUTSIDE://0.0.0.0:29094
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka3:9094,OUTSIDE://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+    depends_on:
+      - zoo1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - "9999:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:9092,kafka2:9093,kafka3:9094
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zoo1:2181
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+
+
+
+
+
+  UserRedis1:
+    image: redis:latest
+    container_name: UserRedis1
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    volumes:
+      - User_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
+  UserRedis2:
+    image: redis:latest
+    container_name: UserRedis2
+    ports:
+      - "26379:6379"
+    restart: unless-stopped
+    volumes:
+      - User_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "123awzsex" ]
+
+
+  ShopRedis1:
+    image: redis:latest
+    container_name: ShopRedis1
+    ports:
+      - "6380:6379"
+    restart: unless-stopped
+    volumes:
+      - Shop_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "root" ]
+
+  ShopRedis2:
+    image: redis:latest
+    container_name: ShopRedis2
+    ports:
+      - "26380:6379"
+    restart: unless-stopped
+    volumes:
+      - Shop_redis:/data
+      - /home/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server", "/etc/redis/redis.conf", "--requirepass", "root" ]
+
+
+  UserMysql:
+    image: mysql:latest
+    container_name: UserMysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123awzsex
+      MYSQL_DATABASE: test
+      TZ: Asia/Shanghai
+      MYSQL_CHARSET: utf8mb4
+    volumes:
+      - User_mysql:/var/lib/mysql
+
+
+  ShopMysql:
+    image: mysql:latest
+    container_name: ShopMysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      TZ: Asia/Shanghai
+      MYSQL_CHARSET: utf8mb4
+    volumes:
+      - Shop_mysql:/var/lib/mysql
+
+
+
+
+volumes:
+  User_redis:
+  Shop_redis:
+  User_mysql:
+  Shop_mysql:
