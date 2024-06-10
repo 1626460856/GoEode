@@ -163,7 +163,7 @@ func main() {
 
 		// 打印解码后的消息
 		fmt.Printf("Received message: %+v\n", msg)
-		//time.Sleep(1 * time.Second)
+		time.Sleep(1 * time.Second)
 	}
 	//initialize.SetupZookeeper()
 	//initialize.SetupJaeger()
