@@ -14,9 +14,10 @@ import (
 )
 
 type RegisterMessage struct { //注册kafka消息
-	UserName string `json:"UserName"`
-	PassWord string `json:"PassWord"`
-	UserNick string `json:"UserNick"`
+	UserName     string `json:"UserName"`
+	PassWord     string `json:"PassWord"`
+	UserNick     string `json:"UserNick"`
+	UserIdentity string `json:"UserIdentity"`
 }
 
 func ReadRegisterReq() { //读取注册kafka消息

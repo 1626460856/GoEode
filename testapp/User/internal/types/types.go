@@ -5,6 +5,7 @@ type RegisterReq struct {
 	UserName string `json:"UserName"` // 用户名
 	PassWord string `json:"PassWord"` // 用户密码，MD5加密
 	UserNick string `json:"UserNick"` // 用户昵称
+	UserIdentity string `json:"UserIdentity"` // 用户身份唯一标识
 }
 
 type LoginReq struct {
