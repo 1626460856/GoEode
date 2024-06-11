@@ -29,11 +29,11 @@ func CreateTopic(brokers []string, topic string, partitions int32, replicationFa
 			ReplicationFactor: replicationFactor,
 		}, false)
 		if err != nil {
-			global.Logger.Fatal("创建主题失败 %s: %v" + topic + err.Error())
+			global.Logger.Fatal("创建主题" + topic + "失败" + err.Error())
 		}
-		global.Logger.Info("Topic %s 成功备份" + topic)
+		global.Logger.Info(" 成功备份" + topic)
 	} else {
-		global.Logger.Info("Topic %s 已经存在" + topic)
+		global.Logger.Info("消息主题" + topic + "在kafka集群已经存在")
 	}
 }
 
@@ -45,5 +45,9 @@ func SetupKafka() {
 
 	// 创建主题
 	CreateTopic(global.KafkaBrokers, topic, 5, 3)
+	// 创建主题
+	CreateTopic(global.KafkaBrokers, "test1", 5, 3)
+	// 创建主题
+	CreateTopic(global.KafkaBrokers, "test2", 5, 3)
 
 }

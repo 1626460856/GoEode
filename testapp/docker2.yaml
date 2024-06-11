@@ -160,6 +160,15 @@ services:
       MYSQL_CHARSET: utf8mb4
     volumes:
       - Shop_mysql:/var/lib/mysql
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "29999:8080"
+    depends_on:
+      - UserMysql
+      - ShopMysql
+
 
 
 

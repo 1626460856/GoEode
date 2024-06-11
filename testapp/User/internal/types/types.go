@@ -28,7 +28,7 @@ type UserInfoItem struct {
 }
 
 type CommonResply struct {
-	Code    int64  `json:"Code"`
-	Message string `json:"Message"`
-	Data    string `json:"Data"`
+	Code    int64  `json:"Code"`     //回复码
+	Message string `json:"Message"`  //消息
+	Data    string `json:"Data"`     //数据
 }

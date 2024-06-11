@@ -43,6 +43,7 @@ type (
 		Message string `json:"Message"`
 		Data    string `json:"Data"`
 	}
+
 )
 
 // 为该服务中的所有 API 路径添加一个统一的前缀 /account

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"dianshang/testapp/testapi/global"
+	"dianshang/testapp/testapi/internal/dao/redis"
 	"dianshang/testapp/testapi/internal/initialize"
 	"errors"
 	"fmt"
@@ -11,6 +12,127 @@ import (
 	"log"
 	"time"
 )
+
+type RegisterMessage struct { //注册kafka消息
+	UserName string `json:"UserName"`
+	PassWord string `json:"PassWord"`
+	UserNick string `json:"UserNick"`
+}
+
+func ReadRegisterReq() { //读取注册kafka消息
+	// 配置消费者
+	reader := kafka.NewReader(kafka.ReaderConfig{
+		Brokers:        global.KafkaBrokers,
+		Topic:          "RegisterReq",
+		CommitInterval: 1 * time.Second,
+		GroupID:        "group-id8",
+		StartOffset:    kafka.FirstOffset,
+	})
+
+	ctx := context.Background()
+
+	// 死循环一直读取消息
+	for {
+		message, err := reader.ReadMessage(ctx)
+		if err != nil {
+			fmt.Printf("读取kafka失败:%v\n", err)
+			break
+		}
+
+		// 解码消息
+		var msg RegisterMessage
+		if err := json.Unmarshal(message.Value, &msg); err != nil {
+			fmt.Printf("解码消息失败:%v\n", err)
+			continue
+		}
+
+		// 打印解码后的消息
+		fmt.Printf("收到的信息 %s: %+v\n", "RegisterReq", msg)
+		time.Sleep(1 * time.Second)
+	}
+}
+
+func ReadTest1Req() { //读取注册kafka消息
+	// 配置消费者
+	reader := kafka.NewReader(kafka.ReaderConfig{
+		Brokers:        global.KafkaBrokers,
+		Topic:          "test1",
+		CommitInterval: 1 * time.Second,
+		GroupID:        "group-id8",
+		StartOffset:    kafka.FirstOffset,
+	})
+
+	ctx := context.Background()
+
+	// 死循环一直读取消息
+	for {
+		message, err := reader.ReadMessage(ctx)
+		if err != nil {
+			fmt.Printf("读取kafka失败:%v\n", err)
+			continue
+		}
+
+		// 打印解码后的消息
+		fmt.Printf("收到的信息 %s: Key=%s, Value=%s, Headers=%v\n", "test1", message.Key, message.Value, message.Headers)
+		time.Sleep(1 * time.Second)
+	}
+}
+func ReadTest2Req() { //读取注册kafka消息
+	// 配置消费者
+	reader := kafka.NewReader(kafka.ReaderConfig{
+		Brokers:        global.KafkaBrokers,
+		Topic:          "test2",
+		CommitInterval: 1 * time.Second,
+		GroupID:        "group-id8",
+		StartOffset:    kafka.FirstOffset,
+	})
+
+	ctx := context.Background()
+
+	// 死循环一直读取消息
+	for {
+		message, err := reader.ReadMessage(ctx)
+		if err != nil {
+			fmt.Printf("读取kafka失败:%v\n", err)
+			continue
+		}
+
+		// 打印解码后的消息
+		fmt.Printf("收到的信息 %s: %+v\n", "test2", message)
+		time.Sleep(1 * time.Second)
+	}
+}
+func main() {
+	initialize.SetupViper()
+	initialize.SetupLogger()
+	initialize.SetupDataBase()
+	redis.AddToSet("UserName", "test") //用来验证是否重复注册
+	//initialize.SetupEtcd()
+	initialize.SetupKafka()
+
+	// 为每个 topic 启动一个新的 goroutine
+	go ReadRegisterReq()
+	go ReadTest1Req()
+	go ReadTest2Req()
+	// 阻塞主 goroutine，让其他 goroutine 有机会执行
+	select {}
+	fmt.Printf("success")
+	//initialize.SetupZookeeper()
+	//initialize.SetupJaeger()
+	//initialize.SetupNginx()
+	//initialize.Check()
+	//config := global.Config.ServerConfig
+
+	// 设置 Gin 模式
+	//gin.SetMode(config.Mode)
+	//portStr := strconv.Itoa(config.Port)
+	//global.Logger.Info("初始化服务器成功", zap.String("port", config.Host+":"+portStr))
+	//err := router.InitRouter(portStr)
+	//if err != nil {
+	//global.Logger.Fatal("服务器启动失败," + err.Error())
+	//}
+
+}
 
 var (
 	reader *kafka.Reader
@@ -127,63 +249,4 @@ func readKafka(ctx context.Context) {
 			fmt.Printf("topic=%s,partition=%s,offset=%d,key=%d,value=%d", message.Topic, message.Partition, message.Offset, message.Key, message.Value)
 		}
 	}
-}
-
-func main() {
-	initialize.SetupViper()
-	initialize.SetupLogger()
-	initialize.SetupDataBase()
-	//initialize.SetupEtcd()
-	initialize.SetupKafka()
-	// 配置消费者
-	reader := kafka.NewReader(kafka.ReaderConfig{
-		Brokers:        global.KafkaBrokers,
-		Topic:          "RegisterReq",
-		CommitInterval: 1 * time.Second,
-		GroupID:        "group-id7",
-		StartOffset:    kafka.FirstOffset,
-	})
-
-	ctx := context.Background()
-
-	// 死循环一直读取消息
-	for {
-		message, err := reader.ReadMessage(ctx)
-		if err != nil {
-			fmt.Printf("读取kafka失败:%v\n", err)
-			break
-		}
-
-		// 解码消息
-		var msg Message
-		if err := json.Unmarshal(message.Value, &msg); err != nil {
-			fmt.Printf("解码消息失败:%v\n", err)
-			continue
-		}
-
-		// 打印解码后的消息
-		fmt.Printf("Received message: %+v\n", msg)
-		time.Sleep(1 * time.Second)
-	}
-	//initialize.SetupZookeeper()
-	//initialize.SetupJaeger()
-	//initialize.SetupNginx()
-	//initialize.Check()
-	//config := global.Config.ServerConfig
-
-	// 设置 Gin 模式
-	//gin.SetMode(config.Mode)
-	//portStr := strconv.Itoa(config.Port)
-	//global.Logger.Info("初始化服务器成功", zap.String("port", config.Host+":"+portStr))
-	//err := router.InitRouter(portStr)
-	//if err != nil {
-	//global.Logger.Fatal("服务器启动失败," + err.Error())
-	//}
-
-}
-
-type Message struct {
-	UserName string `json:"UserName"`
-	PassWord string `json:"PassWord"`
-	UserNick string `json:"UserNick"`
 }

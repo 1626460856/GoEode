@@ -10,12 +10,6 @@ type ServiceContext struct {
 	KafkaClient *KafkaClient
 }
 
-var KafkaBrokers = []string{
-	"localhost:29092",
-	"localhost:29093",
-	"localhost:29094",
-}
-
 // NewServiceContext 用于创建并初始化一个新的 ServiceContext 实例
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
