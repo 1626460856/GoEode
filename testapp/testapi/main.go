@@ -47,12 +47,8 @@ func ReadRegisterReq() { //读取注册kafka消息
 			fmt.Printf("解码消息失败:%v\n", err)
 			continue
 		}
-		//UserName := msg.UserName
-		//PassWord := msg.PassWord
-		//UserNick := msg.UserNick
-		//UserIdentity := msg.UserIdentity
-		//var balance float64 = 0
-		//global.UserMysqlDB * sql.DB创建一个表格
+		mysql.AddUserInMysql(context.Background(), msg.UserName, msg.PassWord, msg.UserNick, msg.UserIdentity, 0)
+		redis.AddUserInRedis(context.Background(), msg.UserName, msg.PassWord, msg.UserNick, msg.UserIdentity, 0)
 		// 打印解码后的消息
 		fmt.Printf("收到的信息 %s: %+v\n", "RegisterReq", msg)
 		time.Sleep(1 * time.Second)
@@ -114,7 +110,13 @@ func main() {
 	initialize.SetupLogger()
 	initialize.SetupDataBase()
 	redis.AddToSet("UserName", "test") //用userredis2来验证是否重复注册
-	mysql.CreateRegisterUsersTable()
+	mysql.CreateRegisterUsersTable()   //用来存储用户登录信息
+	redis.AddUserInRedis(context.Background(), "test1", "1234567", "test", "test", 0)
+	redis.AddUserInRedis(context.Background(), "test2", "123456", "test", "test", 0)
+	redis.AddUserInRedis(context.Background(), "test3", "1234566", "test", "test", 0)
+	mysql.UpdateMysqlFromRedis()
+	mysql.AddUserInMysql(context.Background(), "test4", "1234567", "test", "test", 0)
+	redis.UpdateRedisFromMysql()
 	//initialize.SetupEtcd()
 	initialize.SetupKafka()
 

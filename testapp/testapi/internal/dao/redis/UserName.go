@@ -23,7 +23,7 @@ func CreateUserNameSet() {
 func AddToSet(setName string, value string) error {
 	ctx := context.Background()
 	// 使用 SAdd 命令添加元素到集合，它会返回添加的元素数量
-	added, err := global.UserRedis1DB.SAdd(ctx, setName, value).Result()
+	added, err := global.UserRedis2DB.SAdd(ctx, setName, value).Result()
 	if err != nil {
 		return err
 	}

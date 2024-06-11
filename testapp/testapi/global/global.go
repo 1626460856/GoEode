@@ -19,8 +19,8 @@ var ( //这个全局变量用来记录日志，将Config和Logger定义为全局
 	Logger        *zap.Logger
 	UserMysqlDB   *sql.DB
 	ShopMysqlDB   *sql.DB
-	UserRedis1DB  *redis.Client //这个实例来做一个简单的用户名集合，验证是否重复
-	UserRedis2DB  *redis.Client
+	UserRedis1DB  *redis.Client
+	UserRedis2DB  *redis.Client //这个实例来做一个简单的用户名集合，验证是否重复
 	ShopRedis1DB  *redis.Client
 	ShopRedis2DB  *redis.Client
 	EtcdClient    *clientv3.Client
