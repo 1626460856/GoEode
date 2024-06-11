@@ -2,6 +2,7 @@
 package handler
 
 import (
+	"dianshang/testapp/User/middleware"
 	"net/http"
 
 	"dianshang/testapp/User/internal/svc"
@@ -30,10 +31,9 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodGet,
-				Path:    "/getuserinfo",
-				Handler: getuserInfoHandler(serverCtx),
+				Path:    "/account/getuserinfo",
+				Handler: middleware.JWTAuthMiddleware(getuserInfoHandler(serverCtx)),
 			},
 		},
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
 	)
 }

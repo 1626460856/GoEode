@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-var Secret = []byte("dianshang")
+var Secret = []byte("Eode")
 
 // JWTAuthMiddleware 基于JWT的认证中间件
 func JWTAuthMiddleware() func(c *gin.Context) {
