@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"dianshang/testapp/testapi/global"
+	"dianshang/testapp/testapi/internal/dao/mysql"
 	"dianshang/testapp/testapi/internal/dao/redis"
 	"dianshang/testapp/testapi/internal/initialize"
 	"errors"
@@ -46,7 +47,12 @@ func ReadRegisterReq() { //读取注册kafka消息
 			fmt.Printf("解码消息失败:%v\n", err)
 			continue
 		}
-
+		//UserName := msg.UserName
+		//PassWord := msg.PassWord
+		//UserNick := msg.UserNick
+		//UserIdentity := msg.UserIdentity
+		//var balance float64 = 0
+		//global.UserMysqlDB * sql.DB创建一个表格
 		// 打印解码后的消息
 		fmt.Printf("收到的信息 %s: %+v\n", "RegisterReq", msg)
 		time.Sleep(1 * time.Second)
@@ -107,7 +113,8 @@ func main() {
 	initialize.SetupViper()
 	initialize.SetupLogger()
 	initialize.SetupDataBase()
-	redis.AddToSet("UserName", "test") //用来验证是否重复注册
+	redis.AddToSet("UserName", "test") //用userredis2来验证是否重复注册
+	mysql.CreateRegisterUsersTable()
 	//initialize.SetupEtcd()
 	initialize.SetupKafka()
 
