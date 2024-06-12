@@ -1,0 +1,14 @@
+Name: shop
+Host: "127.0.0.1"
+Port: 8081
+rest:
+  host: "127.0.0.1:8081"
+  read_timeout: 60
+  write_timeout: 60
+  max_concurrent: 100
+
+kafka:
+  brokers:
+    - "localhost:29092"
+    - "localhost:29093"
+    - "localhost:29094"
