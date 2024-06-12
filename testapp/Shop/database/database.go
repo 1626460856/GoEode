@@ -120,3 +120,45 @@ func GetRedisUserByUsername(RedisDB *redis.Client, username string) (RedisUser, 
 
 	return user, nil
 }
+
+type Product struct {
+	Id          int     `json:"id"`          // 哈希key键
+	Name        string  `json:"name"`        // 商品名称
+	Description string  `json:"description"` // 商品描述
+	Price       float64 `json:"price"`       // 商品价格
+	Stock       int     `json:"stock"`       // 商品库存
+	Boss        string  `json:"boss"`        // 商品所属
+}
+
+func GetProductById(rdb *redis.Client, id int) (Product, error) {
+	ctx := context.Background()
+
+	// 从哈希中获取商品信息
+	result, err := rdb.HGetAll(ctx, strconv.Itoa(id)).Result()
+	if err != nil {
+		return Product{}, fmt.Errorf("从 Redis 获取商品失败: %v", err)
+	}
+
+	// 将获取的数据赋值给 Product 结构体的字段
+	product := Product{
+		Id:          id,
+		Name:        result["name"],
+		Description: result["description"],
+	}
+
+	// 将字符串转换为 float64
+	product.Price, err = strconv.ParseFloat(result["price"], 64)
+	if err != nil {
+		return Product{}, fmt.Errorf("解析价格失败: %v", err)
+	}
+
+	// 将字符串转换为 int
+	product.Stock, err = strconv.Atoi(result["stock"])
+	if err != nil {
+		return Product{}, fmt.Errorf("解析库存失败: %v", err)
+	}
+
+	product.Boss = result["boss"]
+
+	return product, nil
+}

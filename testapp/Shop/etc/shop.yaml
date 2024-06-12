@@ -7,6 +7,10 @@ rest:
   write_timeout: 60
   max_concurrent: 100
 
+auth:
+  access_secret: "Eode"
+  access_expire: 3600
+
 kafka:
   brokers:
     - "localhost:29092"

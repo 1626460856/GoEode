@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"dianshang/testapp/testapi/global"
 	"dianshang/testapp/testapi/internal/dao/mysql"
 	"dianshang/testapp/testapi/internal/dao/redis"
 	"dianshang/testapp/testapi/internal/initialize"
@@ -17,21 +18,28 @@ func main() {
 	initialize.SetupViper()
 	initialize.SetupLogger()
 	initialize.SetupDataBase()
-	redis.AddToSet("UserName", "test") //用userredis2来验证是否重复注册
-	mysql.CreateRegisterUsersTable()   //用来存储用户登录信息
-	redis.AddUserInRedis(context.Background(), "test1", "1234567", "test", "test", 0)
-	redis.AddUserInRedis(context.Background(), "test2", "123456", "test", "test", 0)
-	redis.AddUserInRedis(context.Background(), "test3", "1234566", "test", "test", 0)
-	mysql.UpdateMysqlFromRedis()
-	mysql.AddUserInMysql(context.Background(), "test4", "1234567", "test", "test", 0)
-	redis.UpdateRedisFromMysql()
+	redis.AddToSet("UserName", "test") //用userredis2来验证是否重复注册 存储在userredis2中的UserName集合
+	mysql.CreateRegisterUsersTable()   //用来存储用户登录信息 存储在userredis1
+	mysql.CreateProductListTable()     //用来存储商品信息 存储在shopmysql
+	//mysql.AddProduct(global.ShopMysqlDB, "test", "test", 1.0, 1, "username") //添加商品
+	product, _ := mysql.GetProductById(global.ShopMysqlDB, 1) //获取单个商品
+	redis.AddProductInRedis(context.Background(), global.ShopRedis1DB, product.Id, product.Name, product.Description, product.Price, product.Stock, product.Boss)
+	//redis.AddUserInRedis(context.Background(),global.UserRedis1DB, "test1", "1234567", "test", "test", 0)
+	//redis.AddUserInRedis(context.Background(),global.UserRedis1DB, "test2", "123456", "test", "test", 0)
+	//redis.AddUserInRedis(context.Background(), global.UserRedis1DB,"test3", "1234566", "test", "test", 0)
+	mysql.UpdateMysqlRegisterUsersFromRedis(global.UserRedis1DB, global.UserMysqlDB)
+	//mysql.AddUserInMysql(context.Background(), "test4", "1234567", "test", "test", 0)
+	redis.UpdateRedisRegisterUsersFromMysql(global.UserRedis1DB, global.UserMysqlDB)
+	mysql.UpdateMysqlProductListFromRedis(global.ShopRedis1DB, global.ShopMysqlDB)
+	redis.UpdateRedisProductListFromMysql(global.ShopMysqlDB, global.ShopRedis1DB)
 	//initialize.SetupEtcd()
 	initialize.SetupKafka()
 
 	// 为每个 topic 启动一个新的 goroutine
 	go kafkaread.ReadRegisterReq()
-	go kafkaread.ReadTest1Req()
-	go kafkaread.ReadTest2Req()
+	//go kafkaread.ReadTest1Req()
+	//go kafkaread.ReadTest2Req()
+	go kafkaread.ReadAddProductReq()
 	// 阻塞主 goroutine，让其他 goroutine 有机会执行
 	select {}
 	fmt.Printf("success")

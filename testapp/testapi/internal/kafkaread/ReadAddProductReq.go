@@ -11,20 +11,21 @@ import (
 	"time"
 )
 
-type RegisterMessage struct { //注册kafka消息
-	UserName     string `json:"UserName"`
-	PassWord     string `json:"PassWord"`
-	UserNick     string `json:"UserNick"`
-	UserIdentity string `json:"UserIdentity"`
+type AddProductMessage struct { //添加商品kafka消息
+	Name        string  `json:"Name"`        // 商品名称
+	Description string  `json:"Description"` // 商品描述
+	Price       float64 `json:"Price"`       // 商品价格
+	Stock       int     `json:"Stock"`       // 商品库存
+	Boss        string  `json:"Boss"`        // 商品所属
 }
 
-func ReadRegisterReq() { //读取注册kafka消息
+func ReadAddProductReq() { //读取添加商品kafka消息
 	// 配置消费者
 	reader := kafka.NewReader(kafka.ReaderConfig{
 		Brokers:        global.KafkaBrokers,
-		Topic:          "Register",
+		Topic:          "AddProduct",
 		CommitInterval: 1 * time.Second,
-		GroupID:        "ReadRegisterReq",
+		GroupID:        "ReadAddProductReq",
 		StartOffset:    kafka.FirstOffset,
 	})
 
@@ -39,13 +40,13 @@ func ReadRegisterReq() { //读取注册kafka消息
 		}
 
 		// 解码消息
-		var msg RegisterMessage
+		var msg AddProductMessage
 		if err := json.Unmarshal(message.Value, &msg); err != nil {
 			fmt.Printf("解码消息失败:%v\n", err)
 			continue
 		}
-		mysql.AddUserInMysql(context.Background(), global.UserMysqlDB, msg.UserName, msg.PassWord, msg.UserNick, msg.UserIdentity, 0)
-		redis.AddUserInRedis(context.Background(), global.UserRedis1DB, msg.UserName, msg.PassWord, msg.UserNick, msg.UserIdentity, 0)
+		id, _ := mysql.AddProductInMysql(global.ShopMysqlDB, msg.Name, msg.Description, msg.Price, msg.Stock, msg.Boss)
+		redis.AddProductInRedis(context.Background(), global.ShopRedis1DB, id, msg.Name, msg.Description, msg.Price, msg.Stock, msg.Boss)
 		// 打印解码后的消息
 		fmt.Printf("收到的信息 %s: %+v\n", "RegisterReq", msg)
 		time.Sleep(1 * time.Second)

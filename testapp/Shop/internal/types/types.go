@@ -2,24 +2,24 @@
 package types
 
 type Product struct {
-	Id          string  `json:"id"`          // 商品ID根据kafka消息交互mysql自增键生成
-	Name        string  `json:"name"`        // 商品名称
-	Description string  `json:"description"` // 商品描述
-	Price       float64 `json:"price"`       // 商品价格
-	Stock       int     `json:"stock"`       // 商品库存
-	Boss        string  `json:"boss"`        // 商品所属
+	Id          int  `json:"id"`          // 商品ID根据kafka消息交互mysql自增键生成
+	Name        string  `json:"Name"`        // 商品名称
+	Description string  `json:"Description"` // 商品描述
+	Price       float64 `json:"Price"`       // 商品价格
+	Stock       int     `json:"Stock"`       // 商品库存
+	Boss        string  `json:"Boss"`        // 商品所属
 }
 
 type AddProductReq struct {
-	Name        string  `json:"name"`        // 商品名称
-	Description string  `json:"description"` // 商品描述
-	Price       float64 `json:"price"`       // 商品价格
-	Stock       int     `json:"stock"`       // 商品库存
-	Boss        string  `json:"boss"`        // 商品所属
+	Name        string  `json:"Name"`        // 商品名称
+	Description string  `json:"Description"` // 商品描述
+	Price       float64 `json:"Price"`       // 商品价格
+	Stock       int     `json:"Stock"`       // 商品库存
+	Boss        string  `json:"Boss"`        // 商品所属
 }
 
 type GetProductReq struct {
-	Id string `json:"id"` // 传入商品ID获取单个商品
+	Id int `json:"id" ` // 传入商品ID获取单个商品
 }
 
 type RefreshProductsReq struct {
@@ -29,4 +29,9 @@ type CommonResply struct {
 	Code    int64  `json:"Code"`
 	Message string `json:"Message"`
 	Data    string `json:"Data"`
+}
+type RefreshProductsResply struct {
+	Code    int64  `json:"Code"`
+	Message string `json:"Message"`
+	Data    []Product `json:"Data"`
 }

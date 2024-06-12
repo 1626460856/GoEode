@@ -8,7 +8,7 @@ info (
 
 type (
 	Product {
-		Id          string  `json:"id"`          // 商品ID根据kafka消息交互mysql自增键生成
+		Id          int  `json:"id"`          // 商品ID根据kafka消息交互mysql自增键生成
 		Name        string  `json:"name"`        // 商品名称
 		Description string  `json:"description"` // 商品描述
 		Price       float64 `json:"price"`       // 商品价格
@@ -25,7 +25,7 @@ type (
 	}
 
 	GetProductReq {
-		Id string `json:"id"` // 传入商品ID获取单个商品
+		Id int `json:"id"` // 传入商品ID获取单个商品
 	}
 
 	RefreshProductsReq struct{}
@@ -34,6 +34,11 @@ type (
 		Code    int64  `json:"Code"`
 		Message string `json:"Message"`
 		Data    string `json:"Data"`
+	}
+	RefreshProductsResply { // 刷新商品列表的响应结构体
+		Code    int64  `json:"Code"`
+		Message string `json:"Message"`
+		Data    []Product `json:"Data"`
 	}
 )
 
@@ -46,17 +51,17 @@ service shop {
 		summary: "添加商品"
 	)
 	@handler AddProduct
-	post /addproduct (AddProductReq) returns (CommonResply)
+	post /shop/addproduct (AddProductReq) returns (CommonResply)
 
 	@doc (
 		summary: "获取商品信息"
 	)
 	@handler GetProduct
-	get /getproduct (GetProductReq) returns (Product)
+	get /shop/getproduct (GetProductReq) returns (Product)
 
 	@doc (
 		summary: "刷新商品列表"
 	)
 	@handler RefreshProducts
-	get /refreshproducts (RefreshProductsReq) returns (CommonResply)
+	get /shop/refreshproducts (RefreshProductsReq) returns (RefreshProductsResply)
 }

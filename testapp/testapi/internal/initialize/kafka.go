@@ -39,14 +39,13 @@ func CreateTopic(brokers []string, topic string, partitions int32, replicationFa
 
 func SetupKafka() {
 	// 创建用户主题名称
-	topic := "RegisterReq"
 	brokers := global.Config.KafkaConfig.Brokers
 	global.KafkaBrokers = brokers
 
 	// 创建主题
-	CreateTopic(global.KafkaBrokers, topic, 5, 3)
+	CreateTopic(global.KafkaBrokers, "RegisterReq", 5, 3)
 	// 创建主题
-	CreateTopic(global.KafkaBrokers, "test1", 5, 3)
+	CreateTopic(global.KafkaBrokers, "AddProduct", 5, 3)
 	// 创建主题
 	CreateTopic(global.KafkaBrokers, "test2", 5, 3)
 

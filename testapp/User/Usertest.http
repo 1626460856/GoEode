@@ -21,6 +21,6 @@ Content-Type: application/json
 ### 获取用户信息（需要 JWT 认证）
 GET http://localhost:8080/account/getuserinfo HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgxODE3NjEsInVzZXJuYW1lIjoicWlhbjMifQ.mb48TzJlbcXh83dQPCejyZwPOJbhujs1eZqSy1G52ic
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyMDcyMjEsInVzZXJuYW1lIjoicWlhbjMifQ.VaBalSXuwaFFoCskQ1fYITNUIhFHzVEuckh4-ln8dAg
 
 {}

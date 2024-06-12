@@ -2,6 +2,7 @@
 package handler
 
 import (
+	"dianshang/testapp/Shop/middleware"
 	"net/http"
 
 	"dianshang/testapp/Shop/internal/svc"
@@ -14,20 +15,19 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/addproduct",
-				Handler: AddProductHandler(serverCtx),
+				Path:    "/shop/addproduct",
+				Handler: middleware.JWTAuthMiddleware(AddProductHandler(serverCtx)),
 			},
 			{
 				Method:  http.MethodGet,
-				Path:    "/getproduct",
-				Handler: GetProductHandler(serverCtx),
+				Path:    "/shop/getproduct",
+				Handler: middleware.JWTAuthMiddleware(GetProductHandler(serverCtx)),
 			},
 			{
 				Method:  http.MethodGet,
-				Path:    "/refreshproducts",
-				Handler: RefreshProductsHandler(serverCtx),
+				Path:    "/shop/refreshproducts",
+				Handler: middleware.JWTAuthMiddleware(RefreshProductsHandler(serverCtx)),
 			},
 		},
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
 	)
 }

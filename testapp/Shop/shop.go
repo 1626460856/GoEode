@@ -13,7 +13,7 @@ import (
 	"github.com/zeromicro/go-zero/rest"
 )
 
-var configFile = flag.String("f", "etc/shop.yaml", "the config file")
+var configFile = flag.String("f", "D:/电商/testapp/Shop/etc/shop.yaml", "the config file")
 
 func main() {
 	flag.Parse()
@@ -21,7 +21,7 @@ func main() {
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
 	// 检查UserMySQLDB是否初始化
-	err := database.UserMySQLDB.Ping()
+	err := database.ShopMySQLDB.Ping()
 	if err != nil {
 		fmt.Printf("Failed to connect to MySQL database: %v\n", err)
 		return

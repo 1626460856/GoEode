@@ -1,7 +1,9 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
+	"strconv"
 
 	"dianshang/testapp/Shop/internal/logic"
 	"dianshang/testapp/Shop/internal/svc"
@@ -11,10 +13,21 @@ import (
 
 func GetProductHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.GetProductReq
-		if err := httpx.Parse(r, &req); err != nil {
-			httpx.ErrorCtx(r.Context(), w, err)
+		// 从 URL 查询参数中获取 id
+		idStr := r.URL.Query().Get("id")
+		if idStr == "" {
+			httpx.ErrorCtx(r.Context(), w, fmt.Errorf("id is missing"))
 			return
+		}
+
+		id, err := strconv.Atoi(idStr)
+		if err != nil {
+			httpx.ErrorCtx(r.Context(), w, fmt.Errorf("invalid id"))
+			return
+		}
+
+		req := types.GetProductReq{
+			Id: id,
 		}
 
 		l := logic.NewGetProductLogic(r.Context(), svcCtx)

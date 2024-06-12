@@ -2,14 +2,15 @@ package redis
 
 import (
 	"context"
-	"dianshang/testapp/testapi/global"
+	"database/sql"
 	"fmt"
+	"github.com/go-redis/redis/v8"
 	"log"
 )
 
 // AddUserInRedis 新增或更新单个数据的哈希值
-func AddUserInRedis(ctx context.Context, username, password, usernick, userIdentity string, balance float64) error {
-	err := global.UserRedis1DB.HSet(ctx, username, map[string]interface{}{
+func AddUserInRedis(ctx context.Context, UserRedis1DB *redis.Client, username, password, usernick, userIdentity string, balance float64) error {
+	err := UserRedis1DB.HSet(ctx, username, map[string]interface{}{
 		"password":     password,
 		"usernick":     usernick,
 		"userIdentity": userIdentity,
@@ -23,12 +24,12 @@ func AddUserInRedis(ctx context.Context, username, password, usernick, userIdent
 	return nil
 }
 
-// UpdateRedisFromMysql 更新 Redis 中的用户数据，使其与 MySQL 数据库中的数据保持一致
-func UpdateRedisFromMysql() {
+// UpdateRedisRegisterUsersFromMysql 更新 Redis 中的用户数据，使其与 MySQL 数据库中的数据保持一致
+func UpdateRedisRegisterUsersFromMysql(UserRedis1DB *redis.Client, UserMysqlDB *sql.DB) {
 	ctx := context.Background()
 
 	// 从 MySQL 数据库中查询所有用户数据
-	rows, err := global.UserMysqlDB.Query("SELECT username, password, usernick, userIdentity, balance FROM RegisterUsers")
+	rows, err := UserMysqlDB.Query("SELECT username, password, usernick, userIdentity, balance FROM RegisterUsers")
 	if err != nil {
 		log.Fatalf("查询 MySQL 数据库失败: %v", err)
 	}
@@ -44,7 +45,7 @@ func UpdateRedisFromMysql() {
 		}
 
 		// 将用户数据存储到 Redis 的哈希中
-		err = AddUserInRedis(ctx, username, password, usernick, userIdentity, balance)
+		err = AddUserInRedis(ctx, UserRedis1DB, username, password, usernick, userIdentity, balance)
 		if err != nil {
 			log.Fatalf("在 Redis 中存储用户失败: %v", err)
 		}
