@@ -12,32 +12,35 @@ type (
 		UserName string `json:"UserName"` // 用户名
 		PassWord string `json:"PassWord"` // 用户密码，MD5加密
 		UserNick string `json:"UserNick"` // 用户昵称
+		UserIdentity string `json:"UserIdentity"` // 用户身份唯一标识
 	}
 
-	// 登录结构体
+		// 登录结构体
 	LoginReq {
 		UserName string `json:"UserName"` // 用户名
 		PassWord string `json:"PassWord"` // 用户密码，MD5加密
 	}
 
-	// 请求用户信息的空结构体
+		// 请求用户信息的空结构体
 	UserInfoReq struct{}
 
-	// 获取的用户信息响应的结构体
+		// 获取的用户信息响应的结构体
 	UserInfoResply {
 		Code    int64         `json:"Code"`
 		Message string        `json:"Message"`
 		Data    *UserInfoItem `json:"Data"`
 	}
 
-	// 用户信息存储结构体
+		// 用户信息存储结构体
 	UserInfoItem {
 		UserIdentity string `json:"UserIdentity"` // 用户身份唯一标识
 		UserName     string `json:"UserName"`     // 用户名
+		PassWord     string `json:"PassWord"`     // 用户密码
 		UserNick     string `json:"UserNick"`     // 用户昵称
+		Balance      float64 `json:"Balance"`     // 余额
 	}
 
-	// 通用的响应结构体
+		// 通用的响应结构体
 	CommonResply {
 		Code    int64  `json:"Code"`
 		Message string `json:"Message"`

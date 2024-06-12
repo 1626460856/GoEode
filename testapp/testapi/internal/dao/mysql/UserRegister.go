@@ -53,17 +53,25 @@ func UpdateMysqlFromRedis() {
 
 	// 遍历所有 username
 	for _, username := range keys {
-		// 从 Redis 的哈希中获取用户数据
-		result, err := global.UserRedis1DB.HGetAll(ctx, username).Result()
+		// 使用 TYPE 命令检查键的类型
+		keyType, err := global.UserRedis1DB.Type(ctx, username).Result()
 		if err != nil {
-			log.Fatalf("从 Redis 获取用户失败: %v", err)
+			log.Fatalf("获取 Redis 键的类型失败: %v", err)
 		}
 
-		// 尝试插入用户数据到 MySQL 数据库中，如果用户已经存在，那么更新用户数据
-		_, err = global.UserMysqlDB.Exec("INSERT INTO RegisterUsers (username, password, usernick, userIdentity, balance) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE password = ?, usernick = ?, userIdentity = ?, balance = ?",
-			username, result["password"], result["usernick"], result["userIdentity"], result["balance"], result["password"], result["usernick"], result["userIdentity"], result["balance"])
-		if err != nil {
-			log.Fatalf("更新 MySQL 数据库失败: %v", err)
+		// 如果键的类型是哈希，那么从哈希中获取用户数据
+		if keyType == "hash" {
+			result, err := global.UserRedis1DB.HGetAll(ctx, username).Result()
+			if err != nil {
+				log.Fatalf("从 Redis 获取用户失败: %v", err)
+			}
+
+			// 尝试插入用户数据到 MySQL 数据库中，如果用户已经存在，那么更新用户数据
+			_, err = global.UserMysqlDB.Exec("INSERT INTO RegisterUsers (username, password, usernick, userIdentity, balance) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE password = ?, usernick = ?, userIdentity = ?, balance = ?",
+				username, result["password"], result["usernick"], result["userIdentity"], result["balance"], result["password"], result["usernick"], result["userIdentity"], result["balance"])
+			if err != nil {
+				log.Fatalf("更新 MySQL 数据库失败: %v", err)
+			}
 		}
 	}
 

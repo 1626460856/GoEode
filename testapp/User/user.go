@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dianshang/testapp/User/database"
 	"flag"
 	"fmt"
 
@@ -18,7 +19,15 @@ func main() {
 
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
-
+	// 检查UserMySQLDB是否初始化
+	err := database.UserMySQLDB.Ping()
+	if err != nil {
+		fmt.Printf("Failed to connect to MySQL database: %v\n", err)
+		return
+	}
+	if err == nil {
+		fmt.Println("连接数据库成功")
+	}
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
 
