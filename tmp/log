@@ -6407,3 +6407,48 @@
 [2024-06-14 02:30:32.312]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题DeleteOrder在kafka集群已经存在
 [2024-06-14 02:30:32.330]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题UseCoupon在kafka集群已经存在
 [2024-06-14 02:30:32.346]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题PayOrder在kafka集群已经存在
+[2024-06-14 02:34:20.276]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-14 02:34:20.302]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-14 02:34:20.306]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-14 02:34:20.310]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-14 02:34:20.312]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-14 02:34:20.315]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-14 02:34:20.317]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-14 02:34:20.318]	D:/电商/testapp/testapi/internal/dao/redis/UserName.go:33	元素test在集合UserName中已经存在
+[2024-06-14 02:34:20.340]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题RegisterReq在kafka集群已经存在
+[2024-06-14 02:34:20.353]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题AddProduct在kafka集群已经存在
+[2024-06-14 02:34:20.361]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题CreateOrder在kafka集群已经存在
+[2024-06-14 02:34:20.382]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题DeleteOrder在kafka集群已经存在
+[2024-06-14 02:34:20.395]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题UseCoupon在kafka集群已经存在
+[2024-06-14 02:34:20.409]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题PayOrder在kafka集群已经存在
+[2024-06-14 04:49:46.170]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-14 04:49:46.218]	D:/电商/testapp/testapi/internal/initialize/database.go:42	connect to mysql failed ,dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+[2024-06-14 04:52:16.784]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-14 04:52:16.834]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-14 04:52:16.845]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-14 04:52:16.857]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-14 04:52:16.866]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-14 04:52:16.874]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-14 04:52:16.883]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-14 04:52:16.951]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题RegisterReq在kafka集群已经存在
+[2024-06-14 04:52:17.020]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题AddProduct在kafka集群已经存在
+[2024-06-14 04:52:17.051]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题CreateOrder在kafka集群已经存在
+[2024-06-14 04:52:17.086]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题DeleteOrder在kafka集群已经存在
+[2024-06-14 04:52:17.122]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题UseCoupon在kafka集群已经存在
+[2024-06-14 04:52:17.159]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题PayOrder在kafka集群已经存在
+[2024-06-14 04:52:17.415]	D:/电商/testapp/testapi/internal/initialize/kafka.go:34	 成功备份SeckillRequest
+[2024-06-14 04:52:25.238]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-14 04:52:25.273]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-14 04:52:25.278]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-14 04:52:25.283]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-14 04:52:25.287]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-14 04:52:25.290]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-14 04:52:25.294]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-14 04:52:25.294]	D:/电商/testapp/testapi/internal/dao/redis/UserName.go:33	元素test在集合UserName中已经存在
+[2024-06-14 04:52:25.327]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题RegisterReq在kafka集群已经存在
+[2024-06-14 04:52:25.348]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题AddProduct在kafka集群已经存在
+[2024-06-14 04:52:25.374]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题CreateOrder在kafka集群已经存在
+[2024-06-14 04:52:25.403]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题DeleteOrder在kafka集群已经存在
+[2024-06-14 04:52:25.432]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题UseCoupon在kafka集群已经存在
+[2024-06-14 04:52:25.461]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题PayOrder在kafka集群已经存在
+[2024-06-14 04:52:25.494]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题SeckillRequest在kafka集群已经存在

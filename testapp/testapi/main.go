@@ -38,6 +38,8 @@ func main() {
 	go kafkaread.ReadDeleteOrderReq()
 	go kafkaread.ReadUserCouponReq()
 	go kafkaread.ReadPayOrderReq()
+	go kafkaread.ReadSeckillRequestReq()
+
 	// 阻塞主 goroutine，让其他 goroutine 有机会执行
 	select {}
 	fmt.Printf("success")

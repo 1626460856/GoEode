@@ -52,8 +52,9 @@ Content-Type: application/json
 ###秒杀商品结果
 POST http://localhost:8082/pay/seckill/result HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDczMTQsInVzZXJuYW1lIjoianpyIn0.1REATy7boJ1cgB5XZP6TPb_YQIkDB95Z7HDSol9hbEg
 
 {
-  "ProductId": 1
+  "productId": 15
 }
 

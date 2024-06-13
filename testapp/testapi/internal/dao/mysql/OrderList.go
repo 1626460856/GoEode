@@ -72,6 +72,27 @@ func AddOrderInMysql(ShopMysqlDB *sql.DB, ProductID int, ProductName string, Pri
 	return int(id), currentTime, currentTime, nil
 }
 
+func AddSeckillOrderInMysql(ShopMysqlDB *sql.DB, ProductID int, ProductName string, Price float64, Boss string, BuyQuantity int, UserName string) (OrderID int, createdAt string, updatedAt string, err error) {
+	// 获取当前时间
+	currentTime := time.Now().Format("2006-01-02 15:04:05")
+
+	sqlStmt := `
+	INSERT INTO OrderList (productId, productName, price, boss, buyQuantity, userName, coupon, orderStatus, createdAt, updatedAt) 
+	VALUES (?, ?, ?, ?, ?, ?, 1, 'Seckillpaid', ?, ?);`
+
+	result, err := ShopMysqlDB.Exec(sqlStmt, ProductID, ProductName, Price, Boss, BuyQuantity, UserName, currentTime, currentTime)
+	if err != nil {
+		return 0, currentTime, currentTime, fmt.Errorf("向OrderList表插入数据失败: %v", err)
+	}
+
+	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, currentTime, currentTime, fmt.Errorf("获取插入的ID失败: %v", err)
+	}
+
+	fmt.Println("成功向OrderList表插入数据，OrderID为：", id)
+	return int(id), currentTime, currentTime, nil
+}
 func GetOrderByIdInMysql(ShopMysqlDB *sql.DB, OrderID int) (Order, error) {
 	var order Order
 

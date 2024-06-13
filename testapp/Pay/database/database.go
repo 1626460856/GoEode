@@ -267,3 +267,43 @@ func GetOrderById(ShopRedis2DB *redis.Client, OrderId int) (Order, error) {
 
 	return order, nil
 }
+
+// RedisLock 尝试在 Redis 中获取一个锁。
+func RedisLock(client *redis.Client, key string, expiration time.Duration) (string, error) {
+	// 为锁生成一个随机值。
+	value := fmt.Sprintf("%d", time.Now().UnixNano())
+
+	// 尝试在 Redis 中设置一个锁。
+	ok, err := client.SetNX(context.Background(), key, value, expiration).Result()
+	if err != nil {
+		return "", err
+	}
+	if !ok {
+		return "", fmt.Errorf("无法获取锁")
+	}
+
+	// 返回锁的值。
+	return value, nil
+}
+
+// RedisUnlock 尝试在 Redis 中释放一个锁。
+func RedisUnlock(client *redis.Client, key string, value string) error {
+	// 获取锁的当前值。
+	currentValue, err := client.Get(context.Background(), key).Result()
+	if err != nil {
+		return err
+	}
+
+	// 检查锁的当前值是否和提供的值相同。
+	if currentValue != value {
+		return fmt.Errorf("无法释放锁")
+	}
+
+	// 删除锁。
+	err = client.Del(context.Background(), key).Err()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

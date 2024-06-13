@@ -54,4 +54,6 @@ func SetupKafka() {
 	CreateTopic(global.KafkaBrokers, "UseCoupon", 5, 3)
 	// 创建支付主题
 	CreateTopic(global.KafkaBrokers, "PayOrder", 5, 3)
+	// 创建秒杀请求主题
+	CreateTopic(global.KafkaBrokers, "SeckillRequest", 5, 3)
 }
