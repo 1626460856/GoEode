@@ -17,22 +17,10 @@ type Order struct {
 
 type CreateOrderReq struct {
 	ProductId int `json:"productId"` // 商品ID
-	BuyQuantity  int `json:"quantity"`  // 购买数量
+	BuyQuantity  int `json:"buyQuantity"`  // 购买数量
 }
 
-type CreateOrderMessage struct {//发送kafka消息
-	// 订单id  mysql自增键
-	ProductID   int     `json:"productId"`   // 商品id传入获得
-	// 商品名称kafka之后查询
-	//商品价格kafka之后查询
-	// 商家kafka之后查询
-	BuyQuantity int     `json:"buyQuantity"` // 购买商品数量
-	UserName    string  `json:"userName"`    // 购买者这个通过传入的token解析获得
-	// 优惠券,创建时默认为1
-	// 订单状态 有三种状态，“unpaid”为未支付，“paying”为支付中，“paid”为已支付，创建的时候默认未支付
-	// 创建时间kafka之后
-	// 更新时间kafka之后
-}
+
 type GetOrderReq struct {
 	OrderId int `json:"orderId"` // 订单ID
 }

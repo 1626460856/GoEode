@@ -18,9 +18,10 @@ func main() {
 	initialize.SetupViper()
 	initialize.SetupLogger()
 	initialize.SetupDataBase()
-	redis.AddToSet("UserName", "test") //用userredis2来验证是否重复注册 存储在userredis2中的UserName集合
-	mysql.CreateRegisterUsersTable()   //用来存储用户登录信息 存储在userredis1
-	mysql.CreateProductListTable()     //用来存储商品信息 存储在shopmysql
+	redis.AddToSet("UserName", "test")             //用userredis2来验证是否重复注册 存储在userredis2中的UserName集合
+	mysql.CreateRegisterUsersTable()               //用来存储用户登录信息 存储在userredis1
+	mysql.CreateProductListTable()                 //用来存储商品信息 存储在shopmysql
+	mysql.CreateOrderListTable(global.ShopMysqlDB) //用来存储订单信息 存储在shopmysql
 	//mysql.AddProductInMysql(global.ShopMysqlDB, "test", "test", 1.0, 1, "username") //添加商品
 	//product, _ := mysql.GetProductById(global.ShopMysqlDB, 1) //获取单个商品
 	//redis.AddProductInRedis(context.Background(), global.ShopRedis1DB, product.Id, product.Name, product.Description, product.Price, product.Stock, product.Boss)
@@ -40,6 +41,7 @@ func main() {
 	//go kafkaread.ReadTest1Req()
 	//go kafkaread.ReadTest2Req()
 	go kafkaread.ReadAddProductReq()
+	go kafkaread.ReadCreateOrderReq()
 	// 阻塞主 goroutine，让其他 goroutine 有机会执行
 	select {}
 	fmt.Printf("success")

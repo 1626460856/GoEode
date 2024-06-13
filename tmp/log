@@ -6050,3 +6050,25 @@
 [2024-06-13 11:57:54.401]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题RegisterReq在kafka集群已经存在
 [2024-06-13 11:57:54.409]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题AddProduct在kafka集群已经存在
 [2024-06-13 11:57:54.419]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题test2在kafka集群已经存在
+[2024-06-13 11:58:22.826]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-13 11:58:22.899]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-13 11:58:22.910]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-13 11:58:22.916]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-13 11:58:22.922]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-13 11:58:22.929]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-13 11:58:22.935]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-13 11:58:22.937]	D:/电商/testapp/testapi/internal/dao/redis/UserName.go:33	元素test在集合UserName中已经存在
+[2024-06-13 11:58:23.910]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题RegisterReq在kafka集群已经存在
+[2024-06-13 11:58:23.920]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题AddProduct在kafka集群已经存在
+[2024-06-13 11:58:23.930]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题test2在kafka集群已经存在
+[2024-06-13 18:19:16.766]	D:/电商/testapp/testapi/internal/initialize/logger.go:41	initialize logger success
+[2024-06-13 18:19:16.808]	D:/电商/testapp/testapi/internal/initialize/database.go:46	init usermysql success
+[2024-06-13 18:19:16.815]	D:/电商/testapp/testapi/internal/initialize/database.go:64	init shopmysql success
+[2024-06-13 18:19:16.817]	D:/电商/testapp/testapi/internal/initialize/database.go:87	初始化userRedis1成功
+[2024-06-13 18:19:16.820]	D:/电商/testapp/testapi/internal/initialize/database.go:108	初始化userRedis2成功
+[2024-06-13 18:19:16.822]	D:/电商/testapp/testapi/internal/initialize/database.go:130	初始化shopRedis1成功
+[2024-06-13 18:19:16.825]	D:/电商/testapp/testapi/internal/initialize/database.go:151	初始化shopRedis2成功
+[2024-06-13 18:19:16.825]	D:/电商/testapp/testapi/internal/dao/redis/UserName.go:33	元素test在集合UserName中已经存在
+[2024-06-13 18:19:17.888]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题RegisterReq在kafka集群已经存在
+[2024-06-13 18:19:17.897]	D:/电商/testapp/testapi/internal/initialize/kafka.go:36	消息主题AddProduct在kafka集群已经存在
+[2024-06-13 18:19:18.026]	D:/电商/testapp/testapi/internal/initialize/kafka.go:34	 成功备份CreateOrder

@@ -51,6 +51,7 @@ func ReadCreateOrderReq() { //读取创建订单kafka消息
 			fmt.Printf("解码消息失败:%v\n", err)
 			continue
 		}
+		//根据商品id获取1商品信息填充字段
 		product, err := redis.GetProductById(global.ShopRedis1DB, msg.ProductID)
 		if err != nil {
 			fmt.Printf("根据商品id获取将购买商品失败: %v\n", err)
@@ -65,7 +66,7 @@ func ReadCreateOrderReq() { //读取创建订单kafka消息
 		if err != nil {
 			fmt.Printf("redis创建订单失败: %v\n", err)
 			continue
-		
+
 		}
 		// 打印解码后的消息
 		fmt.Printf("收到的信息 %s: %+v\n", "CreateOrderReq", msg)
