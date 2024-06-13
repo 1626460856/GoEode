@@ -42,11 +42,11 @@ func SetupKafka() {
 	brokers := global.Config.KafkaConfig.Brokers
 	global.KafkaBrokers = brokers
 
-	// 创建主题
+	// 创建注册请求主题
 	CreateTopic(global.KafkaBrokers, "RegisterReq", 5, 3)
-	// 创建主题
+	// 创建添加商品主题
 	CreateTopic(global.KafkaBrokers, "AddProduct", 5, 3)
-	// 创建主题
-	CreateTopic(global.KafkaBrokers, "test2", 5, 3)
+	// 创建创建订单主题
+	CreateTopic(global.KafkaBrokers, "CreateOrder", 5, 3)
 
 }

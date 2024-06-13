@@ -26,7 +26,7 @@ func AddProductHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return
 		}
-		// 从Redis2中获取用户信息
+		// 从Redis2中获取用户信息验证商户是否存在
 		ctx := context.Background()
 		exists, err := database.UserRedis2DB.SIsMember(ctx, "UserName", req.Boss).Result()
 		if err != nil {

@@ -29,7 +29,7 @@ func (l *AddProductLogic) AddProduct(req *types.AddProductReq) (resp *types.Comm
 
 	return &types.CommonResply{
 		Code:    200,
-		Message: req.Boss + "成功添加" + strconv.Itoa(req.Stock) + "个商品：" + req.Name + "到商店",
+		Message: req.Boss + "成功添加" + strconv.Itoa(req.Stock) + "个“" + req.Name + "”商品到商店",
 		Data:    "",
 	}, nil
 }

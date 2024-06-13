@@ -58,7 +58,7 @@ func AddProductInMysql(db *sql.DB, name string, description string, price float6
 	fmt.Println("成功向ProductList表插入数据，ID为：", id)
 	return int(id), nil
 }
-func GetProductById(db *sql.DB, id int) (Product, error) {
+func GetProductByIdInMysql(db *sql.DB, id int) (Product, error) {
 	var product Product
 
 	sqlStmt := `

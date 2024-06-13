@@ -43,7 +43,7 @@ func (l *RefreshProductsLogic) RefreshProducts(req *types.RefreshProductsReq) (r
 			return nil, err
 		}
 
-		product, err := database.GetProductById(database.ShopRedis1DB, id)
+		product, err := database.GetProduct(database.ShopRedis1DB, id)
 		if err != nil {
 			return nil, err
 		}

@@ -3,6 +3,8 @@ package redis
 import (
 	"context"
 	"database/sql"
+	"dianshang/testapp/testapi/global"
+	"dianshang/testapp/testapi/internal/dao/mysql"
 	"fmt"
 	"github.com/go-redis/redis/v8"
 	"log"
@@ -37,11 +39,11 @@ func AddProductInRedis(ctx context.Context, rdb *redis.Client, id int, name stri
 	return nil
 }
 
-func GetProductById(ShopRedis2DB *redis.Client, id int) (Product, error) {
+func GetProductByIdInRedis(ShopRedis1DB *redis.Client, id int) (Product, error) {
 	ctx := context.Background()
 
 	// 从哈希中获取商品信息
-	result, err := ShopRedis2DB.HGetAll(ctx, strconv.Itoa(id)).Result()
+	result, err := ShopRedis1DB.HGetAll(ctx, strconv.Itoa(id)).Result()
 	if err != nil {
 		return Product{}, fmt.Errorf("从 Redis 获取商品失败: %v", err)
 	}
@@ -100,4 +102,57 @@ func UpdateRedisProductListFromMysql(ShopMysqlDB *sql.DB, ShopRedis1DB *redis.Cl
 	}
 
 	fmt.Println("成功从 MySQL 更新到 Redis")
+}
+
+// 先在redis找再在mysql找
+func GetProductById(rdb *redis.Client, id int) (Product, error) {
+	ctx := context.Background()
+	// 尝试从 Redis 获取产品
+	result, err := rdb.HGetAll(ctx, strconv.Itoa(id)).Result()
+	if err != nil {
+		// 如果 Redis 中没有产品，从 MySQL 获取
+		mysqlproduct, err := mysql.GetProductByIdInMysql(global.ShopMysqlDB, id)
+		if err != nil {
+			return Product{}, err
+		}
+
+		// 将产品存储在 Redis 中，供未来的请求使用
+		err = AddProductInRedis(ctx, rdb, mysqlproduct.Id, mysqlproduct.Name, mysqlproduct.Description, mysqlproduct.Price, mysqlproduct.Stock, mysqlproduct.Boss)
+		if err != nil {
+			return Product{}, err
+		}
+
+		product := Product{
+			Id:          mysqlproduct.Id,
+			Name:        mysqlproduct.Name,
+			Description: mysqlproduct.Description,
+			Price:       mysqlproduct.Price,
+			Stock:       mysqlproduct.Stock,
+			Boss:        mysqlproduct.Boss,
+		}
+		return product, nil
+	}
+
+	// 将获取的数据赋值给 Product 结构体的字段
+	product := Product{
+		Id:          id,
+		Name:        result["name"],
+		Description: result["description"],
+	}
+
+	// 将字符串转换为 float64
+	product.Price, err = strconv.ParseFloat(result["price"], 64)
+	if err != nil {
+		return Product{}, fmt.Errorf("解析价格失败: %v", err)
+	}
+
+	// 将字符串转换为 int
+	product.Stock, err = strconv.Atoi(result["stock"])
+	if err != nil {
+		return Product{}, fmt.Errorf("解析库存失败: %v", err)
+	}
+
+	product.Boss = result["boss"]
+
+	return product, nil
 }

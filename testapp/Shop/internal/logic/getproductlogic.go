@@ -27,7 +27,7 @@ func NewGetProductLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetPro
 func (l *GetProductLogic) GetProduct(req *types.GetProductReq) (resp *types.Product, err error) {
 	// todo: add your logic here and delete this line
 
-	product, err := database.GetProductById(database.ShopRedis1DB, req.Id)
+	product, err := database.GetProduct(database.ShopRedis1DB, req.Id)
 	if err != nil {
 		return nil, err
 	}

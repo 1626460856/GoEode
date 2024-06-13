@@ -13,7 +13,7 @@ import (
 
 func GetProductHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		// 从 URL 查询参数中获取 id
+		// 从 URL 查询参数中获取 id，不然直接?key=value会无法查找
 		idStr := r.URL.Query().Get("id")
 		if idStr == "" {
 			httpx.ErrorCtx(r.Context(), w, fmt.Errorf("id is missing"))
@@ -26,7 +26,7 @@ func GetProductHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 
-		req := types.GetProductReq{
+		req := types.GetProductReq{ // 传入请求参数
 			Id: id,
 		}
 

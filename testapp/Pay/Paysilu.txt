@@ -1,0 +1,58 @@
+syntax = "v1"
+
+info (
+    title: "User.api"
+    author: "Eode"
+    version: "1.0.0"
+)
+订单结构体
+type Order struct {
+    OrderID     int //订单idmysql自增键
+    ProductID   int  //商品id
+    ProductName string  //商品名称
+    Price       float64  //商品价格
+    Boss        string  //商家
+    BuyQuantity    int  //购买商品数量
+    UserName    string  //购买者这个通过传入的token解析获得
+    Coupon      float64 //优惠券,创建时默认为1
+    OrderStatus string  //订单状态 有三种状态，“unpaid”为未支付，“paying”为支付中，“paid”为已支付，创建的时候默认未支付
+    CreatedAt   time.Time  //创建时间
+    UpdatedAt   time.Time  //更新时间
+}
+
+以下api均需要传入JWT token，用于验证用户身份。并且可以通过解析jwt令牌获取username信息。
+创建订单 (POST /pay/orders)
+传入参数:productId quantity
+处理流程:创建订单：在ShopRedis2中创建订单缓存。
+发布Kafka消息：发布订单创建成功的消息到Kafka。异步处理MySQL写入：订单服务从Kafka中消费订单创建消息，写入ShopMySQL数据库。
+
+获取订单 (GET /pay/order/get)
+传入参数:orderId int
+处理流程:验证jwt令牌的用户名与订单用户是否一致，再获取订单：从Redis中获取订单缓存。
+
+支付订单 (POST /pay/order/payment)
+传入参数:orderId int
+处理流程:处理支付：更新Redis中的订单状态为支付中。核销优惠券（如果有）：调用优惠券核销接口，更新ShopRedis2中的优惠券状态。
+发布Kafka消息：发布支付成功的消息到Kafka。
+异步处理MySQL写入：支付服务从Kafka中消费支付成功消息，更新MySQL中的订单状态和支付信息以及其他用户金额信息再更新ShopRedis2为已支付。
+
+使用优惠券 (POST /pay/order/coupon)
+传入参数:coupon float64 orderId int
+处理流程:核销优惠券：调用优惠券核销接口，解析jwt令牌，验证订单的用户与jwt中的用户是否为同一个，更新ShopRedis2中订单的优惠券状态。
+发布kafka消息：发布优惠券核销成功的消息到Kafka。异步处理MySQL写入：支付服务从Kafka中消费优惠券核销成功消息，更新MySQL中的订单状态和优惠券信息。
+
+删除订单 (DELETE /pay/order/delete)
+传入参数:orderId int
+处理流程:验证jwt令牌解析之后的用户名与订单用户是否为同一个，再删除订单：在Redis中删除订单缓存。
+发布Kafka消息：发布订单删除成功的消息到Kafka。
+异步处理MySQL删除：订单服务从Kafka中消费订单删除成功消息，删除MySQL中的订单。
+
+秒杀商品请求 (POST /pay/seckill/request)
+传入参数:productId int buyquantity int
+处理流程:以productID创建锁http请求先获取锁，预减库存：在ShopRedis1中预减商品库存。如果成功预减库存就释放锁，进行后面的kafka消息发送，如果预减失败就释放锁，立即返回商品不足信息。
+发布Kafka消息：如果预减成功，发布秒杀成功的消息到Kafka。
+异步处理订单创建：订单服务从Kafka中消费秒杀成功消息，创建订单并写入MySQL，Shopredis2,然后根据订单再更新账户金额，最后再填入支付状态到订单。
+
+秒杀商品结果 (POST /pay/seckill/result)
+传入参数:productId int
+处理流程:获取秒杀结果：从Redis中获取秒杀结果。

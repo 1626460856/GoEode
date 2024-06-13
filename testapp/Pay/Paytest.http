@@ -1,0 +1,53 @@
+###创建订单
+POST http://localhost:8082/pay/order/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "ProductId": 1,
+  "Quantity": 2
+}
+###获取订单
+GET http://localhost:8082/pay/order/get?OrderId=1 HTTP/1.1
+
+###支付订单
+POST http://localhost:8082/pay/order/payment HTTP/1.1
+Content-Type: application/json
+
+{
+  "OrderId": 1
+}
+
+###使用优惠券
+POST http://localhost:8082/pay/order/usecoupon HTTP/1.1
+Content-Type: application/json
+
+{
+  "Coupon": 0.9,
+  "OrderId": 1
+}
+
+###删除订单
+DELETE http://localhost:8082/pay/order/delete HTTP/1.1
+Content-Type: application/json
+
+{
+  "OrderId": 1
+}
+
+###秒杀商品请求
+POST http://localhost:8082/pay/seckill/request HTTP/1.1
+Content-Type: application/json
+
+{
+  "ProductId": 1,
+  "BuyQuantity": 2
+}
+
+###秒杀商品结果
+POST http://localhost:8082/pay/seckill/result HTTP/1.1
+Content-Type: application/json
+
+{
+  "ProductId": 1
+}
+

@@ -48,7 +48,7 @@ func ReadAddProductReq() { //读取添加商品kafka消息
 		id, _ := mysql.AddProductInMysql(global.ShopMysqlDB, msg.Name, msg.Description, msg.Price, msg.Stock, msg.Boss)
 		redis.AddProductInRedis(context.Background(), global.ShopRedis1DB, id, msg.Name, msg.Description, msg.Price, msg.Stock, msg.Boss)
 		// 打印解码后的消息
-		fmt.Printf("收到的信息 %s: %+v\n", "RegisterReq", msg)
+		fmt.Printf("收到的信息 %s: %+v\n", "AddProductReq", msg)
 		time.Sleep(1 * time.Second)
 	}
 }
