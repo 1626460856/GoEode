@@ -1,7 +1,7 @@
 ###添加商品
 POST http://localhost:8081/shop/addproduct HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyNTgzMzMsInVzZXJuYW1lIjoicWlhbjMifQ.JhQ9F_1lyNVMDt_O_IrDzoo66rwKRdur9Oz0EVRaKmI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyNTI5NzIsInVzZXJuYW1lIjoicWlhbjMifQ.ji8n02lBqYT0-OfvOE2S6UsXm_TlD0Ea592UjinTVWs
 
 {
   "Name": "Product1",

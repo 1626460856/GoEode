@@ -19,7 +19,7 @@ type UserCouponMessage struct {
 	OrderId int     `json:"OrderId"`
 }
 
-// UseCouponHandler 使用优惠券
+// UseCouponHandler 使用优惠券并且改变支付状态为正在支付
 func UseCouponHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req types.UseCouponReq
