@@ -1,22 +1,25 @@
 ###添加商品
 POST http://localhost:8081/shop/addproduct HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyNTI5NzIsInVzZXJuYW1lIjoicWlhbjMifQ.ji8n02lBqYT0-OfvOE2S6UsXm_TlD0Ea592UjinTVWs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTg1NTg1NjUsInVzZXJuYW1lIjoicWlhbiJ9.dCWywtToe5ky5rfH3Gb2Yi6K8h3LajcpYA_38qbU-5Q
+
 
 {
   "Name": "Product1",
-  "Description": "This is a product",
+  "Description": "This is a product1",
   "Price": 19.99,
   "Stock": 100,
-  "Boss": "qian3"
+  "Boss": "qian"
 }
 
 ###获取单个商品
-GET http://localhost:8081/shop/getproduct?id=4 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyNTI5NzIsInVzZXJuYW1lIjoicWlhbjMifQ.ji8n02lBqYT0-OfvOE2S6UsXm_TlD0Ea592UjinTVWs
+GET http://localhost:8081/shop/getproduct?id=15 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTg1NTg1NjUsInVzZXJuYW1lIjoicWlhbiJ9.dCWywtToe5ky5rfH3Gb2Yi6K8h3LajcpYA_38qbU-5Q
+
 
 
 
 ###刷新商品
 GET http://localhost:8081/shop/refreshproducts HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyNTgzMzMsInVzZXJuYW1lIjoicWlhbjMifQ.JhQ9F_1lyNVMDt_O_IrDzoo66rwKRdur9Oz0EVRaKmI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTg1NTg1NjUsInVzZXJuYW1lIjoicWlhbiJ9.dCWywtToe5ky5rfH3Gb2Yi6K8h3LajcpYA_38qbU-5Q
+

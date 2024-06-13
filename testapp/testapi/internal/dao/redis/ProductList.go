@@ -156,3 +156,27 @@ func GetProductById(rdb *redis.Client, id int) (Product, error) {
 
 	return product, nil
 }
+func DecreaseProductStock(ShopRedis1DB *redis.Client, id int, buyQuantity int) error {
+	ctx := context.Background()
+
+	// 获取商品的当前库存
+	product, err := GetProductByIdInRedis(ShopRedis1DB, id)
+	if err != nil {
+		return fmt.Errorf("获取商品失败: %v", err)
+	}
+
+	// 检查库存是否充足
+	if product.Stock < buyQuantity {
+		return fmt.Errorf("库存不足")
+	}
+
+	// 减少库存
+	newStock := product.Stock - buyQuantity
+	err = ShopRedis1DB.HSet(ctx, strconv.Itoa(id), "stock", newStock).Err()
+	if err != nil {
+		return fmt.Errorf("更新库存失败: %v", err)
+	}
+
+	fmt.Println("成功减少库存")
+	return nil
+}

@@ -52,4 +52,6 @@ func SetupKafka() {
 	CreateTopic(global.KafkaBrokers, "DeleteOrder", 5, 3)
 	// 创建使用优惠券主题
 	CreateTopic(global.KafkaBrokers, "UseCoupon", 5, 3)
+	// 创建支付主题
+	CreateTopic(global.KafkaBrokers, "PayOrder", 5, 3)
 }

@@ -22,18 +22,13 @@ func main() {
 	mysql.CreateRegisterUsersTable()               //用来存储用户登录信息 存储在userredis1
 	mysql.CreateProductListTable()                 //用来存储商品信息 存储在shopmysql
 	mysql.CreateOrderListTable(global.ShopMysqlDB) //用来存储订单信息 存储在shopmysql
-	//mysql.AddProductInMysql(global.ShopMysqlDB, "test", "test", 1.0, 1, "username") //添加商品
-	//product, _ := mysql.GetProductById(global.ShopMysqlDB, 1) //获取单个商品
-	//redis.AddProductInRedis(context.Background(), global.ShopRedis1DB, product.Id, product.Name, product.Description, product.Price, product.Stock, product.Boss)
-	//redis.AddUserInRedis(context.Background(),global.UserRedis1DB, "test1", "1234567", "test", "test", 0)
-	//redis.AddUserInRedis(context.Background(),global.UserRedis1DB, "test2", "123456", "test", "test", 0)
-	//redis.AddUserInRedis(context.Background(), global.UserRedis1DB,"test3", "1234566", "test", "test", 0)
-	mysql.UpdateMysqlRegisterUsersFromRedis(global.UserRedis1DB, global.UserMysqlDB)
-	//mysql.AddUserInMysql(context.Background(), "test4", "1234567", "test", "test", 0)
-	redis.UpdateRedisRegisterUsersFromMysql(global.UserRedis1DB, global.UserMysqlDB)
-	mysql.UpdateMysqlProductListFromRedis(global.ShopRedis1DB, global.ShopMysqlDB)
-	redis.UpdateRedisProductListFromMysql(global.ShopMysqlDB, global.ShopRedis1DB)
-	//initialize.SetupEtcd()
+
+	//mysql.UpdateMysqlRegisterUsersFromRedis(global.UserRedis1DB, global.UserMysqlDB)
+
+	//edis.UpdateRedisRegisterUsersFromMysql(global.UserRedis1DB, global.UserMysqlDB)
+	//mysql.UpdateMysqlProductListFromRedis(global.ShopRedis1DB, global.ShopMysqlDB)
+	//redis.UpdateRedisProductListFromMysql(global.ShopMysqlDB, global.ShopRedis1DB)
+
 	initialize.SetupKafka()
 
 	// 为每个 topic 启动一个新的 goroutine
@@ -42,6 +37,7 @@ func main() {
 	go kafkaread.ReadCreateOrderReq()
 	go kafkaread.ReadDeleteOrderReq()
 	go kafkaread.ReadUserCouponReq()
+	go kafkaread.ReadPayOrderReq()
 	// 阻塞主 goroutine，让其他 goroutine 有机会执行
 	select {}
 	fmt.Printf("success")

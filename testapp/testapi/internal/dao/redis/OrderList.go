@@ -162,14 +162,14 @@ func DeleteOrderByIdInRedis(ShopRedis2DB *redis.Client, OrderID int) error {
 	fmt.Println("在 Redis 中成功删除订单")
 	return nil
 }
-func UserCouponInRedisOrder(ShopRedis2DB *redis.Client, OrderID int, Coupon float64, OrderStatus string, updatedAt string) error {
+func UseCouponInRedisOrder(ShopRedis2DB *redis.Client, OrderID int, Coupon float64, updatedAt string) error {
 	ctx := context.Background()
 	// 在Redis中更新订单的“Coupon”字段
 	err := ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "coupon", Coupon).Err()
 	if err != nil {
 		return fmt.Errorf("在 Redis 中更新订单的优惠券失败: %v", err)
 	}
-	err = ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "OrderStatus", OrderStatus).Err()
+	err = ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "orderStatus", "paying").Err()
 	if err != nil {
 		return fmt.Errorf("在 Redis 中更新订单支付状态失败: %v", err)
 	}
@@ -179,5 +179,25 @@ func UserCouponInRedisOrder(ShopRedis2DB *redis.Client, OrderID int, Coupon floa
 	}
 
 	fmt.Println("在 Redis 中成功更新订单的优惠券")
+	return nil
+}
+
+// 在redis中更新订单状态为已支付
+func UpdateOrderToPaidInRedis(ShopRedis2DB *redis.Client, OrderID int, UpdatedAt string) error {
+	ctx := context.Background()
+
+	// 更新订单状态为"已支付"
+	err := ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "orderStatus", "paid").Err()
+	if err != nil {
+		return fmt.Errorf("在 Redis 中更新订单状态失败: %v", err)
+	}
+
+	// 更新updatedAt字段
+	err = ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "updatedAt", UpdatedAt).Err()
+	if err != nil {
+		return fmt.Errorf("在 Redis 中更新订单时间失败: %v", err)
+	}
+
+	fmt.Println("在 Redis 中成功更新订单状态为已支付")
 	return nil
 }

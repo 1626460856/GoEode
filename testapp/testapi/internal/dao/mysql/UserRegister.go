@@ -11,14 +11,14 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-var (
+type UserInMysql struct {
 	Id           int //自增键
 	UserName     string
 	PassWord     string
 	UserNick     string
 	UserIdentity string
-	balance      float64 = 0
-)
+	balance      float64 //= 0
+}
 
 // CreateRegisterUsersTable 创建表格存储用户注册是数据
 func CreateRegisterUsersTable() {
@@ -90,5 +90,40 @@ func AddUserInMysql(ctx context.Context, UserMysqlDB *sql.DB, username, password
 	}
 
 	fmt.Println("在 MySQL 中更新或新建用户成功")
+	return nil
+}
+func GetUserByUsernameInMysql(UserMysqlDB *sql.DB, username string) (UserInMysql, error) {
+	var user UserInMysql
+
+	sqlStmt := `
+	SELECT id, username, password, usernick, userIdentity, balance
+	FROM RegisterUsers
+	WHERE username = ?;`
+
+	row := UserMysqlDB.QueryRow(sqlStmt, username)
+	err := row.Scan(&user.Id, &user.UserName, &user.PassWord, &user.UserNick, &user.UserIdentity, &user.balance)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			// 没有找到对应的记录
+			return UserInMysql{}, fmt.Errorf("没有找到用户名为 %s 的用户", username)
+		}
+
+		// 其他错误
+		return UserInMysql{}, fmt.Errorf("查询用户失败: %v", err)
+	}
+
+	return user, nil
+}
+func ChangeUserBalanceInMysql(UserMysqlDB *sql.DB, username string, changebalance float64) error {
+	// SQL语句，更新用户的余额
+	sqlStmt := `UPDATE RegisterUsers SET balance = balance + ? WHERE username = ?;`
+
+	// 执行SQL语句
+	_, err := UserMysqlDB.Exec(sqlStmt, changebalance, username)
+	if err != nil {
+		return fmt.Errorf("更新 MySQL 数据库中的用户余额失败: %v", err)
+	}
+
+	fmt.Println("在 MySQL 中更新用户余额成功")
 	return nil
 }

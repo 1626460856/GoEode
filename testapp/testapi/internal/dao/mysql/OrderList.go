@@ -155,23 +155,38 @@ func DeleteOrderByIdInMysql(ShopMysqlDB *sql.DB, OrderID int) error {
 	fmt.Println("从MySQL中成功删除订单")
 	return nil
 }
-func UserCouponInMysqlOrder(ShopMysqlDB *sql.DB, OrderID int, Coupon float64) (OrderStatus string, UpdatedAt string, err error) {
+func UseCouponInMysqlOrder(ShopMysqlDB *sql.DB, OrderID int, Coupon float64) (UpdatedAt string, err error) {
 	// Get current time
 	currentTime := time.Now().Format("2006-01-02 15:04:05")
 
 	// Prepare SQL statement
 	stmt, err := ShopMysqlDB.Prepare("UPDATE OrderList SET coupon = ?, orderStatus = 'paying', updatedAt = ? WHERE orderId = ?")
 	if err != nil {
-		return "", "", fmt.Errorf("SQL语句准备失败: %v", err)
+		return "", fmt.Errorf("SQL语句准备失败: %v", err)
 	}
 	defer stmt.Close()
 
 	// Execute SQL statement
 	_, err = stmt.Exec(Coupon, currentTime, OrderID)
 	if err != nil {
-		return "", "", fmt.Errorf("执行SQL语句失败: %v", err)
+		return "", fmt.Errorf("执行SQL语句失败: %v", err)
 	}
 
 	fmt.Println("在 MySQL 中成功更新订单的优惠券")
-	return "paying", currentTime, nil
+	return currentTime, nil
+}
+
+// 在mysql包中
+func UpdateOrderToPaidInMysql(ShopMysqlDB *sql.DB, OrderID int) (UpdatedAt string, err error) {
+	ctx := context.Background()
+	// Get current time
+	currentTime := time.Now().Format("2006-01-02 15:04:05")
+	// 更新订单状态为"已支付"和updatedAt字段
+	_, err = ShopMysqlDB.ExecContext(ctx, "UPDATE OrderList SET orderStatus = ?, updatedAt = ? WHERE orderId = ?", "paid", currentTime, OrderID)
+	if err != nil {
+		return "", fmt.Errorf("更新 MySQL 数据库中的订单状态失败: %v", err)
+	}
+
+	fmt.Println("在 MySQL 中成功更新订单状态为已支付")
+	return currentTime, nil
 }

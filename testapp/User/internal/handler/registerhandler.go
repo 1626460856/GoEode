@@ -56,7 +56,7 @@ func RegisterHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		}
 
 		// 发送消息到 Kafka
-		err = svcCtx.KafkaClient.SendMessage("RegisterReq", reqData)
+		err = svcCtx.KafkaClient.SendMessage("Register", reqData)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return

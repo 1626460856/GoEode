@@ -14,7 +14,7 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-type UserCouponMessage struct {
+type UseCouponMessage struct {
 	Coupon  float64 `json:"Coupon"`
 	OrderId int     `json:"OrderId"`
 }
@@ -40,7 +40,7 @@ func UseCouponHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 		// 创建一个 UserCouponMessage 结构体实例
-		msg := UserCouponMessage{
+		msg := UseCouponMessage{
 			OrderId: req.OrderId,
 			Coupon:  req.Coupon,
 		}
@@ -53,7 +53,7 @@ func UseCouponHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		}
 
 		// 发送消息到 Kafka
-		err = svcCtx.KafkaClient.SendMessage("UserCoupon", reqData)
+		err = svcCtx.KafkaClient.SendMessage("UseCoupon", reqData)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 			return

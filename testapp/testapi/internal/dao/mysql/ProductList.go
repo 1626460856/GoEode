@@ -121,3 +121,30 @@ func UpdateMysqlProductListFromRedis(ShopRedis1DB *redis.Client, ShopMysqlDB *sq
 
 	fmt.Println("成功从 Redis 更新到 MySQL")
 }
+
+func DecreaseProductStock(ShopMysqlDB *sql.DB, id int, buyQuantity int) error {
+	ctx := context.Background()
+
+	// 获取商品的当前库存
+	product, err := GetProductByIdInMysql(ShopMysqlDB, id)
+	if err != nil {
+		return fmt.Errorf("获取商品失败: %v", err)
+	}
+
+	// 检查库存是否充足
+	if product.Stock < buyQuantity {
+		return fmt.Errorf("库存不足")
+	}
+
+	// 减少库存
+	newStock := product.Stock - buyQuantity
+
+	// 更新数据库中的库存
+	_, err = ShopMysqlDB.ExecContext(ctx, "UPDATE ProductList SET stock = ? WHERE id = ?", newStock, id)
+	if err != nil {
+		return fmt.Errorf("更新库存失败: %v", err)
+	}
+
+	fmt.Println("成功减少库存")
+	return nil
+}
