@@ -72,7 +72,7 @@ func AddOrderInMysql(ShopMysqlDB *sql.DB, ProductID int, ProductName string, Pri
 	return int(id), currentTime, currentTime, nil
 }
 
-func GetOrderById(ShopMysqlDB *sql.DB, OrderID int) (Order, error) {
+func GetOrderByIdInMysql(ShopMysqlDB *sql.DB, OrderID int) (Order, error) {
 	var order Order
 
 	sqlStmt := `
@@ -135,4 +135,23 @@ func UpdateMysqlOrderListFromRedis(ShopRedis2DB *redis.Client, ShopMysqlDB *sql.
 	}
 
 	fmt.Println("成功从 Redis 更新到 MySQL")
+}
+
+// 删除一个订单
+func DeleteOrderByIdInMysql(ShopMysqlDB *sql.DB, OrderID int) error {
+	// 准备SQL语句
+	stmt, err := ShopMysqlDB.Prepare("DELETE FROM OrderList WHERE OrderID = ?")
+	if err != nil {
+		return fmt.Errorf("SQL语句准备失败: %v", err)
+	}
+	defer stmt.Close()
+
+	// 执行SQL语句
+	_, err = stmt.Exec(OrderID)
+	if err != nil {
+		return fmt.Errorf("执行SQL语句失败: %v", err)
+	}
+
+	fmt.Println("从MySQL中成功删除订单")
+	return nil
 }

@@ -3,6 +3,8 @@ package redis
 import (
 	"context"
 	"database/sql"
+	"dianshang/testapp/testapi/global"
+	"dianshang/testapp/testapi/internal/dao/mysql"
 	"fmt"
 	"github.com/go-redis/redis/v8"
 	"log"
@@ -46,7 +48,7 @@ func AddOrderInRedis(ctx context.Context, ShopRedis2DB *redis.Client, OrderID in
 	return nil
 }
 
-func GetOrderById(ctx context.Context, ShopRedis2DB *redis.Client, OrderID int) (Order, error) {
+func GetOrderByIdInRedis(ctx context.Context, ShopRedis2DB *redis.Client, OrderID int) (Order, error) {
 	var order Order
 
 	// 从Redis中获取订单信息
@@ -57,6 +59,55 @@ func GetOrderById(ctx context.Context, ShopRedis2DB *redis.Client, OrderID int) 
 
 	// 将获取的数据赋值给 Order 结构体的字段
 	order.OrderID = OrderID
+	order.ProductID, _ = strconv.Atoi(result["productId"])
+	order.ProductName = result["productName"]
+	order.Price, _ = strconv.ParseFloat(result["price"], 64)
+	order.Boss = result["boss"]
+	order.BuyQuantity, _ = strconv.Atoi(result["buyQuantity"])
+	order.UserName = result["userName"]
+	order.Coupon, _ = strconv.ParseFloat(result["coupon"], 64)
+	order.OrderStatus = result["orderStatus"]
+	order.CreatedAt = result["createdAt"]
+	order.UpdatedAt = result["updatedAt"]
+
+	return order, nil
+}
+
+// 先在redis找再在mysql找
+func GetOrderById(ShopRedis2DB *redis.Client, OrderId int) (Order, error) {
+	ctx := context.Background()
+	// 尝试从 Redis 获取产品
+	result, err := ShopRedis2DB.HGetAll(ctx, strconv.Itoa(OrderId)).Result()
+	if err != nil {
+		// 如果 Redis 中没有产品，从 MySQL 获取
+		mysqlOrder, err := mysql.GetOrderByIdInMysql(global.ShopMysqlDB, OrderId)
+		if err != nil {
+			return Order{}, err
+		}
+
+		// 将产品存储在 Redis 中，供未来的请求使用
+		err = AddOrderInRedis(ctx, ShopRedis2DB, mysqlOrder.OrderID, mysqlOrder.ProductID, mysqlOrder.ProductName, mysqlOrder.Price, mysqlOrder.Boss, mysqlOrder.BuyQuantity, mysqlOrder.UserName, mysqlOrder.Coupon, mysqlOrder.OrderStatus, mysqlOrder.CreatedAt, mysqlOrder.UpdatedAt)
+		if err != nil {
+			return Order{}, err
+		}
+		order := Order{
+			OrderID:     mysqlOrder.OrderID,
+			ProductID:   mysqlOrder.ProductID,
+			ProductName: mysqlOrder.ProductName,
+			Price:       mysqlOrder.Price,
+			Boss:        mysqlOrder.Boss,
+			BuyQuantity: mysqlOrder.BuyQuantity,
+			UserName:    mysqlOrder.UserName,
+			Coupon:      mysqlOrder.Coupon,
+			OrderStatus: mysqlOrder.OrderStatus,
+			CreatedAt:   mysqlOrder.CreatedAt,
+			UpdatedAt:   mysqlOrder.UpdatedAt,
+		}
+		return order, nil
+	}
+	var order Order
+	// 将获取的数据赋值给 Order 结构体的字段
+	order.OrderID = OrderId
 	order.ProductID, _ = strconv.Atoi(result["productId"])
 	order.ProductName = result["productName"]
 	order.Price, _ = strconv.ParseFloat(result["price"], 64)
@@ -99,4 +150,15 @@ func UpdateRedisOderListFromMysql(ShopMysqlDB *sql.DB, ShopRedis2DB *redis.Clien
 	}
 
 	fmt.Println("成功从 MySQL 更新到 Redis")
+}
+func DeleteOrderByIdInRedis(ShopRedis2DB *redis.Client, OrderID int) error {
+	ctx := context.Background()
+	// 从Redis中删除订单
+	err := ShopRedis2DB.Del(ctx, strconv.Itoa(OrderID)).Err()
+	if err != nil {
+		return fmt.Errorf("删除 Redis 中的订单失败: %v", err)
+	}
+
+	fmt.Println("在 Redis 中成功删除订单")
+	return nil
 }

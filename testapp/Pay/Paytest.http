@@ -30,9 +30,10 @@ Content-Type: application/json
 ###删除订单
 DELETE http://localhost:8082/pay/order/delete HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgyODEzNjMsInVzZXJuYW1lIjoicWlhbjMifQ.pEVCqQ3LutF-W0cAPnTmmTK0NR779an1_Mco9zHk-uc
 
 {
-  "OrderId": 1
+  "orderId": 1
 }
 
 ###秒杀商品请求
