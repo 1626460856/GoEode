@@ -38,11 +38,10 @@ func main() {
 
 	// 为每个 topic 启动一个新的 goroutine
 	go kafkaread.ReadRegisterReq()
-	//go kafkaread.ReadTest1Req()
-	//go kafkaread.ReadTest2Req()
 	go kafkaread.ReadAddProductReq()
 	go kafkaread.ReadCreateOrderReq()
 	go kafkaread.ReadDeleteOrderReq()
+	go kafkaread.ReadUserCouponReq()
 	// 阻塞主 goroutine，让其他 goroutine 有机会执行
 	select {}
 	fmt.Printf("success")

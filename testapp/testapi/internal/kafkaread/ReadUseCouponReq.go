@@ -11,17 +11,18 @@ import (
 	"time"
 )
 
-type DeleteOrderMessage struct {
-	OrderId int `json:"OrderId"`
+type UserCouponMessage struct {
+	Coupon  float64 `json:"Coupon"`
+	OrderId int     `json:"OrderId"`
 }
 
-func ReadDeleteOrderReq() { //读取创建订单kafka消息
+func ReadUserCouponReq() { //读取创建订单kafka消息
 	// 配置消费者
 	reader := kafka.NewReader(kafka.ReaderConfig{
 		Brokers:        global.KafkaBrokers,
-		Topic:          "DeleteOrder",
+		Topic:          "UserCoupon",
 		CommitInterval: 1 * time.Second,
-		GroupID:        "ReadDeleteOrderReq",
+		GroupID:        "ReadUserCouponReq",
 		StartOffset:    kafka.FirstOffset,
 	})
 
@@ -36,16 +37,25 @@ func ReadDeleteOrderReq() { //读取创建订单kafka消息
 		}
 
 		// 解码消息
-		var msg DeleteOrderMessage
+		var msg UserCouponMessage
 		if err := json.Unmarshal(message.Value, &msg); err != nil {
 			fmt.Printf("解码消息失败:%v\n", err)
 			continue
 		}
-		mysql.DeleteOrderByIdInMysql(global.ShopMysqlDB, msg.OrderId)
-		redis.DeleteOrderByIdInRedis(global.ShopRedis2DB, msg.OrderId)
+		OrderStatus, UpdatedAt, err := mysql.UserCouponInMysqlOrder(global.ShopMysqlDB, msg.OrderId, msg.Coupon)
+		if err != nil {
+			fmt.Printf("mysql更新订单失败:%v\n", err)
+			continue
 
+		}
+		err = redis.UserCouponInRedisOrder(global.ShopRedis2DB, msg.OrderId, msg.Coupon, OrderStatus, UpdatedAt)
+		if err != nil {
+			fmt.Printf("redis更新订单失败:%v\n", err)
+			continue
+
+		}
 		// 打印解码后的消息
-		fmt.Printf("收到的信息 %s: %+v\n", "DeleteOrderReq", msg)
+		fmt.Printf("收到的信息 %s: %+v\n", "UserCouponReq", msg)
 		time.Sleep(1 * time.Second)
 	}
 }

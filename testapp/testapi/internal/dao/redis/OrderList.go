@@ -162,3 +162,22 @@ func DeleteOrderByIdInRedis(ShopRedis2DB *redis.Client, OrderID int) error {
 	fmt.Println("在 Redis 中成功删除订单")
 	return nil
 }
+func UserCouponInRedisOrder(ShopRedis2DB *redis.Client, OrderID int, Coupon float64, OrderStatus string, updatedAt string) error {
+	ctx := context.Background()
+	// 在Redis中更新订单的“Coupon”字段
+	err := ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "coupon", Coupon).Err()
+	if err != nil {
+		return fmt.Errorf("在 Redis 中更新订单的优惠券失败: %v", err)
+	}
+	err = ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "OrderStatus", OrderStatus).Err()
+	if err != nil {
+		return fmt.Errorf("在 Redis 中更新订单支付状态失败: %v", err)
+	}
+	err = ShopRedis2DB.HSet(ctx, strconv.Itoa(OrderID), "updatedAt", updatedAt).Err()
+	if err != nil {
+		return fmt.Errorf("在 Redis 中更新订单时间失败: %v", err)
+	}
+
+	fmt.Println("在 Redis 中成功更新订单的优惠券")
+	return nil
+}

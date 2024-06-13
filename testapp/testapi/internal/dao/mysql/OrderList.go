@@ -155,3 +155,23 @@ func DeleteOrderByIdInMysql(ShopMysqlDB *sql.DB, OrderID int) error {
 	fmt.Println("从MySQL中成功删除订单")
 	return nil
 }
+func UserCouponInMysqlOrder(ShopMysqlDB *sql.DB, OrderID int, Coupon float64) (OrderStatus string, UpdatedAt string, err error) {
+	// Get current time
+	currentTime := time.Now().Format("2006-01-02 15:04:05")
+
+	// Prepare SQL statement
+	stmt, err := ShopMysqlDB.Prepare("UPDATE OrderList SET coupon = ?, orderStatus = 'paying', updatedAt = ? WHERE orderId = ?")
+	if err != nil {
+		return "", "", fmt.Errorf("SQL语句准备失败: %v", err)
+	}
+	defer stmt.Close()
+
+	// Execute SQL statement
+	_, err = stmt.Exec(Coupon, currentTime, OrderID)
+	if err != nil {
+		return "", "", fmt.Errorf("执行SQL语句失败: %v", err)
+	}
+
+	fmt.Println("在 MySQL 中成功更新订单的优惠券")
+	return "paying", currentTime, nil
+}

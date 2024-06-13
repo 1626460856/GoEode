@@ -15,7 +15,7 @@ import (
 )
 
 type DeleteOrderMessage struct {
-	OrderId int
+	OrderId int `json:"OrderId"`
 }
 
 // DeleteOrderHandler 删除订单
