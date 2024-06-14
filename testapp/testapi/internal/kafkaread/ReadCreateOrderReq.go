@@ -70,6 +70,6 @@ func ReadCreateOrderReq() { //读取创建订单kafka消息
 		}
 		// 打印解码后的消息
 		fmt.Printf("收到的信息 %s: %+v\n", "CreateOrderReq", msg)
-		time.Sleep(1 * time.Second)
+		//time.Sleep(1 * time.Second)
 	}
 }

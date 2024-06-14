@@ -12,8 +12,8 @@ import (
 )
 
 type SeckillRequestMessage struct {
-	ProductID   int `json:"productId"`
-	BuyQuantity int `json:"buyQuantity"`
+	ProductID   int    `json:"productId"`
+	BuyQuantity int    `json:"buyQuantity"`
 	UserName    string `json:"userName"`
 }
 
@@ -60,7 +60,7 @@ func ReadSeckillRequestReq() { //读取创建订单kafka消息
 		}
 
 		//更新mysql和redis买家余额
-		err = mysql.ChangeUserBalanceInMysql(global.UserMysqlDB, msg.UserName, -(product.Price * float64(msg.BuyQuantity)) )
+		err = mysql.ChangeUserBalanceInMysql(global.UserMysqlDB, msg.UserName, -(product.Price * float64(msg.BuyQuantity)))
 		if err != nil {
 			fmt.Printf("mysql更新买家余额失败:%v\n", err)
 			continue
@@ -71,7 +71,7 @@ func ReadSeckillRequestReq() { //读取创建订单kafka消息
 			continue
 		}
 		//更新mysql和redis商家余额
-		err = redis.ChangeUserBalanceInRedis(global.UserRedis1DB, msg.UserName, -(product.Price * float64(msg.BuyQuantity) ))
+		err = redis.ChangeUserBalanceInRedis(global.UserRedis1DB, msg.UserName, -(product.Price * float64(msg.BuyQuantity)))
 		if err != nil {
 			fmt.Printf("redis更新买家余额失败:%v\n", err)
 			continue
@@ -82,17 +82,17 @@ func ReadSeckillRequestReq() { //读取创建订单kafka消息
 			continue
 		}
 		//创建订单
-		orderId,createdAt, updatedAt,err := mysql.AddSeckillOrderInMysql(global.ShopMysqlDB, product.Id, product.Name, product.Price, product.Boss, msg.BuyQuantity, msg.UserName)
+		orderId, createdAt, updatedAt, err := mysql.AddSeckillOrderInMysql(global.ShopMysqlDB, product.Id, product.Name, product.Price, product.Boss, msg.BuyQuantity, msg.UserName)
 		if err != nil {
 			fmt.Printf("mysql创建秒杀订单失败:%v\n", err)
 			continue
 		}
-		err = redis.AddOrderInRedis(context.Background(),global.ShopRedis2DB,orderId,product.Id,product.Name,product.Price,product.Boss,msg.BuyQuantity,msg.UserName,1,"Seckillpaid",createdAt,updatedAt)
+		err = redis.AddOrderInRedis(context.Background(), global.ShopRedis2DB, orderId, product.Id, product.Name, product.Price, product.Boss, msg.BuyQuantity, msg.UserName, 1, "Seckillpaid", createdAt, updatedAt)
 		if err != nil {
 			fmt.Printf("redis创建秒杀订单失败:%v\n", err)
 			continue
 		}
-		time.Sleep(1 * time.Second)
+		//time.Sleep(1 * time.Second)
 
 	}
 }

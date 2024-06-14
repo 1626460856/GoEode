@@ -48,6 +48,6 @@ func ReadRegisterReq() { //读取注册kafka消息
 		redis.AddUserInRedis(context.Background(), global.UserRedis1DB, msg.UserName, msg.PassWord, msg.UserNick, msg.UserIdentity, 0)
 		// 打印解码后的消息
 		fmt.Printf("收到的信息 %s: %+v\n", "RegisterReq", msg)
-		time.Sleep(1 * time.Second)
+		//time.Sleep(1 * time.Second)
 	}
 }

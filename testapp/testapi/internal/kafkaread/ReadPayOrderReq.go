@@ -100,7 +100,7 @@ func ReadPayOrderReq() { //读取创建订单kafka消息
 			continue
 
 		}
-		time.Sleep(1 * time.Second)
+		//time.Sleep(1 * time.Second)
 
 	}
 }

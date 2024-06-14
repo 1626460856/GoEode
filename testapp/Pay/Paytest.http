@@ -1,60 +1,65 @@
 ###创建订单
 POST http://localhost:8082/pay/order/create HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDczMTQsInVzZXJuYW1lIjoianpyIn0.1REATy7boJ1cgB5XZP6TPb_YQIkDB95Z7HDSol9hbEg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
 
 {
-  "productId": 15,
-  "buyQuantity": 2
+  "productId": 16,
+  "buyQuantity": 3
 }
+
+
 ###获取订单
-GET http://localhost:8082/pay/order/get?orderId=8 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDczMTQsInVzZXJuYW1lIjoianpyIn0.1REATy7boJ1cgB5XZP6TPb_YQIkDB95Z7HDSol9hbEg
+GET http://localhost:8082/pay/order/get?orderId=22 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
 
 
 ###支付订单
 POST http://localhost:8082/pay/order/payment HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDczMTQsInVzZXJuYW1lIjoianpyIn0.1REATy7boJ1cgB5XZP6TPb_YQIkDB95Z7HDSol9hbEg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
+
 
 {
-  "orderId": 8
+  "orderId": 21
 }
 
 ###使用优惠券
 POST http://localhost:8082/pay/order/usecoupon HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDczMTQsInVzZXJuYW1lIjoianpyIn0.1REATy7boJ1cgB5XZP6TPb_YQIkDB95Z7HDSol9hbEg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
+
 
 {
-  "coupon": 0.8,
-  "orderId": 8
+  "coupon": 0.75,
+  "orderId": 21
 }
 
 ###删除订单
 DELETE http://localhost:8082/pay/order/delete HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDY1MzksInVzZXJuYW1lIjoianpyIn0.glR60OxoAu_bLXp3xFGbzrBEo_8K0GVfA4ZYI5sCTH0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
 
 {
-  "orderId": 7
+  "orderId": 22
 }
 
 ###秒杀商品请求
 POST http://localhost:8082/pay/seckill/request HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
 
 {
-  "ProductId": 1,
-  "BuyQuantity": 2
+  "productId": 16,
+  "buyQuantity": 20
 }
 
 ###秒杀商品结果
 POST http://localhost:8082/pay/seckill/result HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzMDczMTQsInVzZXJuYW1lIjoianpyIn0.1REATy7boJ1cgB5XZP6TPb_YQIkDB95Z7HDSol9hbEg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTgzNjA5MzMsInVzZXJuYW1lIjoiY2poIn0.NbrGVYSsJ18RwmbutHwb-oYw5z5JsGBYL8O0pCa9l9o
 
 {
-  "productId": 15
+  "productId": 16
 }
 

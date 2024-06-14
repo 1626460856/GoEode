@@ -23,11 +23,12 @@ func main() {
 	mysql.CreateProductListTable()                 //用来存储商品信息 存储在shopmysql
 	mysql.CreateOrderListTable(global.ShopMysqlDB) //用来存储订单信息 存储在shopmysql
 
-	//mysql.UpdateMysqlRegisterUsersFromRedis(global.UserRedis1DB, global.UserMysqlDB)
-
-	//edis.UpdateRedisRegisterUsersFromMysql(global.UserRedis1DB, global.UserMysqlDB)
-	//mysql.UpdateMysqlProductListFromRedis(global.ShopRedis1DB, global.ShopMysqlDB)
-	//redis.UpdateRedisProductListFromMysql(global.ShopMysqlDB, global.ShopRedis1DB)
+	mysql.UpdateMysqlRegisterUsersFromRedis(global.UserRedis1DB, global.UserMysqlDB)
+	redis.UpdateRedisRegisterUsersFromMysql(global.UserRedis1DB, global.UserMysqlDB)
+	mysql.UpdateMysqlProductListFromRedis(global.ShopRedis1DB, global.ShopMysqlDB)
+	redis.UpdateRedisProductListFromMysql(global.ShopMysqlDB, global.ShopRedis1DB)
+	mysql.UpdateMysqlOrderListFromRedis(global.ShopRedis2DB, global.ShopMysqlDB)
+	mysql.UpdateMysqlRegisterUsersFromRedis(global.UserRedis1DB, global.UserMysqlDB)
 
 	initialize.SetupKafka()
 
